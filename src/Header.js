@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/Header.css";
 import logoImage from "./assets/edvlogo.jpg";
+
 function Header() {
   return (
     <header className="header">
@@ -10,25 +11,52 @@ function Header() {
       <nav className="header__nav">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="/home">Home</a>
           </li>
           <li>
-            <a href="#">Opportunities</a>
+            <a href="/opportunities">Opportunities</a>
           </li>
           <li>
-            <a href="#">Events</a>
+            <a href="/events">Events</a>
+          </li>
+
+          {/* Resources Dropdown */}
+          <li className="dropdown">
+            <a href="#" className="dropdown-toggle">Resources</a>
+            <div className="dropdown-content">
+              <a href="/mentorship-program">Mentorship Program</a>
+
+              {/* Career Development Submenu */}
+              <div className="nested-dropdown">
+                <a href="#" className="dropdown-toggle">Career Development</a>
+                <div className="nested-content">
+                  <a href="/articles">Articles</a>
+                  <a href="/tips">Tips</a>
+                  <a href="/build-resume">Build your resume</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li className="dropdown">
+            <a href="#" className="dropdown-toggle">Networking</a>
+            <div className="dropdown-content">
+              <a href="/groups">Groups</a>
+              <a href="/forums">Forums</a>
+            </div>
           </li>
           <li>
-            <a href="#">Resources</a>
+            <a href="/chats">Chat</a>
           </li>
-          <li>
-            <a href="#">Networking</a>
-          </li>
-          <li>
-            <a href="#">Chat</a>
-          </li>
-          <li>
-            <a href="#">Name</a>
+
+          {/* Name Dropdown */}
+          <li className="dropdown">
+            <a href="#" className="dropdown-toggle">Name</a>
+            <div className="dropdown-content">
+              <a href="/profile">Profile</a>
+              <a href="/settings">Settings</a>
+              <a href="/logout">Logout</a>
+            </div>
           </li>
         </ul>
       </nav>

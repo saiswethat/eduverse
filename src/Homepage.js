@@ -9,7 +9,7 @@ function HomePage() {
         <h1>Empowering Students and Academics for Success</h1>
       </div>
       <div className="left-section">
-        <div className="tile black-tile">
+        <div className="tile black-tile text-center">
           <h2>Explore Opportunities</h2>
           <p>Join Mentorship Program</p>
         </div>
@@ -17,9 +17,6 @@ function HomePage() {
           <h2>Explore Career Development Resources</h2>
           <p>Resume Builder Tool</p>
         </div>
-      </div>
-      <div className="center-logo">
-        <img src={logoImage} alt="EduVerse Logo" className="eduverse-logo" />
       </div>
       <div className="right-section">
         <div className="tile white-tile">

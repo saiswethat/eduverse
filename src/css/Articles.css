@@ -1,0 +1,142 @@
+.articles-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.create-article-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6ae485;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 100;
+}
+
+.create-article-button:hover {
+  background-color: #23e166;
+}
+
+.articles-list {
+  margin-top: 20px;
+}
+
+.article-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-details-left {
+  text-align: left;
+  width: 60%;
+}
+
+.article-details-right {
+  text-align: right;
+  width: 30%;
+}
+
+.read-more {
+  width: 40%;
+  text-align: center;
+}
+
+.read-more a {
+  color: blue;
+  text-decoration: none;
+}
+
+.read-more a:hover {
+  text-decoration: underline;
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px; /* Adjusted width for better alignment */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.article-form {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.article-form label {
+  width: 100%; /* Ensures labels are full width */
+  margin-bottom: 5px; /* Space between label and input */
+  text-align: left; /* Aligns text to the left */
+}
+
+.article-form input,
+.article-form textarea {
+  width: 100%; /* Full width of the form */
+  padding: 10px;
+  margin-bottom: 15px; /* Space between inputs */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.article-form textarea {
+  resize: vertical; /* Allow vertical resizing */
+  height: 80px; /* Set a default height for the textarea */
+}
+.button-container {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: space-between; /* Space buttons evenly */
+  margin-top: 10px; /* Space above buttons */
+}
+
+.submit-button,
+.close-button {
+  width: 48%; /* Set width for both buttons */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+}
+.submit-button:hover{
+  background-color: #096c0b;
+}
+
+.close-button {
+  background-color: #e74c3c; /* Red background */
+  color: white; /* White text */
+}
+.close-button:hover{
+  background-color: #c23329;
+}
+.description{
+  color: #708090;
+}
