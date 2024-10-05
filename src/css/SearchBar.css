@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .search-bar input {
@@ -20,4 +21,16 @@
   background-color: #ddd;
   border: none;
   cursor: pointer;
+}
+
+.clear-icon {
+  position: absolute;
+  right: 8%; /* Adjust according to the input width */
+  cursor: pointer;
+  color: #aaa; /* Grey color for the icon */
+  font-size: 18px; /* Adjust size as needed */
+}
+
+.clear-icon:hover {
+  color: #000; /* Change color on hover */
 }
