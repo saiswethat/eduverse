@@ -1,31 +1,32 @@
 import React from "react";
 import Header from "./Header";
-import "./css/MentorshipPage.css";
+import "./css/MentorshipPage.css"; // Updated CSS file name
 import mentorshipImage from "./assets/mentor.jpg"; // Import the image
 
 function MentorshipPage() {
   return (
     <>
-      <Header /><br/>
-      <div className="mentorship-page">
-        <h1 className="mentorship-title">MENTORSHIP PROGRAM</h1>
-        <p className="mentorship-description">
+      <Header />
+      <br />
+      <div className="mentor-mentorship-page">
+        <h1 className="mentor-mentorship-title">MENTORSHIP PROGRAM</h1>
+        <p className="mentor-mentorship-description">
           Connect with experienced mentors to guide your academic and career
           journey.
         </p>
 
-        <div className="mentorship-image-container">
+        <div className="mentor-mentorship-image-container">
           <img
             src={mentorshipImage}
             alt="Mentorship"
-            className="mentorship-image"
+            className="mentor-mentorship-image"
           />
         </div>
 
-        <div className="action-buttons">
-          <button className="join-button">Ready to Join ?</button>
-          <p className="or-text">OR</p>
-          <button className="mentor-button">Wanna be a Mentor ?</button>
+        <div className="mentor-action-buttons">
+          <button className="mentor-join-button">Ready to Join?</button>
+          <p className="mentor-or-text">OR</p>
+          <button className="mentor-mentor-button">Wanna be a Mentor?</button>
         </div>
       </div>
     </>

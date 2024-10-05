@@ -166,11 +166,11 @@ const BuildYourResume = () => {
   return (
     <>
       <Header />
-      <div className="resume-page">
+      <div className="build-resume-resume-page">
         <h1>Build Your Resume</h1>
         
         {/* Fixed Position Button */}
-        <button className="create-resume-button" onClick={() => {
+        <button className="build-resume-create-resume-button" onClick={() => {
           setShowForm(true);
           setCurrentStep(0); // Always start at the first step
           setFormData({
@@ -190,11 +190,11 @@ const BuildYourResume = () => {
         </button>
 
         {showForm && (
-          <div className="form-overlay">
-            <div className="form-popup">
-              <div className="form-popup-header">
+          <div className="resume-form-overlay">
+            <div className="resume-form-popup">
+              <div className="resume-form-popup-header">
                 <h2>Create New Resume</h2>
-                <span className="close-icon" onClick={() => setShowForm(false)}>
+                <span className="resume-close-icon" onClick={() => setShowForm(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -222,6 +222,7 @@ const BuildYourResume = () => {
                       <input
                         type="text"
                         name="name"
+                        className="resume-input"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -232,6 +233,7 @@ const BuildYourResume = () => {
                       <input
                         type="email"
                         name="email"
+                        className="resume-input"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -242,6 +244,7 @@ const BuildYourResume = () => {
                       <input
                         type="tel"
                         name="phone"
+                        className="resume-input"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -345,7 +348,7 @@ const BuildYourResume = () => {
                   </>
                 )}
 
-                <div className="button-container">
+                <div className="resume-button-container">
                   {currentStep > 0 && (
                     <button type="button" className="prev-button" onClick={prevStep}>
                       Back
@@ -364,7 +367,7 @@ const BuildYourResume = () => {
           </div>
         )}
 
-<div className="resumes-list">
+<div className="build-resume-resumes-list">
   <h2>Your Resumes</h2>
   {resumes.length === 0 ? (
     <p>No resumes created yet.</p>

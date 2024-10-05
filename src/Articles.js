@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/Articles.css";
+import "./css/Articles.css"; // Updated CSS file name
 import Header from "./Header";
 import SearchBar from "./SearchBar";  // Import the SearchBar component
 
@@ -56,7 +56,6 @@ function Articles() {
     },
   ]);
 
-
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (term) => {
@@ -84,21 +83,21 @@ function Articles() {
   return (
     <>
       <Header />
-      <div className="articles-page">
+      <div className="articles-articles-page">
         <h1>Articles</h1>
 
         {/* Add SearchBar */}
         <SearchBar onSearch={handleSearch} />
 
-        <button className="create-article-button" onClick={() => setShowForm(true)}>
+        <button className="articles-create-article-button" onClick={() => setShowForm(true)}>
           Create Article
         </button>
 
         {/* Form modal */}
         {showForm && (
-          <div className="form-overlay">
-            <div className="form-popup">
-              <form className="article-form" onSubmit={handleCreateArticle}>
+          <div className="articles-form-overlay">
+            <div className="articles-form-popup">
+              <form className="articles-article-form" onSubmit={handleCreateArticle}>
                 <h2>Create New Article</h2>
                 <label>
                   Article Name:
@@ -110,33 +109,33 @@ function Articles() {
                 </label>
                 <label>
                   Description:
-                  <textarea name="description" required ></textarea>
+                  <textarea name="description" required></textarea>
                 </label>
                 <label>
                   Article Link:
                   <input type="url" name="link" required />
                 </label>
-                <div className="button-container">
-    <button type="submit" className="submit-button">Submit</button>
-    <button type="button" className="close-button" onClick={() => setShowForm(false)}>Close</button>
-  </div>
+                <div className="articles-button-container">
+                  <button type="submit" className="articles-submit-button">Submit</button>
+                  <button type="button" className="articles-close-button" onClick={() => setShowForm(false)}>Close</button>
+                </div>
               </form>
             </div>
           </div>
         )}
 
-        <div className="articles-list">
+        <div className="articles-articles-list">
           {filteredArticles.map((article, index) => (
-            <div className="article-card" key={index}>
-              <div className="article-details-left">
+            <div className="articles-article-card" key={index}>
+              <div className="articles-article-details-left">
                 <h3>{article.name}</h3>
-                <p className="description"> {article.description}</p>
+                <p className="articles-description">{article.description}</p>
               </div>
-              <div className="article-details-right">
+              <div className="articles-article-details-right">
                 <p><strong>Posted By:</strong> {article.postedBy}</p>
-                <p >{article.date}</p>
+                <p>{article.date}</p>
               </div>
-              <div className="read-more">
+              <div className="articles-read-more">
                 <a href={article.link} target="_blank" rel="noopener noreferrer">Read More</a>
               </div>
             </div>

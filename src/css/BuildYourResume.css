@@ -1,12 +1,12 @@
 /* General styles for the page */
-.resume-page {
+.build-resume-resume-page {
     padding: 20px;
     text-align: center;
     margin-top: 60px; /* Adjust margin to create space for fixed button */
 }
 
 /* Ensure this remains below the fixed button */
-.resumes-list {
+.build-resume-resumes-list {
     margin-top: 20px; /* Add margin to create space from the header */
     padding: 10px;
     text-align: center;
@@ -18,7 +18,7 @@
     margin-bottom: 20px;
   }
   
-  .create-resume-button {
+  .build-resume-create-resume-button {
     position: fixed; /* Keep the button fixed in the viewport */
   top: 80px; /* Distance from the bottom of the page */
   left: 20px; /* Distance from the right side of the page */
@@ -33,12 +33,12 @@
   z-index: 100; /* Ensure the button stays above other content */
   }
   
-  .create-resume-button:hover {
+  .build-resume-create-resume-button:hover {
     background-color: #4AAE65; /* Darker shade on hover */
   }
   
   /* Form overlay styles */
-  .form-overlay {
+  .-resume-form-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -52,7 +52,7 @@
   }
   
   /* Popup form styles */
-  .form-popup {
+  .resume-form-popup {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -75,9 +75,7 @@
     margin: 10px 0 5px;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
+ .resume-input,
   textarea {
     width: calc(100% - 22px); /* Subtract padding and border */
     padding: 10px;
@@ -125,17 +123,17 @@
   
   .submit-button {
     background-color: #28A745; /* Different color for submit button */
-    margin-right: 5px;
+    margin-right: 0 auto;
   }
   
   /* Header for the popup form */
-  .form-popup-header {
+  .resume-form-popup-header {
     display: flex;
     justify-content: space-between; /* Keep title and close button aligned properly */
     align-items: center;
   }
   
-  .close-icon {
+  .resume-close-icon {
     cursor: pointer;
     margin-left: auto; /* Ensures the close icon is on the far right */
     color: #FF3D3D; /* Icon color */
@@ -143,7 +141,7 @@
     height: 24px;
   }
   
-  .close-icon svg {
+  .resume-close-icon svg {
     width: 100%;
     height: 100%;
   }
@@ -161,7 +159,7 @@
 }
 
 /* Adjust the button container for the form */
-.button-container {
+.resume-button-container {
     display: flex;
     justify-content: space-between; /* Adjust to space between buttons */
     margin-top: 15px;
@@ -285,7 +283,7 @@
   z-index: 1000; /* Ensure it appears above other elements */
 }
 
-.form-popup {
+.resume-form-popup {
   background-color: white; /* Background color for popup */
   padding: 20px; /* Padding inside the popup */
   border-radius: 10px; /* Rounded corners */

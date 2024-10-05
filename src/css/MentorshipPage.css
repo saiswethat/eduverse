@@ -1,4 +1,4 @@
-.mentorship-page {
+.mentor-mentorship-page {
   text-align: center;
   padding: 40px;
   background-color: #f0fdf4;
@@ -7,34 +7,35 @@
   margin: 0 auto;
 }
 
-.mentorship-title {
+.mentor-mentorship-title {
   font-size: 48px;
   font-weight: normal;
-  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
   color: #3e92cc;
   letter-spacing: 0.1em;
   margin-bottom: 10px;
 }
-.mentorship-description {
+
+.mentor-mentorship-description {
   font-size: 20px;
   font-family: "Georgia", serif;
   color: #4b4b4b;
   margin-bottom: 30px;
 }
 
-.mentorship-image-container {
+.mentor-mentorship-image-container {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.mentorship-image {
+.mentor-mentorship-image {
   max-width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
-.action-buttons {
+.mentor-action-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +43,7 @@
   margin-top: 20px;
 }
 
-.join-button {
+.mentor-join-button {
   background-color: #76c6ff;
   color: white;
   border: none;
@@ -53,11 +54,11 @@
   transition: background-color 0.3s;
 }
 
-.join-button:hover {
+.mentor-join-button:hover {
   background-color: #5ab4f8;
 }
 
-.mentor-button {
+.mentor-mentor-button {
   background-color: #00ff88;
   color: white;
   border: none;
@@ -68,23 +69,12 @@
   transition: background-color 0.3s;
 }
 
-.mentor-button:hover {
+.mentor-mentor-button:hover {
   background-color: #00e67d;
 }
 
-.or-text {
+.mentor-or-text {
   font-size: 20px;
   color: #333;
   margin: 0 10px;
-}
-.mentorship-image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.mentorship-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
 }

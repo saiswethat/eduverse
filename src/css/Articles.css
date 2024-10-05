@@ -1,9 +1,9 @@
-.articles-page {
+.articles-articles-page {
   padding: 20px;
   text-align: center;
 }
 
-.create-article-button {
+.articles-create-article-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -18,15 +18,15 @@
   z-index: 100;
 }
 
-.create-article-button:hover {
+.articles-create-article-button:hover {
   background-color: #23e166;
 }
 
-.articles-list {
+.articles-articles-list {
   margin-top: 20px;
 }
 
-.article-card {
+.articles-article-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,31 +38,31 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.article-details-left {
+.articles-article-details-left {
   text-align: left;
   width: 60%;
 }
 
-.article-details-right {
+.articles-article-details-right {
   text-align: right;
   width: 30%;
 }
 
-.read-more {
+.articles-read-more {
   width: 40%;
   text-align: center;
 }
 
-.read-more a {
+.articles-read-more a {
   color: blue;
   text-decoration: none;
 }
 
-.read-more a:hover {
+.articles-read-more a:hover {
   text-decoration: underline;
 }
 
-.form-overlay {
+.articles-form-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -74,7 +74,7 @@
   align-items: center;
 }
 
-.form-popup {
+.articles-form-popup {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -82,19 +82,19 @@
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
 }
 
-.article-form {
+.articles-article-form {
   display: flex;
   flex-direction: column; /* Stack children vertically */
 }
 
-.article-form label {
+.articles-article-form label {
   width: 100%; /* Ensures labels are full width */
   margin-bottom: 5px; /* Space between label and input */
   text-align: left; /* Aligns text to the left */
 }
 
-.article-form input,
-.article-form textarea {
+.articles-article-form input,
+.articles-article-form textarea {
   width: 100%; /* Full width of the form */
   padding: 10px;
   margin-bottom: 15px; /* Space between inputs */
@@ -103,18 +103,19 @@
   box-sizing: border-box; /* Include padding and border in width */
 }
 
-.article-form textarea {
+.articles-article-form textarea {
   resize: vertical; /* Allow vertical resizing */
   height: 80px; /* Set a default height for the textarea */
 }
-.button-container {
+
+.articles-button-container {
   display: flex; /* Use flexbox for horizontal alignment */
   justify-content: space-between; /* Space buttons evenly */
   margin-top: 10px; /* Space above buttons */
 }
 
-.submit-button,
-.close-button {
+.articles-submit-button,
+.articles-close-button {
   width: 48%; /* Set width for both buttons */
   padding: 10px;
   border: none;
@@ -122,21 +123,22 @@
   cursor: pointer;
 }
 
-.submit-button {
+.articles-submit-button {
   background-color: #4caf50; /* Green background */
   color: white; /* White text */
 }
-.submit-button:hover{
+.articles-submit-button:hover {
   background-color: #096c0b;
 }
 
-.close-button {
+.articles-close-button {
   background-color: #e74c3c; /* Red background */
   color: white; /* White text */
 }
-.close-button:hover{
+.articles-close-button:hover {
   background-color: #c23329;
 }
-.description{
+
+.articles-description {
   color: #708090;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/Register.css"; // Importing the CSS file for the Register page
+import "./css/Register.css"; // Updated CSS file name
 import logoImage from "./assets/eduverseLogo.jpg"; // Import the logo
 
 function Register() {
@@ -24,22 +24,22 @@ function Register() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-[rgba(168,237,215,0.2)] p-4">
+    <div className="register-flex register-flex-col register-items-center register-justify-start register-min-h-screen register-bg-[rgba(168,237,215,0.2)] register-p-4">
       <a href="/"><img
         src={logoImage}
         alt="EduVerse"
-        className="mb-6 custom-image"
+        className="register-mb-6 register-custom-image"
       /></a>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md flex flex-col items-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 font-jua">Register</h1>
-        <form onSubmit={handleSubmit} className="w-full">
+      <div className="register-bg-white register-p-8 register-rounded-lg register-shadow-md register-w-full register-max-w-md register-flex register-flex-col register-items-center">
+        <h1 className="register-text-4xl register-md-text-5xl register-font-bold register-text-center register-text-gray-800 register-font-jua">Register</h1>
+        <form onSubmit={handleSubmit} className="register-w-full">
           <div>
             <input
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
-              className="input-box font-jua"
+              className="register-input-box register-font-jua"
               placeholder="Full Name"
             />
           </div>
@@ -49,7 +49,7 @@ function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="input-box font-jua"
+              className="register-input-box register-font-jua"
               placeholder="Enter your Email"
             />
           </div>
@@ -59,7 +59,7 @@ function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="input-box font-jua"
+              className="register-input-box register-font-jua"
               placeholder="Enter your Password"
             />
           </div>
@@ -69,7 +69,7 @@ function Register() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="input-box font-jua"
+              className="register-input-box register-font-jua"
               placeholder="Re-enter your Password"
             />
           </div>
@@ -79,15 +79,15 @@ function Register() {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               required
-              className="input-box font-jua"
+              className="register-input-box register-font-jua"
               placeholder="Phone Number"
             />
           </div>
-          <button type="submit" className="submit-button font-jua text-2xl">
+          <button type="submit" className="register-submit-button register-font-jua register-text-2xl">
             Submit
           </button>
-          <div className="mt-4 text-center">
-            <a href="/" className="text-blue-500 hover:underline font-jua text-base md:text-xl">Already have an account? Login</a>
+          <div className="register-mt-4 register-text-center">
+            <a href="/" className="register-text-blue-500 register-hover-underline register-font-jua register-text-base register-md-text-xl">Already have an account? Login</a>
           </div>
         </form>
       </div>
