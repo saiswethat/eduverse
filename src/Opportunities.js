@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import JobListing from "./JobListing";
-import "./css/Opportunities.css";
+import "./css/Opportunities.css"; // Updated CSS file name
 
 function Opportunities() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,10 +33,10 @@ function Opportunities() {
   );
 
   return (
-    <div className="opportunities">
+    <div className="opportunity-opportunities">
       <Header />
       <SearchBar onSearch={setSearchTerm} />
-      <div className="job-listings">
+      <div className="opportunity-job-listings">
         {filteredListings.map((job, index) => (
           <JobListing
             key={index}

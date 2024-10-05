@@ -1,4 +1,4 @@
-.search-bar {
+.searchBar-search-bar {
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.search-bar input {
+.searchBar-search-bar input {
   width: 60%;
   padding: 10px;
   font-size: 16px;
@@ -14,7 +14,7 @@
   border-radius: 5px;
 }
 
-.search-button {
+.searchBar-search-button {
   margin-left: 10px;
   padding: 10px;
   font-size: 18px;
@@ -23,14 +23,14 @@
   cursor: pointer;
 }
 
-.clear-icon {
+.searchBar-clear-icon {
   position: absolute;
-  right: 8%; /* Adjust according to the input width */
+  right: 24%; /* Adjust according to the input width */
   cursor: pointer;
   color: #aaa; /* Grey color for the icon */
   font-size: 18px; /* Adjust size as needed */
 }
 
-.clear-icon:hover {
+.searchBar-clear-icon:hover {
   color: #000; /* Change color on hover */
 }
