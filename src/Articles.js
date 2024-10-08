@@ -11,7 +11,7 @@ function Articles() {
       name: "The Importance of Career Mentorship",
       postedBy: "John Doe",
       date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.",
+      description: "Learn how mentorship can play a crucial role in career development and success.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
       link: "#",
     },
     {
@@ -35,7 +35,7 @@ function Articles() {
       name: "The Importance of Career Mentorship",
       postedBy: "John Doe",
       date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.",
+      description: "Learn how mentorship can play a crucial role in career development and success.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
       link: "#",
     },
     {
@@ -43,7 +43,7 @@ function Articles() {
       name: "Top 5 Tips for Job Interviews",
       postedBy: "Jane Smith",
       date: "10/03/2024",
-      description: "These five tips will help you nail your next job interview and land your dream job.",
+      description: "These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
       link: "#",
     },
     {

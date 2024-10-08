@@ -3,6 +3,15 @@ import "./css/GroupsPage.css"; // Assuming you have a CSS file for styling
 import GroupChat from "./GroupChat"; // The chat component
 import Header from "./Header";
 
+// Sample user data for member selection
+const usersData = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" },
+  { id: 4, name: "David" },
+  { id: 5, name: "Eve" },
+];
+
 const groupsData = [
   { 
     id: 1, 
@@ -28,25 +37,29 @@ const groupsData = [
     description: "Talk about web development tips and tools.", 
     academicInterest: "Computer Science" 
   },
-  // Add more groups as necessary
 ];
 
 function GroupsPage() {
-  const [joinedGroups, setJoinedGroups] = useState([groupsData[0]]); // Default: Joined AI & ML
+  const [joinedGroups, setJoinedGroups] = useState([groupsData[0]]);
   const [availableGroups, setAvailableGroups] = useState(groupsData.filter(group => group.id !== 1));
   const [selectedGroup, setSelectedGroup] = useState(null);
+  
+  // New state for the Create Group modal
+  const [modalOpen, setModalOpen] = useState(false);
+  const [newGroup, setNewGroup] = useState({ name: "", description: "", academicInterest: "", members: [] });
+  
+  // New state for search
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleGroupClick = (group) => {
     setSelectedGroup(group);
   };
 
   const handleJoinGroup = (groupToJoin) => {
-    // Move the group to the "joined" section
     setJoinedGroups([...joinedGroups, groupToJoin]);
     setAvailableGroups(availableGroups.filter(group => group.id !== groupToJoin.id));
   };
 
-  // New handleBack function to reset selectedGroup
   const handleBack = () => {
     setSelectedGroup(null);
   };
@@ -57,59 +70,163 @@ function GroupsPage() {
     setSelectedGroup(null); 
   };
 
+  const handleDeleteGroup = (groupToDelete) => {
+    setJoinedGroups(joinedGroups.filter(group => group.id !== groupToDelete.id));
+    setSelectedGroup(null);
+  };
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+    if (modalOpen) {
+      setNewGroup({ name: "", description: "", academicInterest: "", members: [] }); // Reset state
+      setSearchTerm(""); // Reset search term when modal closes
+    }
+  };
+
+  const handleGroupInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewGroup({ ...newGroup, [name]: value });
+  };
+
+  const handleMemberChange = (e) => {
+    const { options } = e.target;
+    const selectedMembers = Array.from(options).filter(option => option.selected).map(option => option.value);
+    setNewGroup({ ...newGroup, members: selectedMembers });
+  };
+
+  const handleCreateGroup = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    if (newGroup.name.trim() && newGroup.description.trim()) {
+      const groupId = Math.max(...groupsData.map(g => g.id)) + 1; // Generate a new ID
+      const createdGroup = { ...newGroup, id: groupId }; // Create the new group
+      setJoinedGroups([...joinedGroups, createdGroup]); // Add to joined groups
+      setAvailableGroups(availableGroups.filter(group => group.id !== createdGroup.id)); // Remove from available
+      toggleModal(); // Close modal
+    }
+  };
+
+  // Filter users based on search term
+  const filteredUsers = usersData.filter(user =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
-    <Header/>
-    <div className="groups-page">
-      <h1>Interest-Based Groups</h1>
+      <Header />
+      <div className="groups-page">
+        <h1>Interest-Based Groups</h1>
 
-      {selectedGroup ? (
-        <GroupChat 
-          group={selectedGroup} 
-          handleLeaveGroup={handleLeaveGroup} // Pass the handleLeaveGroup function
-          handleBack={handleBack} // Pass the handleBack function
-        />
-      ) : (
-        <div>
-          <div className="groups-section">
-            <h2 className="text-center">Your Groups</h2>
-            <div className="groups-list">
-              {joinedGroups.length === 0 ? (
-                <p className="text-center">You haven't joined any groups yet.</p>
-              ) : (
-                joinedGroups.map((group) => (
-                  <div key={group.id} className="group-tile" onClick={() => handleGroupClick(group)}>
-                    <h2>{group.name}</h2>
-                    <p>{group.description}</p>
-                    <p><strong>Academic Interest:</strong> {group.academicInterest}</p>
-                  </div>
-                ))
-              )}
+        {!selectedGroup && (
+          <button className="create-group-button" onClick={toggleModal}>
+            Create Group
+          </button>
+        )}
+
+        {selectedGroup ? (
+          <GroupChat 
+            group={selectedGroup} 
+            handleLeaveGroup={handleLeaveGroup} 
+            handleBack={handleBack} 
+            handleDeleteGroup={handleDeleteGroup} 
+          />
+        ) : (
+          <div>
+            <div className="groups-section">
+              <h2 className="text-center">Your Groups</h2>
+              <div className="groups-list">
+                {joinedGroups.length === 0 ? (
+                  <p className="text-center">You haven't joined any groups yet.</p>
+                ) : (
+                  joinedGroups.map((group) => (
+                    <div key={group.id} className="group-tile" onClick={() => handleGroupClick(group)}>
+                      <h2>{group.name}</h2>
+                      <p>{group.description}</p>
+                      <p><strong>Academic Interest:</strong> {group.academicInterest}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+
+            <div className="groups-section">
+              <h2 className="text-center">You might like these Groups</h2>
+              <div className="groups-list">
+                {availableGroups.length === 0 ? (
+                  <p>No more groups available to join.</p>
+                ) : (
+                  availableGroups.map((group) => (
+                    <div key={group.id} className="group-tile">
+                      <h2>{group.name}</h2>
+                      <p>{group.description}</p>
+                      <p><strong>Academic Interest:</strong> {group.academicInterest}</p>
+                      <button onClick={() => handleJoinGroup(group)} className="join-button">
+                        Join Group
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
+        )}
 
-          <div className="groups-section">
-            <h2 className="text-center">You might like these Groups</h2>
-            <div className="groups-list">
-              {availableGroups.length === 0 ? (
-                <p>No more groups available to join.</p>
-              ) : (
-                availableGroups.map((group) => (
-                  <div key={group.id} className="group-tile">
-                    <h2>{group.name}</h2>
-                    <p>{group.description}</p>
-                    <p><strong>Academic Interest:</strong> {group.academicInterest}</p>
-                    <button onClick={() => handleJoinGroup(group)} className="join-button">
-                      Join Group
-                    </button>
-                  </div>
-                ))
-              )}
+        {modalOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h3>Create Group</h3>
+              <form onSubmit={handleCreateGroup}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Group Name"
+                  value={newGroup.name}
+                  onChange={handleGroupInputChange}
+                  className="modal-input"
+                  required
+                />
+                <textarea
+                  name="description"
+                  placeholder="Group Description"
+                  value={newGroup.description}
+                  onChange={handleGroupInputChange}
+                  className="modal-textarea"
+                  required
+                />
+                <input
+                  type="text"
+                  name="academicInterest"
+                  placeholder="Academic Interest"
+                  value={newGroup.academicInterest}
+                  onChange={handleGroupInputChange}
+                  className="modal-input"
+                  required
+                />
+                <label htmlFor="members">Select Members:</label>
+                
+                {/* Search Input for Members */}
+                <input
+                  type="text"
+                  placeholder="Search People"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="modal-input"
+                />
+                
+                <select id="members" multiple onChange={handleMemberChange} className="modal-select">
+                  {filteredUsers.map((user) => (
+                    <option key={user.id} value={user.name}>
+                      {user.name}
+                    </option>
+                  ))}
+                </select>
+                
+                <button type="submit" className="modal-button">Create</button>
+                <button type="button" onClick={toggleModal} className="modal-button">Cancel</button>
+              </form>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </>
   );
 }
