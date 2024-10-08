@@ -1,18 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Login';
-import ForgotPassword from './ForgotPassword'; // Import the Forgot Password component
-import reportWebVitals from './reportWebVitals';
-import Register from './Register';
-import App from './App';
-import Opportunities from './Opportunities';
-import MentorshipPage from './MentorshipPage';
-import Articles from './Articles';
-import Tips from './Tips';
-import BuildYourResume from './BuildYourResume';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import ForgotPassword from "./ForgotPassword";
+import reportWebVitals from "./reportWebVitals";
+import Register from "./Register";
+import App from "./App";
+import Opportunities from "./Opportunities";
+import MentorshipPage from "./MentorshipPage";
+import Articles from "./Articles";
+import Tips from "./Tips";
+import BuildYourResume from "./BuildYourResume";
+import Events from "./Events";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
@@ -27,6 +28,7 @@ root.render(
         <Route path="/articles" element={<Articles />} />
         <Route path="/build-resume" element={<BuildYourResume />} />
         <Route path="/tips" element={<Tips />} />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </Router>
   </React.StrictMode>
