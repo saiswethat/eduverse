@@ -1,13 +1,14 @@
 .jobListing-job-card {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   border: 2px solid #000;
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 20px;
   background-color: #f0fdf4;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
   transition: transform 0.2s ease;
 }
 
@@ -35,11 +36,16 @@
   margin-top: 5px;
 }
 
+.jobListing-job-card__description {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+}
+
 .jobListing-interested-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  width: 100%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .jobListing-interested-button {
@@ -55,4 +61,5 @@
 .jobListing-job-card__location {
   font-size: 14px;
   color: #000;
+  margin: -6px 0;
 }
