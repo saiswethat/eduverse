@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/GroupChat.css";
 import MemberCard from "./MemberCard";
 
-function GroupChat({ group, handleLeaveGroup, handleBack }) {
+function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
     const initialPosts = Array.from({ length: 10 }, (_, index) => {
         const usernames = ["User1", "User2", "User3", "User4"];
-        // Example comments for each post
         const comments = [
             { username: "User3", text: "Great post!" },
             { username: "User4", text: "Thanks for sharing!" },
@@ -15,8 +14,8 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
             title: `Post Title ${index + 1}`,
             description: `Description for post ${index + 1}.`,
             link: index % 2 === 0 ? `https://example.com/${index}` : "",
-            username: usernames[index % usernames.length], // Rotating through the usernames
-            comments: comments, // Adding initial comments
+            username: usernames[index % usernames.length],
+            comments: comments,
         };
     });
 
@@ -32,6 +31,9 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
     }));
 
     const [chatMessages, setChatMessages] = useState(initialChatMessages);
+    
+    // Create a ref for the chat messages container
+    const chatMessagesEndRef = useRef(null);
 
     const handlePostChange = (e) => {
         const { name, value } = e.target;
@@ -42,7 +44,7 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
         if (newPost.title && newPost.description) {
             const postWithUsername = {
                 ...newPost,
-                username: "You", // Current user is "You"
+                username: "You",
                 comments: [],
             };
             setPosts([...posts, postWithUsername]);
@@ -76,7 +78,7 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
         if (newComment[index]?.trim()) {
             const updatedPosts = [...posts];
             updatedPosts[index].comments.push({
-                username: "You", // Current user is "You"
+                username: "You",
                 text: newComment[index],
             });
             setPosts(updatedPosts);
@@ -84,32 +86,23 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
         }
     };
 
-    // Extract unique usernames from posts for the members section
     const uniqueMembers = Array.from(new Set([...posts.map(post => post.username), "You"]));
+
+    // Scroll to the bottom of the chat messages whenever chatMessages changes
+    useEffect(() => {
+        if (chatMessagesEndRef.current) {
+            chatMessagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [chatMessages]);
 
     return (
         <div className="group-chat">
             <button className="back-button" onClick={handleBack}>Back</button>
             <h2 className="group-text-center">{group.name}</h2>
             <div className="tab-buttons">
-                <button
-                    className={activeTab === "chat" ? "active" : ""}
-                    onClick={() => setActiveTab("chat")}
-                >
-                    Chat
-                </button>
-                <button
-                    className={activeTab === "posts" ? "active" : ""}
-                    onClick={() => setActiveTab("posts")}
-                >
-                    Posts
-                </button>
-                <button
-                    className={activeTab === "members" ? "active" : ""}
-                    onClick={() => setActiveTab("members")}
-                >
-                    Members
-                </button>
+                <button className={activeTab === "chat" ? "active" : ""} onClick={() => setActiveTab("chat")}>Chat</button>
+                <button className={activeTab === "posts" ? "active" : ""} onClick={() => setActiveTab("posts")}>Posts</button>
+                <button className={activeTab === "members" ? "active" : ""} onClick={() => setActiveTab("members")}>Members</button>
             </div>
             {activeTab === "chat" && (
                 <div>
@@ -122,6 +115,8 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
                                 <span className="sender-name">{message.sender}:</span> {message.text}
                             </div>
                         ))}
+                        {/* This div acts as an anchor to scroll to */}
+                        <div ref={chatMessagesEndRef} />
                     </div>
                     <div className="chat-input">
                         <input
@@ -144,9 +139,7 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
                                     <h4>{post.title}</h4>
                                     <p>{post.description}</p>
                                     {post.link && (
-                                        <a className="read-more" href={post.link} target="_blank" rel="noopener noreferrer">
-                                            Read More
-                                        </a>
+                                        <a className="read-more" href={post.link} target="_blank" rel="noopener noreferrer">Read More</a>
                                     )}
                                 </div>
                                 <button onClick={() => toggleComments(index)}>Comments ({post.comments.length})</button>
@@ -209,6 +202,7 @@ function GroupChat({ group, handleLeaveGroup, handleBack }) {
                         <p>No members found.</p>
                     )}
                     <button className="leave-group-button" onClick={handleLeaveGroup}>Leave Group</button>
+                    <button className="delete-group-button" onClick={() => handleDeleteGroup(group)}>Delete Group</button>
                 </div>
             )}
         </div>

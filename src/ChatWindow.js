@@ -36,7 +36,7 @@ const ChatWindow = ({ chat }) => {
       <h2>Chat with {chat.name}</h2>
       <div className="pm-chat-messages">
         {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.type}`}>
+          <div key={index} className={`chat-message ${msg.type}`}>
             <p className="message-text">{msg.text}</p>
             <span className="message-time">{msg.time}</span>
           </div>

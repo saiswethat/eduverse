@@ -33,7 +33,7 @@
   }
 
 /* Message Bubbles */
-.message {
+.chat-message {
     max-width: 50%; /* Set a max-width to keep it from being too wide */
     padding: 10px 15px;
     margin: 5px 0; /* Space between messages */
@@ -44,14 +44,14 @@
 }
 
 /* Sender (Your) messages on the right */
-.message.sent {
+.chat-message.sent {
     align-self: flex-end; /* Align to the right */
     background-color: #dcf8c6; /* WhatsApp green for sent messages */
     text-align: right; /* Align text to the right */
 }
 
 /* Receiver (Other person's) messages on the left */
-.message.received {
+.chat-message.received {
     align-self: flex-start; /* Align to the left */
     background-color: #ffffff; /* White for received messages */
     border: 1px solid #ddd;
