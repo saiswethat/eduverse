@@ -22,15 +22,3 @@
   border: none;
   cursor: pointer;
 }
-
-.searchBar-clear-icon {
-  position: absolute;
-  right: 24%; /* Adjust according to the input width */
-  cursor: pointer;
-  color: #aaa; /* Grey color for the icon */
-  font-size: 18px; /* Adjust size as needed */
-}
-
-.searchBar-clear-icon:hover {
-  color: #000; /* Change color on hover */
-}
