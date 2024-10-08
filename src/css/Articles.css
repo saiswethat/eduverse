@@ -36,6 +36,14 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent; /* Default border is transparent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Add border transition */
+}
+
+.articles-article-card:hover {
+  transform: scale(1.05); /* Scale the card slightly */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  border: 1px solid black; /* Add black border on hover */
 }
 
 .articles-article-details-left {
