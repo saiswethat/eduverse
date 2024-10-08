@@ -13,6 +13,7 @@ import Articles from "./Articles";
 import Tips from "./Tips";
 import BuildYourResume from "./BuildYourResume";
 import Events from "./Events";
+import GroupsPage from "./GroupsPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -29,6 +30,7 @@ root.render(
         <Route path="/build-resume" element={<BuildYourResume />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/groups" element={<GroupsPage/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
