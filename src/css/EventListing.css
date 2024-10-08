@@ -1,0 +1,65 @@
+.event-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f0fdf4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+}
+
+.event-card__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.event-card__title {
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+  color: #000;
+}
+
+.event-card__location {
+  font-size: 16px;
+  color: #5a00e5;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.event-card__description {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+}
+
+.event-interested-button-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.event-interested-button {
+  background-color: #00ff00;
+  color: #ff0000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.event-card__date {
+  font-size: 14px;
+  color: #000;
+  margin: -6px 0;
+}
