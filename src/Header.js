@@ -54,7 +54,7 @@ function Header() {
             <a href="#" className="header-dropdown-toggle">Name</a>
             <div className="header-dropdown-content">
               <a href="/profile">Profile</a>
-              <a href="/settings">Settings</a>
+              <a href="/settings">Notifications & Settings</a>
               <a href="/logout">Logout</a>
             </div>
           </li>
