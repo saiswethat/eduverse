@@ -275,7 +275,7 @@ const BuildYourResume = () => {
                         placeholder="Enter your education"
                       />
                     ))}
-                    <button type="button" onClick={addEducationField}>
+                    <button className="resume-button" onClick={addEducationField}>
                       Add Education
                     </button>
 
