@@ -1,0 +1,111 @@
+/* Ensure the background covers the full page */
+.notifications-page {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #e8f5e9; /* Light green background */
+}
+
+
+
+/* Notification card styling */
+.notifications-card {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+    border: 1px solid #0c0c0c;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color:rgba(74, 230, 180, 0.2); /* Green background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Full width text styling */
+
+.notification-text {
+    flex: 1; /* Take all available space */
+    margin-right: 15px; /* Space between text and buttons */
+    overflow-wrap: break-word; /* Ensure that very long words break */
+    white-space: normal; /* Allow text to wrap into multiple lines */
+    font-size: 16px;
+}
+
+/* Align buttons horizontally */
+.notification-actions {
+    display: flex;
+    
+    
+}
+
+/* Button styling */
+.mark-read-button,
+.delete-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mark as Read button */
+.mark-read-button {
+    background-color: #21b9f0; /* Dark green */
+    color: white;
+}
+
+.mark-read-button:hover {
+    background-color: #0cb0ec; /* Darker green on hover */
+}
+
+/* Delete button */
+.delete-button {
+    background-color: #f77373; /* Red for delete */
+    color: white;
+
+}
+
+.notifications-card:hover {
+    transform: translateY(-3px);
+    background-color: rgba(46, 143, 112, 0.2);
+  }
+.delete-button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+
+/* Read notification style */
+.notification-item.read {
+    background-color: #81c784; /* Lighter green for read notifications */
+    color: #6d6d6d; /* Grey color for read text */
+}
+
+/* Clear all button styling */
+.clear-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Spacing from the notification list */
+}
+
+.clear-all-button {
+    background-color:#f77373; /* Red shade for clear all button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear-all-button:hover {
+    background-color: #ff1744; /* Slightly darker red on hover */
+}
+
+/* Notifications list styling */
+.notifications-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0 200px; /* Horizontal padding for alignment */
+    margin-bottom: 20px;
+}
+.list-items{
+    list-style-type: none;
+}

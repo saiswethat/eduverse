@@ -48,12 +48,13 @@ function Header() {
           <li>
             <a href="/chats">Chat</a>
           </li>
-
-          {/* Name Dropdown */}
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">Name</a>
             <div className="header-dropdown-content">
               <a href="/profile">Profile</a>
+              <a href="/notifications"> Notifications
+              <span className="notification-badge">3</span>
+              </a>
               <a href="/settings">Notifications & Settings</a>
               <a href="/logout">Logout</a>
             </div>

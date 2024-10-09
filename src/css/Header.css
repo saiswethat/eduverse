@@ -30,6 +30,16 @@
   transition: visibility 0s 0.2s, opacity 0.2s linear;
 
 }
+.notification-badge {
+  background-color: #ff5252; /* Red background for the badge */
+  color: white; /* White text color */
+  border-radius: 50%; /* Circular badge */
+  padding: 3px 6px; /* Padding for the badge */
+  margin-left: 5px; /* Space between text and badge */
+  font-size: 12px; /* Font size of the badge */
+  position: relative; /* To position it properly */
+  top: -2px; /* Adjust the position if necessary */
+}
 
 .header-header__nav a:hover {
   background-color: #d0f0e0;
