@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./css/Articles.css"; // Updated CSS file name
 import Header from "./Header";
 import SearchBar from "./SearchBar";  // Import the SearchBar component
+import { FaTrashAlt } from 'react-icons/fa';  // Import FontAwesome delete icon
 
 function Articles() {
   const [showForm, setShowForm] = useState(false);
@@ -11,7 +12,7 @@ function Articles() {
       name: "The Importance of Career Mentorship",
       postedBy: "John Doe",
       date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
+      description: "Learn how mentorship can play a crucial role in career development and success.",
       link: "#",
     },
     {
@@ -35,7 +36,7 @@ function Articles() {
       name: "The Importance of Career Mentorship",
       postedBy: "John Doe",
       date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
+      description: "Learn how mentorship can play a crucial role in career development and success.",
       link: "#",
     },
     {
@@ -43,7 +44,7 @@ function Articles() {
       name: "Top 5 Tips for Job Interviews",
       postedBy: "Jane Smith",
       date: "10/03/2024",
-      description: "These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.These five tips will help you nail your next job interview and land your dream job.",
+      description: "These five tips will help you nail your next job interview and land your dream job.",
       link: "#",
     },
     {
@@ -65,6 +66,7 @@ function Articles() {
   const handleCreateArticle = (event) => {
     event.preventDefault();
     const newArticle = {
+      id: articles.length + 1,  // Create a unique ID
       name: event.target.name.value,
       postedBy: event.target.postedBy.value,
       description: event.target.description.value,
@@ -73,6 +75,12 @@ function Articles() {
     };
     setArticles([...articles, newArticle]);
     setShowForm(false); // Close the form after submission
+  };
+
+  // Function to handle article deletion
+  const handleDeleteArticle = (id) => {
+    const updatedArticles = articles.filter((article) => article.id !== id);
+    setArticles(updatedArticles);
   };
 
   const filteredArticles = articles.filter((article) =>
@@ -125,8 +133,8 @@ function Articles() {
         )}
 
         <div className="articles-articles-list">
-          {filteredArticles.map((article, index) => (
-            <div className="articles-article-card" key={index}>
+          {filteredArticles.map((article) => (
+            <div className="articles-article-card" key={article.id}>
               <div className="articles-article-details-left">
                 <h3>{article.name}</h3>
                 <p className="articles-description">{article.description}</p>
@@ -138,6 +146,10 @@ function Articles() {
               <div className="articles-read-more">
                 <a href={article.link} target="_blank" rel="noopener noreferrer">Read More</a>
               </div>
+              {/* Delete button with icon */}
+              <button className="articles-delete-button" onClick={() => handleDeleteArticle(article.id)}>
+                <FaTrashAlt size={20} color="red" />
+              </button>
             </div>
           ))}
         </div>

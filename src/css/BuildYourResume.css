@@ -98,7 +98,7 @@
   }
   
   /* Button styles */
-  button {
+  .resume-button {
     background-color: #5DBB7A; /* Primary button color */
     color: white;
     padding: 10px 15px;
