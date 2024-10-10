@@ -1,18 +1,15 @@
 import React from "react";
 import "./css/HomePage.css"; 
-import welcome from "./assets/welcome.jpg";
 
 function HomePage() {
   return (
     <div className="home-home-page text-home-center">
-      {/* Welcome Message & Overview */}
       <div className="home-welcome-section">
         <h1 className="home-welcome-title">Welcome to EduVerse</h1>
         <p className="home-welcome-message">
           EduVerse is your one-stop platform for connecting students, academics, and professionals. Explore upcoming events, recent job postings, and access quick links to tools that will help you on your journey to success.
         </p>
 
-        {/* Additional Content */}
         <div className="home-additional-content">
           <p>
             At EduVerse, you'll find everything you need to succeed:
@@ -27,7 +24,6 @@ function HomePage() {
         </div>
       </div>
 
-      {/* Section 1: Upcoming Events */}
       <div className="home-home-section home-upcoming-events">
         <h2 className="home-h2">Upcoming Events</h2>
         <div className="home-event-card">
@@ -37,7 +33,6 @@ function HomePage() {
         </div>
       </div>
 
-      {/* Section 2: Recent Job Postings */}
       <div className="home-home-section home-job-postings">
         <h2 className="home-h2">Recent Job Postings</h2>
         <div className="home-job-card">
@@ -46,8 +41,6 @@ function HomePage() {
           <p>Frontend Engineer at TechStart</p>
         </div>
       </div>
-
-      {/* Section 3: Quick Links */}
       <div className="home-home-section home-quick-links">
         <h2 className="home-h2">Quick Links</h2>
         <div className="home-link-card">
