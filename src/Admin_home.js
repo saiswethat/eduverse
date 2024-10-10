@@ -10,7 +10,7 @@ function Admin_home() {
                 <h2>Admin Dashboard</h2>
                 <div className="admin-tabs">
                     <div className="tab">
-                        <a href="/manage-users" className="tab-link">Manage Users</a>
+                        <a href="/manage_users" className="tab-link">Manage Users</a>
                     </div>
                     <div className="tab">
                         <a href="/manage-groups" className="tab-link">Manage Groups</a>

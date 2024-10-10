@@ -1,11 +1,17 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 import "./css/JobListing.css";
 
-function JobListing({ title, company, location, description }) {
+function JobListing({ title, company, location, description, link, onDelete }) {
   return (
     <div className="jobListing-job-card">
-      <div className="jobListing-interested-button-container">
-        <button className="jobListing-interested-button">Interested</button>
+      <div className="jobListing-button-container">
+        <a href={link} target="_blank" rel="noopener noreferrer" className="jobListing-interested-button">
+          Interested
+        </a>
+        <button className="jobListing-delete-button" onClick={onDelete}>
+          <FaTrash />
+        </button>
       </div>
 
       <div className="jobListing-job-card__info">
