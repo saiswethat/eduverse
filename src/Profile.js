@@ -124,12 +124,6 @@ function ProfilePage() {
             </button>
           )}
         </div>
-
-        <div className="profile-card__footer">
-          <button className="profile-card__logout-btn">
-            <a href="/logout">Logout</a>
-          </button>
-        </div>
       </div>
     </div>
   );
