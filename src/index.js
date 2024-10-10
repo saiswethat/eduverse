@@ -25,6 +25,7 @@ import ManageUsers from "./ManageUsers";
 import Forums from "./Forums";
 import ForumPage from "./ForumPage";
 import Contact from "./Contact";
+import SettingsPage from "./SettingsPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -55,6 +56,7 @@ root.render(
         <Route path="/admin_home" element={<Admin_home />} />
         <Route path="/manage_users" element={<ManageUsers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </Router>
   </React.StrictMode>
