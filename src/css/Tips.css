@@ -16,53 +16,199 @@
   color: #ff7f50;
 }
 
-.tips-tip-card {
+.tips-list {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px;
+}
+
+.tips-tip-card {
+  width: 60%; /* Adjust width for column view */
+  margin: 10px 0;
   padding: 15px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Use flexbox to position elements */
+  justify-content: space-between; /* Space out content */
+  align-items: center; /* Center items vertically */
 }
 
 .tips-tip-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Slightly reduce scaling */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tips-tip-content {
-  font-size: 16px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 15px;
+  flex: 1; /* Take remaining space for tip content */
+  text-align: left; /* Left-align for better readability */
+  margin-right: 10px; /* Space between content and delete button */
 }
 
 .tips-tip-poster {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align text to the left */
+  color: #777;
 }
 
-.tips-carousel-container {
-  display: flex;
-  overflow-x: auto;
-  padding: 20px;
+.tips-delete-button {
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  background: none;
+  margin-left: auto; /* Push the delete button to the right */
 }
 
-.tips-carousel-container::-webkit-scrollbar {
-  display: none;
+.tips-delete-button:hover {
+  opacity: 0.7;
+  background-color: #e0e0e0;
 }
 
-.tips-carousel-container .tips-tip-card {
-  flex: 0 0 300px;
-  margin: 0 10px;
+.tips-delete-button svg {
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .tips-carousel-container .tips-tip-card {
-      flex: 0 0 250px;
+  .tips-tip-card {
+    width: 90%; /* Make card full-width on smaller screens */
   }
+}
+
+/* Create Tip Button Styles */
+.create-tip-button {
+  position: fixed; /* Make the button fixed */
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000; /* Ensure the button is on top */
+}
+
+.create-tip-button:hover {
+  background-color: #ff6347;
+  transform: scale(1.05);
+}
+
+/* Create Tip Form Styles */
+.create-tip-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  width: 60%;
+  background-color: #f4f6f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.create-tip-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.submit-tip-button,
+.cancel-tip-button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-tip-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.submit-tip-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-tip-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-tip-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Adjust form responsiveness */
+@media screen and (max-width: 768px) {
+  .create-tip-form {
+    width: 90%;
+  }
+}
+
+/* Improved hover effect on cards */
+.tips-tip-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+.view-full-content-link {
+  color: #007BFF; /* Bootstrap primary color */
+  text-decoration: underline; /* Underline to indicate it's a link */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: color 0.3s ease; /* Smooth color transition */
+  border: none;
+  background-color: white;
+  font-family: inherit;
+}
+
+.view-full-content-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive improvements for smaller screens */
+@media screen and (max-width: 768px) {
+  .tips-random-tip,
+  .create-tip-form {
+    width: 90%;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Ensure modal is above all other content */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px; /* Set a max width for modals */
+  width: 90%; /* Responsive width */
+}
+
+.modal-close {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
 }

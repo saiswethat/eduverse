@@ -1,0 +1,37 @@
+.full-tip-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Adjust as needed */
+    min-height: 100vh;
+    font-family: 'Jua', sans-serif; /* Match font-family from Tips.css if necessary */
+}
+
+.full-tip-header {
+    font-size: 2em; /* Ensure consistency with any headings in Tips.css */
+    margin-bottom: 20px;
+    color: #333; /* Match color scheme with Tips.css */
+}
+
+.full-tip-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px; /* Match border-radius with Tips.css if any */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%; /* Ensure maximum width matches with any card width from Tips.css */
+    margin-bottom: 20px; /* Keep consistent spacing */
+}
+
+.full-tip-description {
+    font-size: 1.2em; /* Match font size with any content in Tips.css */
+    margin-bottom: 15px;
+    color: #666; /* Match text color with Tips.css */
+}
+
+.full-tip-details {
+    font-size: 0.9em; /* Ensure text size is consistent with other details in Tips.css */
+    color: #999; /* Ensure color matches the theme */
+    margin-top: 10px;
+    text-align: right; /* Align to right as per the design preference */
+}

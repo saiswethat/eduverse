@@ -1,0 +1,56 @@
+.main-page {
+    
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.admin-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 tabs per row */
+    grid-gap: 20px; /* Space between the tabs */
+    justify-items: center; /* Center the tabs horizontally */
+    
+}
+
+.tab {
+    width: 200px;
+    padding: 70px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.tab-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.tab-link:hover {
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .admin-tabs {
+        grid-template-columns: 1fr; /* 1 tab per row on smaller screens */
+    }
+}
+
+.content  {
+   
+    max-width: auto;
+    height: 100vh;
+   
+    background: url("../assets/edvbackground.jpg") no-repeat center center/cover;
+    position: relative;
+  }
