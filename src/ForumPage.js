@@ -3,27 +3,68 @@ import "./css/ForumPage.css";
 import { useParams } from "react-router-dom";
 import { postsData, forums } from "./loadData";
 import Header from "./Header";
+import { FaTrashAlt } from "react-icons/fa";
 
 const ForumPage = () => {
     var { forum_id } = useParams();
-    forum_id = parseInt(forum_id);
+    forum_id = parseInt(forum_id, 10);
 
     const [posts, setPosts] = useState(postsData.filter(post => post.forum_id === forum_id));
-    const [newPostContent, setNewPostContent] = useState("");
+    const [openComments, setOpenComments] = useState(new Array(postsData.length).fill(false));
+    const [newPost, setNewPost] = useState({ title: "", content: "", link: "" });
+    const [newComment, setNewComment] = useState({});
 
-    const handleNewPostSubmit = (e) => {
+    // Handle adding a new post
+    const handleAddPost = (e) => {
         e.preventDefault();
-        if (newPostContent.trim()) {
-            const newPost = {
+        if (newPost.title.trim() && newPost.content.trim()) {
+            const postToAdd = {
                 post_id: posts.length + 1,
-                posted_by: "Current User",
+                posted_by: "Current User", // Assuming a logged-in user
                 posted_date: new Date().toLocaleDateString(),
                 posted_time: new Date().toLocaleTimeString(),
                 forum_id: forum_id,
-                content: newPostContent,
+                title: newPost.title,
+                content: newPost.content,
+                link: newPost.link || "",
+                comments: []
             };
-            setPosts([...posts, newPost]);
-            setNewPostContent("");
+            setPosts([...posts, postToAdd]);
+            setNewPost({ title: "", content: "", link: "" }); // Clear the form after submission
+        }
+    };
+
+    // Handle deleting a post
+    const handleDeletePost = (postId) => {
+        const updatedPosts = posts.filter(post => post.post_id !== postId);
+        setPosts(updatedPosts);
+    };
+
+    const handlePostChange = (e) => {
+        const { name, value } = e.target;
+        setNewPost({ ...newPost, [name]: value });
+    };
+
+    const toggleComments = (index) => {
+        const updatedOpenComments = [...openComments];
+        updatedOpenComments[index] = !updatedOpenComments[index];
+        setOpenComments(updatedOpenComments);
+    };
+
+    const handleCommentChange = (index, e) => {
+        const { value } = e.target;
+        setNewComment((prev) => ({ ...prev, [index]: value }));
+    };
+
+    const handleAddComment = (index) => {
+        if (newComment[index]?.trim()) {
+            const updatedPosts = [...posts];
+            updatedPosts[index].comments.push({
+                username: "You",
+                text: newComment[index],
+            });
+            setPosts(updatedPosts);
+            setNewComment((prev) => ({ ...prev, [index]: "" }));
         }
     };
 
@@ -31,38 +72,82 @@ const ForumPage = () => {
         <>
             <Header />
             <div className="forum-page">
-                {console.log(forums)}
                 <h2>{forums[forum_id - 1].forum_name}</h2>
                 <p>{forums[forum_id - 1].forum_description}</p>
 
                 <h3>Posts</h3>
-                <div className="posts-list">
-                    {console.log(posts)}
-                    {posts.length > 0 ? (
-                        posts.map((post) => (
-                            <div className="post-box" key={post.post_id}>
-                                <h4>{post.posted_by}</h4>
-                                <p>{post.content}</p>
-                                <small>
-                                    Posted on {post.posted_date} at {post.posted_time}
-                                </small>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No posts available. Be the first to post!</p>
-                    )}
-                </div>
 
-                <div className="new-post-form">
-                    <h3>Create a New Post</h3>
-                    <form onSubmit={handleNewPostSubmit}>
-                        <textarea
-                            value={newPostContent}
-                            onChange={(e) => setNewPostContent(e.target.value)}
-                            placeholder="Write your post here..."
-                        />
-                        <button type="submit">Submit Post</button>
-                    </form>
+                <div className="posts-section">
+                    {posts.map((post, index) => (
+                        <div key={index} className="post-item">
+                            <div className="post-username">{post.posted_by}</div>
+                            <div className="post-content">
+                                <div className="post-details">
+                                    <h4>{post.title}</h4>
+                                    <p>{post.content}</p>
+                                    {post.link && (
+                                        <a className="read-more" href={post.link} target="_blank" rel="noopener noreferrer">Read More</a>
+                                    )}
+                                </div>
+                                <button onClick={() => toggleComments(index)}>Comments ({post.comments.length})</button>
+
+                                {/* Delete Icon - Positioned in the right */}
+                                <button
+                                    className="delete-post-button"
+                                    onClick={() => handleDeletePost(post.post_id)}
+                                >
+                                    <FaTrashAlt size={15} color="red" />
+                                </button>
+                            </div>
+                            {openComments[index] && (
+                                <div className="comments-section">
+                                    {post.comments.map((comment, commentIndex) => (
+                                        <div key={commentIndex} className="comment">
+                                            <span className="comment-username">{comment.username}:</span> {comment.text}
+                                        </div>
+                                    ))}
+                                    <div className="new-comment">
+                                        <input
+                                            type="text"
+                                            value={newComment[index] || ""}
+                                            onChange={(e) => handleCommentChange(index, e)}
+                                            placeholder="Add a comment..."
+                                        />
+                                        <button onClick={() => handleAddComment(index)}>Add</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                    <hr></hr>
+                    <div className="new-post-form">
+                        <form onSubmit={handleAddPost}>
+                            <input
+                                type="text"
+                                name="title"
+                                value={newPost.title}
+                                onChange={handlePostChange}
+                                placeholder="Post Title"
+                                required
+                            />
+                            <textarea
+                                name="content"
+                                value={newPost.content}
+                                onChange={handlePostChange}
+                                placeholder="Post Description"
+                                required
+                            ></textarea>
+                            <input
+                                type="text"
+                                name="link"
+                                value={newPost.link}
+                                onChange={handlePostChange}
+                                placeholder="Post Link (optional)"
+                            />
+                            <br></br>
+                            <button type="submit">Add Post</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>
