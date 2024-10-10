@@ -18,6 +18,7 @@ import Notifications from "./Notifications";
 import MentorshipProgram from "./MentorshipProgram";
 import MentorshipRequests from "./MentorshipRequests";
 import ViewYourMentees from "./ViewYourMentees";
+import ProfilePage from "./Profile";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -33,12 +34,13 @@ root.render(
         <Route path="/build-resume" element={<BuildYourResume />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/groups" element={<GroupsPage/>}/>
-        <Route path="/chats" element={<ChatApp/>}/>
-        <Route path="/notifications" element={<Notifications/>}/>
-        <Route path="/requests" element={<MentorshipRequests/>}/>
-        <Route path="/mentorship-program" element={<MentorshipProgram/>}/>
-        <Route path="/your-mentees" element={<ViewYourMentees/>}/>
+        <Route path="/groups" element={<GroupsPage />} />
+        <Route path="/chats" element={<ChatApp />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/requests" element={<MentorshipRequests />} />
+        <Route path="/mentorship-program" element={<MentorshipProgram />} />
+        <Route path="/your-mentees" element={<ViewYourMentees />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   </React.StrictMode>
