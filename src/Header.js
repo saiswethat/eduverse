@@ -20,14 +20,12 @@ function Header() {
             <a href="/events">Events</a>
           </li>
 
-
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">
               Resources
             </a>
             <div className="header-dropdown-content">
               <a href="/mentorship-program">Mentorship Program</a>
-
 
               <div className="header-nested-dropdown">
                 <a href="#" className="header-dropdown-toggle">
@@ -60,6 +58,9 @@ function Header() {
           <li>
             <a href="/your-mentees">Your Mentees</a>
           </li>
+          <li>
+            <a href="/contact">Contact Us</a>
+          </li>
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">
               Name
@@ -71,7 +72,7 @@ function Header() {
                 Notifications
                 <span className="notification-badge">3</span>
               </a>
-              <a href="/settings">Notifications & Settings</a>
+              <a href="/settings">Settings</a>
               <a href="/logout">Logout</a>
             </div>
           </li>

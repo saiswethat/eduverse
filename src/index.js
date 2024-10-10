@@ -24,7 +24,7 @@ import Admin_home from "./Admin_home";
 import ManageUsers from "./ManageUsers";
 import Forums from "./Forums";
 import ForumPage from "./ForumPage";
-
+import Contact from "./Contact";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -48,12 +48,13 @@ root.render(
         <Route path="/mentorship-program" element={<MentorshipProgram />} />
         <Route path="/your-mentees" element={<ViewYourMentees />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/forums" element={<Forums />}/>
-        <Route path="/forums/:forum_id" element={<ForumPage />}/>
+        <Route path="/forums" element={<Forums />} />
+        <Route path="/forums/:forum_id" element={<ForumPage />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/tips/:id" element={<FullTipPage />} />
-        <Route path="/admin_home" element={<Admin_home/>}/>
-        <Route path="/manage_users" element={<ManageUsers/>}/>
+        <Route path="/admin_home" element={<Admin_home />} />
+        <Route path="/manage_users" element={<ManageUsers />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   </React.StrictMode>
