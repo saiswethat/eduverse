@@ -1,0 +1,119 @@
+.mentees-container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;  /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure no overflow issues */
+}
+
+.mentees-heading {
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.mentees-list {
+    display: flex;
+    flex-direction: column; /* Stack the cards vertically */
+    gap: 20px; /* Space between the cards */
+}
+
+.mentee-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the card fits within the container */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    gap: 10px; /* Space between the card content */
+}
+
+.mentee-card-content {
+    display: flex;
+    justify-content: space-between; /* Ensure left and right alignment */
+    align-items: center;
+}
+
+.mentee-left, .mentee-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.mentee-left {
+    flex-basis: 70%; /* Left side takes up 70% of available space */
+}
+
+.mentee-right {
+    flex-basis: 30%; /* Right side takes up 30% of available space */
+    align-items: flex-end;
+}
+
+.mentee-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #73c2ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mentee-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.mentee-reason {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd; /* Optional: a separator */
+    font-size: 14px;
+}
+
+.mentee-actions {
+    display: flex;
+    align-items: center;
+}
+
+.delete-icon {
+    font-size: 20px;
+    color: #ff4d4f;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+}
+
+.no-mentees-message {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+    font-family: 'Jua', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .mentee-card {
+        width: 100%; 
+    }
+
+    .mentee-card-content {
+        flex-direction: column; /* Stack the content vertically on smaller screens */
+    }
+
+    .mentee-right {
+        align-items: flex-start;
+    }
+}

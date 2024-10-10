@@ -48,6 +48,12 @@ function Header() {
           <li>
             <a href="/chats">Chat</a>
           </li>
+          <li>
+            <a href="/requests">Requests</a>
+          </li>
+          <li>
+            <a href="/your-mentees">Your Mentees</a>
+          </li>
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">Name</a>
             <div className="header-dropdown-content">

@@ -16,6 +16,8 @@ import GroupsPage from "./GroupsPage";
 import ChatApp from "./ChatApp";
 import Notifications from "./Notifications";
 import MentorshipProgram from "./MentorshipProgram";
+import MentorshipRequests from "./MentorshipRequests";
+import ViewYourMentees from "./ViewYourMentees";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -34,7 +36,9 @@ root.render(
         <Route path="/groups" element={<GroupsPage/>}/>
         <Route path="/chats" element={<ChatApp/>}/>
         <Route path="/notifications" element={<Notifications/>}/>
+        <Route path="/requests" element={<MentorshipRequests/>}/>
         <Route path="/mentorship-program" element={<MentorshipProgram/>}/>
+        <Route path="/your-mentees" element={<ViewYourMentees/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
