@@ -61,8 +61,7 @@ const ViewYourMentees = () => {
 
 
   return (
-    <>
-      return (
+   
   <>
     <Header />
     <div className="mentees-container">
@@ -111,8 +110,7 @@ const ViewYourMentees = () => {
   </>
 );
 
-    </>
-  );
+    
 };
 
 export default ViewYourMentees;

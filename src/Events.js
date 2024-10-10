@@ -57,8 +57,9 @@ function Events() {
   
 
   return (
+    <> <Header />
     <div className="events">
-      <Header />
+     
       <h2 className="event-center-event">Events</h2>
       <SearchBar onSearch={setSearchTerm} />
       <div className="button-center">
@@ -86,6 +87,7 @@ function Events() {
         onCreate={handleCreateEvent}
       />
     </div>
+    </>
   );
 }
 

@@ -12,8 +12,34 @@
   transition: transform 0.2s ease;
 }
 
-.jobListing-job-card:hover {
-  transform: translateY(-3px);
+.jobListing-button-container {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.jobListing-interested-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.jobListing-interested-button:hover {
+  background-color: #4caf50;
+  color: white;;
+}
+
+.jobListing-delete-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 18px;
 }
 
 .jobListing-job-card__info {
@@ -42,24 +68,22 @@
   margin-top: 8px;
 }
 
-.jobListing-interested-button-container {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.jobListing-interested-button {
-  background-color: #00ff00;
-  color: #ff0000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
 .jobListing-job-card__location {
   font-size: 14px;
   color: #000;
   margin: -6px 0;
+}
+
+@media (max-width: 768px) {
+  .jobListing-job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jobListing-button-container {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 10px;
+  }
 }
