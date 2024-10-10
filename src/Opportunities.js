@@ -63,70 +63,69 @@ function Opportunities() {
 
   return (
     <>
-    <Header />
-    <div className="opportunity-opportunities">
-      
-      <SearchBar onSearch={setSearchTerm} />
-      <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
-         Create Opportunity
-      </button>
-      <div className="opportunity-job-listings">
-        {filteredListings.map((job, index) => (
-          <JobListing
-            key={index}
-            title={job.title}
-            company={job.company}
-            location={job.location}
-            description={job.description}
-            link={job.link}
-            onDelete={() => handleDelete(index)}
-          />
-        ))}
-      </div>
-      {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>Create Opportunity</h2>
-            <input
-              type="text"
-              placeholder="Job Title"
-              value={newJob.title}
-              onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
-              required
+      <Header />
+      <div className="opportunity-opportunities">
+        <SearchBar onSearch={setSearchTerm} />
+        <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
+          Create Opportunity
+        </button>
+        <div className="opportunity-job-listings">
+          {filteredListings.map((job, index) => (
+            <JobListing
+              key={index}
+              title={job.title}
+              company={job.company}
+              location={job.location}
+              description={job.description}
+              link={job.link}
+              onDelete={() => handleDelete(index)}
             />
-            <input
-              type="text"
-              placeholder="Company"
-              value={newJob.company}
-              onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Location"
-              value={newJob.location}
-              onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
-              required
-            />
-            <textarea
-              placeholder="Description"
-              value={newJob.description}
-              onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Job Link"
-              value={newJob.link}
-              onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
-              required
-            />
-            <button onClick={handleCreateOpportunity}>Create</button>
-            <button onClick={() => setModalOpen(false)}>Cancel</button>
-          </div>
+          ))}
         </div>
-      )}
-    </div>
+        {isModalOpen && (
+          <div className="opp-modal-overlay">
+            <div className="opp-modal-content">
+              <h2>Create Opportunity</h2>
+              <input
+                type="text"
+                placeholder="Job Title"
+                value={newJob.title}
+                onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Company"
+                value={newJob.company}
+                onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Location"
+                value={newJob.location}
+                onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
+                required
+              />
+              <textarea
+                placeholder="Description"
+                value={newJob.description}
+                onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Job Link"
+                value={newJob.link}
+                onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
+                required
+              />
+              <button onClick={handleCreateOpportunity} className="opp-create-button">Create</button>
+              <button onClick={() => setModalOpen(false)} className="opp-cancel-button">Cancel</button>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }
