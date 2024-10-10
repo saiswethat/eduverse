@@ -172,7 +172,7 @@
       width: 90%;
     }
   
-    button {
+    .resume-button {
       width: 100%; /* Make buttons full-width on smaller screens */
       margin: 5px 0;
     }
