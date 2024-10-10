@@ -300,3 +300,15 @@
 .delete-group-button:hover {
     background-color: orangered;
 }
+.group-delete-post-button {
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    background: none;
+    margin-left: auto;
+  }
+  
+  .group-delete-post-button:hover {
+    opacity: 0.7;
+    background-color: white;
+  }

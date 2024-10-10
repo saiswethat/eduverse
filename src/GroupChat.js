@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./css/GroupChat.css";
 import MemberCard from "./MemberCard";
+import { FaTrashAlt } from "react-icons/fa";
 
 function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
     const initialPosts = Array.from({ length: 10 }, (_, index) => {
@@ -85,10 +86,13 @@ function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
             setNewComment((prev) => ({ ...prev, [index]: "" }));
         }
     };
+    const handleDeletePost = (index) => {
+        const updatedPosts = posts.filter((_, postIndex) => postIndex !== index);
+        setPosts(updatedPosts);
+    };
 
     const uniqueMembers = Array.from(new Set([...posts.map(post => post.username), "You"]));
 
-    // Scroll to the bottom of the chat messages whenever chatMessages changes
     useEffect(() => {
         if (chatMessagesEndRef.current) {
             chatMessagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -115,7 +119,6 @@ function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
                                 <span className="sender-name">{message.sender}:</span> {message.text}
                             </div>
                         ))}
-                        {/* This div acts as an anchor to scroll to */}
                         <div ref={chatMessagesEndRef} />
                     </div>
                     <div className="chat-input">
@@ -143,6 +146,12 @@ function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
                                     )}
                                 </div>
                                 <button onClick={() => toggleComments(index)}>Comments ({post.comments.length})</button>
+                                <button
+                                    className="group-delete-post-button"
+                                    onClick={() => handleDeletePost(index)}
+                                >
+                                    <FaTrashAlt size={15} color="red" />
+                                </button>
                             </div>
                             {openComments[index] && (
                                 <div className="comments-section">
@@ -159,6 +168,7 @@ function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
                                             placeholder="Add a comment..."
                                         />
                                         <button onClick={() => handleAddComment(index)}>Add</button>
+                                        
                                     </div>
                                 </div>
                             )}
