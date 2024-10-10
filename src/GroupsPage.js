@@ -137,8 +137,8 @@ function GroupsPage() {
           </div>
         )}
         {modalOpen && (
-          <div className="modal-overlay">
-            <div className="modal-content">
+          <div className="group-modal-overlay">
+            <div className="group-modal-content">
               <h3>Create Group</h3>
               <form onSubmit={handleCreateGroup}>
                 <input
@@ -147,7 +147,7 @@ function GroupsPage() {
                   placeholder="Group Name"
                   value={newGroup.name}
                   onChange={handleGroupInputChange}
-                  className="modal-input"
+                  className="group-modal-input"
                   required
                 />
                 <textarea
@@ -155,7 +155,7 @@ function GroupsPage() {
                   placeholder="Group Description"
                   value={newGroup.description}
                   onChange={handleGroupInputChange}
-                  className="modal-textarea"
+                  className="group-modal-textarea"
                   required
                 />
                 <input
@@ -164,7 +164,7 @@ function GroupsPage() {
                   placeholder="Academic Interest"
                   value={newGroup.academicInterest}
                   onChange={handleGroupInputChange}
-                  className="modal-input"
+                  className="group-modal-input"
                   required
                 />
                 <label htmlFor="members">Select Members:</label>
@@ -173,17 +173,17 @@ function GroupsPage() {
                   placeholder="Search People"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="modal-input"
+                  className="group-modal-input"
                 />
-                <select id="members" multiple onChange={handleMemberChange} className="modal-select">
+                <select id="members" multiple onChange={handleMemberChange} className="group-modal-select">
                   {filteredUsers.map((user) => (
                     <option key={user.id} value={user.name}>
                       {user.name}
                     </option>
                   ))}
                 </select>
-                <button type="submit" className="modal-button">Create</button>
-                <button type="button" onClick={toggleModal} className="modal-button">Cancel</button>
+                <button type="submit" className="group-modal-button">Create</button>
+                <button type="button" onClick={toggleModal} className="group-modal-button">Cancel</button>
               </form>
             </div>
           </div>
