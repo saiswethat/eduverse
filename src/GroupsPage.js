@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./css/GroupsPage.css"; // Assuming you have a CSS file for styling
-import GroupChat from "./GroupChat"; // The chat component
+import "./css/GroupsPage.css";
+import GroupChat from "./GroupChat";
 import Header from "./Header";
 
-// Sample user data for member selection
 const usersData = [
   { id: 1, name: "Alice" },
   { id: 2, name: "Bob" },
@@ -13,42 +12,18 @@ const usersData = [
 ];
 
 const groupsData = [
-  { 
-    id: 1, 
-    name: "AI & Machine Learning", 
-    description: "Discuss AI trends, ML techniques.", 
-    academicInterest: "Artificial Intelligence" 
-  },
-  { 
-    id: 2, 
-    name: "Career Development", 
-    description: "Grow your career with advice and resources.", 
-    academicInterest: "Career Counseling" 
-  },
-  { 
-    id: 3, 
-    name: "Academic Research", 
-    description: "Collaborate on academic papers and projects.", 
-    academicInterest: "Research Methodology" 
-  },
-  { 
-    id: 4, 
-    name: "Web Development", 
-    description: "Talk about web development tips and tools.", 
-    academicInterest: "Computer Science" 
-  },
+  { id: 1, name: "AI & Machine Learning", description: "Discuss AI trends, ML techniques.", academicInterest: "Artificial Intelligence" },
+  { id: 2, name: "Career Development", description: "Grow your career with advice and resources.", academicInterest: "Career Counseling" },
+  { id: 3, name: "Academic Research", description: "Collaborate on academic papers and projects.", academicInterest: "Research Methodology" },
+  { id: 4, name: "Web Development", description: "Talk about web development tips and tools.", academicInterest: "Computer Science" },
 ];
 
 function GroupsPage() {
   const [joinedGroups, setJoinedGroups] = useState([groupsData[0]]);
   const [availableGroups, setAvailableGroups] = useState(groupsData.filter(group => group.id !== 1));
   const [selectedGroup, setSelectedGroup] = useState(null);
-  
-  // New state for the Create Group modal
   const [modalOpen, setModalOpen] = useState(false);
   const [newGroup, setNewGroup] = useState({ name: "", description: "", academicInterest: "", members: [] });
-  
-  // New state for search
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleGroupClick = (group) => {
@@ -66,8 +41,8 @@ function GroupsPage() {
 
   const handleLeaveGroup = (groupToLeave) => {
     setJoinedGroups(joinedGroups.filter(group => group.id !== groupToLeave.id));
-    setAvailableGroups([...availableGroups, groupToLeave]); 
-    setSelectedGroup(null); 
+    setAvailableGroups([...availableGroups, groupToLeave]);
+    setSelectedGroup(null);
   };
 
   const handleDeleteGroup = (groupToDelete) => {
@@ -78,8 +53,8 @@ function GroupsPage() {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
     if (modalOpen) {
-      setNewGroup({ name: "", description: "", academicInterest: "", members: [] }); // Reset state
-      setSearchTerm(""); // Reset search term when modal closes
+      setNewGroup({ name: "", description: "", academicInterest: "", members: [] });
+      setSearchTerm("");
     }
   };
 
@@ -95,33 +70,26 @@ function GroupsPage() {
   };
 
   const handleCreateGroup = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     if (newGroup.name.trim() && newGroup.description.trim()) {
-      const groupId = Math.max(...groupsData.map(g => g.id)) + 1; // Generate a new ID
-      const createdGroup = { ...newGroup, id: groupId }; // Create the new group
-      setJoinedGroups([...joinedGroups, createdGroup]); // Add to joined groups
-      setAvailableGroups(availableGroups.filter(group => group.id !== createdGroup.id)); // Remove from available
-      toggleModal(); // Close modal
+      const groupId = Math.max(...groupsData.map(g => g.id)) + 1;
+      const createdGroup = { ...newGroup, id: groupId };
+      setJoinedGroups([...joinedGroups, createdGroup]);
+      setAvailableGroups(availableGroups.filter(group => group.id !== createdGroup.id));
+      toggleModal();
     }
   };
 
-  // Filter users based on search term
-  const filteredUsers = usersData.filter(user =>
-    user.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredUsers = usersData.filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
     <>
       <Header />
       <div className="groups-page">
         <h1>Interest-Based Groups</h1>
-
-        {!selectedGroup && (
-          <button className="create-group-button" onClick={toggleModal}>
-            Create Group
-          </button>
-        )}
-
+        <button className="create-group-button" onClick={toggleModal}>
+          Create Group
+        </button>
         {selectedGroup ? (
           <GroupChat 
             group={selectedGroup} 
@@ -147,7 +115,6 @@ function GroupsPage() {
                 )}
               </div>
             </div>
-
             <div className="groups-section">
               <h2 className="text-center">You might like these Groups</h2>
               <div className="groups-list">
@@ -169,7 +136,6 @@ function GroupsPage() {
             </div>
           </div>
         )}
-
         {modalOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -202,8 +168,6 @@ function GroupsPage() {
                   required
                 />
                 <label htmlFor="members">Select Members:</label>
-                
-                {/* Search Input for Members */}
                 <input
                   type="text"
                   placeholder="Search People"
@@ -211,7 +175,6 @@ function GroupsPage() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="modal-input"
                 />
-                
                 <select id="members" multiple onChange={handleMemberChange} className="modal-select">
                   {filteredUsers.map((user) => (
                     <option key={user.id} value={user.name}>
@@ -219,7 +182,6 @@ function GroupsPage() {
                     </option>
                   ))}
                 </select>
-                
                 <button type="submit" className="modal-button">Create</button>
                 <button type="button" onClick={toggleModal} className="modal-button">Cancel</button>
               </form>
