@@ -22,13 +22,17 @@ function Header() {
 
           {/* Resources Dropdown */}
           <li className="header-dropdown">
-            <a href="#" className="header-dropdown-toggle">Resources</a>
+            <a href="#" className="header-dropdown-toggle">
+              Resources
+            </a>
             <div className="header-dropdown-content">
               <a href="/mentorship-program">Mentorship Program</a>
 
               {/* Career Development Submenu */}
               <div className="header-nested-dropdown">
-                <a href="#" className="header-dropdown-toggle">Career Development</a>
+                <a href="#" className="header-dropdown-toggle">
+                  Career Development
+                </a>
                 <div className="header-nested-content">
                   <a href="/articles">Articles</a>
                   <a href="/tips">Tips</a>
@@ -39,7 +43,9 @@ function Header() {
           </li>
 
           <li className="header-dropdown">
-            <a href="#" className="header-dropdown-toggle">Networking</a>
+            <a href="#" className="header-dropdown-toggle">
+              Networking
+            </a>
             <div className="header-dropdown-content">
               <a href="/groups">Groups</a>
               <a href="/forums">Forums</a>
@@ -55,11 +61,15 @@ function Header() {
             <a href="/your-mentees">Your Mentees</a>
           </li>
           <li className="header-dropdown">
-            <a href="#" className="header-dropdown-toggle">Name</a>
+            <a href="#" className="header-dropdown-toggle">
+              Name
+            </a>
             <div className="header-dropdown-content">
               <a href="/profile">Profile</a>
-              <a href="/notifications"> Notifications
-              <span className="notification-badge">3</span>
+              <a href="/notifications">
+                {" "}
+                Notifications
+                <span className="notification-badge">3</span>
               </a>
               <a href="/settings">Notifications & Settings</a>
               <a href="/logout">Logout</a>
