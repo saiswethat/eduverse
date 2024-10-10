@@ -22,6 +22,13 @@
   flex: 1;
 }
 
+.event-card__date-time {
+  display: flex;
+  flex-direction: column; /* Align date, time, and button vertically */
+  align-items: flex-end; /* Align to the right */
+  margin-left: 20px; /* Add spacing between info and date/time */
+}
+
 .event-card__title {
   font-size: 18px;
   margin: 0;
@@ -36,21 +43,31 @@
   margin-top: 5px;
 }
 
-.event-card__description {
+.event-card__time {
   font-size: 14px;
-  color: #333;
-  margin-top: 8px;
+  color: #555; /* Optional: Change the color to differentiate */
+  margin: 5px 0; /* Add margin for spacing */
+}
+
+.event-card__link {
+  margin-top: 5px;
+}
+
+.event-card__link a {
+  color: #00f; /* Link color */
+  
+}
+.event-card__link a:hover{
+  text-decoration: underline; /* Underline links */
 }
 
 .event-interested-button-container {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  margin-top: 10px; /* Add margin for spacing between time and button */
 }
 
 .event-interested-button {
-  background-color: #00ff00;
-  color: #ff0000;
+  background-color: #007bff;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -62,4 +79,14 @@
   font-size: 14px;
   color: #000;
   margin: -6px 0;
+}
+.event-delete-icon {
+  cursor: pointer; /* Pointer cursor on hover */
+  color: red; /* Color for delete icon */
+  transition: color 0.2s; /* Smooth color transition */
+  margin-top: 10px; /* Space above the icon */
+}
+
+.event-delete-icon:hover {
+  color: darkred; /* Darker color on hover */
 }
