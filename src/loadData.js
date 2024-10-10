@@ -125,7 +125,10 @@ export const postsData = [
     posted_date: "2024-10-01",
     posted_time: "10:00 AM",
     forum_id: 1,
+    title: "Latest Trends in Machine Learning",
     content: "What are the latest trends in machine learning?",
+    link: "/forums/1/posts/1",
+    comments: []
   },
   {
     post_id: 2,
@@ -133,7 +136,10 @@ export const postsData = [
     posted_date: "2024-10-02",
     posted_time: "11:30 AM",
     forum_id: 1,
+    title: "Resources for Learning Reinforcement Learning",
     content: "Can anyone recommend good resources for learning reinforcement learning?",
+    link: "/forums/1/posts/2",
+    comments: []
   },
   {
     post_id: 3,
@@ -141,7 +147,10 @@ export const postsData = [
     posted_date: "2024-10-03",
     posted_time: "1:00 PM",
     forum_id: 1,
+    title: "Best Practices for Deploying ML Models",
     content: "What are the best practices for deploying machine learning models?",
+    link: "/forums/1/posts/3",
+    comments: []
   },
   {
     post_id: 4,
@@ -149,7 +158,10 @@ export const postsData = [
     posted_date: "2024-10-04",
     posted_time: "9:15 AM",
     forum_id: 1,
+    title: "Improving Data Preprocessing Techniques",
     content: "How can I improve my data preprocessing techniques?",
+    link: "/forums/1/posts/4",
+    comments: []
   },
   {
     post_id: 5,
@@ -157,7 +169,10 @@ export const postsData = [
     posted_date: "2024-10-05",
     posted_time: "3:45 PM",
     forum_id: 2,
+    title: "Experience with Transfer Learning",
     content: "Does anyone have experience with transfer learning?",
+    link: "/forums/2/posts/5",
+    comments: []
   },
   {
     post_id: 6,
@@ -165,8 +180,11 @@ export const postsData = [
     posted_date: "2024-10-06",
     posted_time: "8:00 AM",
     forum_id: 2,
+    title: "Common Pitfalls in Supervised Learning",
     content: "What are the most common pitfalls in supervised learning?",
-  },
+    link: "/forums/2/posts/6",
+    comments: []
+  }
 ];
 
 
