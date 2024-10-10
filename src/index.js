@@ -10,6 +10,7 @@ import App from "./App";
 import Opportunities from "./Opportunities";
 import Articles from "./Articles";
 import Tips from "./Tips";
+import FullTipPage from "./FullTipPage";
 import BuildYourResume from "./BuildYourResume";
 import Events from "./Events";
 import GroupsPage from "./GroupsPage";
@@ -19,6 +20,12 @@ import MentorshipProgram from "./MentorshipProgram";
 import MentorshipRequests from "./MentorshipRequests";
 import ViewYourMentees from "./ViewYourMentees";
 import ProfilePage from "./Profile";
+import Admin_home from "./Admin_home";
+import ManageUsers from "./ManageUsers";
+import Forums from "./Forums";
+import ForumPage from "./ForumPage";
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -41,6 +48,12 @@ root.render(
         <Route path="/mentorship-program" element={<MentorshipProgram />} />
         <Route path="/your-mentees" element={<ViewYourMentees />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/forums" element={<Forums />}/>
+        <Route path="/forums/:forum_id" element={<ForumPage />}/>
+        <Route path="/tips" element={<Tips />} />
+        <Route path="/tips/:id" element={<FullTipPage />} />
+        <Route path="/admin_home" element={<Admin_home/>}/>
+        <Route path="/manage_users" element={<ManageUsers/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
