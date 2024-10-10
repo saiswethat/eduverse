@@ -1,178 +1,114 @@
-.home-page {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 40px;
-  background: url("../assets/edvbackground.jpg") no-repeat center center/cover;
-  position: relative;
-}
-
-.header-text {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-weight: bolder;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-}
-
-.left-section {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.right-section {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.tile {
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 18px;
-}
-
-.black-tile {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-}
-
-.white-tile {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #000000;
-}
-
-.center-logo {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  margin-top: 150px;
-}
-
-.eduverse-logo {
-  width: 200px;
-  height: auto;
-  margin-top: auto;
-}
-
-@media (max-width: 1024px) {
-  .home-page {
-    flex-direction: column;
-  }
-
-  .left-section,
-  .right-section {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .center-logo {
-    top: 60%;
-  }
-
-  .header-text {
-    top: 5%;
-    font-size: 24px;
-  }
-}
-
-/* Updated CSS with home prefixes */
+/* General layout styling with prefix */
 .home-home-page {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 40px; /* Space between columns */
   padding: 40px;
-  background: url("../assets/edvbackground.jpg") no-repeat center center/cover;
-  position: relative;
+  background-color: rgba(168, 237, 215, 0.2); /* Light grayish-blue background */
+  min-height: 100vh;
+  align-items: start;
 }
-
-.home-header-text {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-weight: bolder;
-  color: rgba(255, 255, 255, 0.8);
+.text-home-center{
   text-align: center;
 }
 
-.home-left-section {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Section styling with prefix */
+.home-home-section {
+  background: linear-gradient(145deg, #ffffff, #f9f9f9); /* Subtle gradient for modern look */
+  border-radius: 15px; /* Rounded corners */
+  padding: 30px; /* Increased padding for cleaner look */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-home-section:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.home-h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #ececec; /* Line under heading for emphasis */
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.home-event-card p,
+.home-job-card p,
+.home-link-card p {
+  margin: 15px 0;
+  font-size: 1.1rem; /* Slightly larger for readability */
+  color: #555; /* Soft gray for text */
+  line-height: 1.6;
+}
+
+.home-link-card a {
+  color: #3498db; /* Vibrant blue for links */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.home-link-card a:hover {
+  color: #2980b9; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+/* Welcome section styling with prefix */
+.home-welcome-section {
+  grid-column: 1 / span 3; /* Make the welcome section span all columns */
   text-align: center;
+  padding-bottom: 40px;
 }
 
-.home-right-section {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
+.home-welcome-title {
+  font-size: 3rem; /* Increased size for a prominent welcome title */
+  color: #2c3e50; /* Dark blue for title */
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
-.home-tile {
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 18px;
+.home-welcome-message {
+  font-size: 1.3rem;
+  color: #555; /* Soft gray for text */
+  margin-bottom: 40px;
+  line-height: 1.8;
 }
 
-.home-black-tile {
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+.home-additional-content p,
+.home-additional-content ul {
+  font-size: 1.1rem;
+  color: #666;
 }
 
-.home-white-tile {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #000000;
+.home-additional-content ul {
+  list-style-type: none; /* Remove bullet points */
+  padding-left: 0;
 }
 
-.home-center-logo {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  margin-top: 150px;
+.home-additional-content ul li {
+  margin-bottom: 10px;
 }
 
-.home-eduverse-logo {
-  width: 200px;
-  height: auto;
-  margin-top: auto;
+/* Welcome image styling */
+.home-welcome-image {
+  display: block;            /* Make it a block element */
+  margin: 20px auto;         /* Center the image horizontally */
+  width: 100%;
+  max-width: 600px;          /* Limit the max width */
+  height: auto;              /* Maintain aspect ratio */
+  border-radius: 15px;       /* Slightly rounded image corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
 }
 
+/* Mobile responsiveness with prefix */
 @media (max-width: 1024px) {
   .home-home-page {
-    flex-direction: column;
+    grid-template-columns: 1fr; /* Stacks sections vertically */
   }
 
-  .home-left-section,
-  .home-right-section {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .home-center-logo {
-    top: 60%;
-  }
-
-  .home-header-text {
-    top: 5%;
-    font-size: 24px;
+  .home-home-section {
+    margin-bottom: 30px; /* Space between stacked sections */
   }
 }
