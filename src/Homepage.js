@@ -44,8 +44,8 @@ function HomePage() {
       <div className="home-home-section home-quick-links">
         <h2 className="home-h2">Quick Links</h2>
         <div className="home-link-card">
-          <p><a href="/mentorship">Join Mentorship Program</a></p>
-          <p><a href="/resume-builder">Resume Builder Tool</a></p>
+          <p><a href="/mentorship-program">Join Mentorship Program</a></p>
+          <p><a href="/build-resume">Resume Builder Tool</a></p>
           <p><a href="/forums">Forums</a></p>
           <p><a href="/groups">Groups</a></p>
         </div>

@@ -1,60 +1,18 @@
 import React, { useState } from "react";
-import "./css/Articles.css"; // Updated CSS file name
+import "./css/Articles.css";
 import Header from "./Header";
-import SearchBar from "./SearchBar";  // Import the SearchBar component
-import { FaTrashAlt } from 'react-icons/fa';  // Import FontAwesome delete icon
+import SearchBar from "./SearchBar";
+import { FaTrashAlt } from 'react-icons/fa';
 
 function Articles() {
   const [showForm, setShowForm] = useState(false);
   const [articles, setArticles] = useState([
-    {
-      id: 1,
-      name: "The Importance of Career Mentorship",
-      postedBy: "John Doe",
-      date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.",
-      link: "#",
-    },
-    {
-      id: 2,
-      name: "Top 5 Tips for Job Interviews",
-      postedBy: "Jane Smith",
-      date: "10/03/2024",
-      description: "These five tips will help you nail your next job interview and land your dream job.",
-      link: "#",
-    },
-    {
-      id: 3,
-      name: "Building an Effective Resume",
-      postedBy: "Chris Lee",
-      date: "10/01/2024",
-      description: "Discover how to craft a professional resume that catches the eye of recruiters.",
-      link: "#",
-    },
-    {
-      id: 4,
-      name: "The Importance of Career Mentorship",
-      postedBy: "John Doe",
-      date: "10/02/2024",
-      description: "Learn how mentorship can play a crucial role in career development and success.",
-      link: "#",
-    },
-    {
-      id: 5,
-      name: "Top 5 Tips for Job Interviews",
-      postedBy: "Jane Smith",
-      date: "10/03/2024",
-      description: "These five tips will help you nail your next job interview and land your dream job.",
-      link: "#",
-    },
-    {
-      id: 6,
-      name: "Building an Effective Resume",
-      postedBy: "Chris Lee",
-      date: "10/01/2024",
-      description: "Discover how to craft a professional resume that catches the eye of recruiters.",
-      link: "#",
-    },
+    { id: 1, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
+    { id: 2, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
+    { id: 3, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
+    { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
+    { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
+    { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -66,7 +24,7 @@ function Articles() {
   const handleCreateArticle = (event) => {
     event.preventDefault();
     const newArticle = {
-      id: articles.length + 1,  // Create a unique ID
+      id: articles.length + 1,
       name: event.target.name.value,
       postedBy: event.target.postedBy.value,
       description: event.target.description.value,
@@ -74,10 +32,9 @@ function Articles() {
       date: new Date().toLocaleDateString(),
     };
     setArticles([...articles, newArticle]);
-    setShowForm(false); // Close the form after submission
+    setShowForm(false);
   };
 
-  // Function to handle article deletion
   const handleDeleteArticle = (id) => {
     const updatedArticles = articles.filter((article) => article.id !== id);
     setArticles(updatedArticles);
@@ -93,15 +50,10 @@ function Articles() {
       <Header />
       <div className="articles-articles-page">
         <h1>Articles</h1>
-
-        {/* Add SearchBar */}
         <SearchBar onSearch={handleSearch} />
-
         <button className="articles-create-article-button" onClick={() => setShowForm(true)}>
           Create Article
         </button>
-
-        {/* Form modal */}
         {showForm && (
           <div className="articles-form-overlay">
             <div className="articles-form-popup">
@@ -131,7 +83,6 @@ function Articles() {
             </div>
           </div>
         )}
-
         <div className="articles-articles-list">
           {filteredArticles.map((article) => (
             <div className="articles-article-card" key={article.id}>
@@ -146,7 +97,6 @@ function Articles() {
               <div className="articles-read-more">
                 <a href={article.link} target="_blank" rel="noopener noreferrer">Read More</a>
               </div>
-              {/* Delete button with icon */}
               <button className="articles-delete-button" onClick={() => handleDeleteArticle(article.id)}>
                 <FaTrashAlt size={20} color="red" />
               </button>

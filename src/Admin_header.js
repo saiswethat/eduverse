@@ -10,6 +10,9 @@ function Admin_Header() {
         </div>
         <nav className="admin_header-header__nav">
           <ul>
+          <li>
+              <a href="/admin_home">Home</a>
+            </li>
             <li>
               <a href="/manage_users">Users</a>
             </li>

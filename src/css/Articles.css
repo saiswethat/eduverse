@@ -4,9 +4,6 @@
 }
 
 .articles-create-article-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   background-color: #6ae485;
   color: white;
   padding: 10px 20px;
@@ -16,6 +13,9 @@
   cursor: pointer;
   transition: background-color 0.3s;
   z-index: 100;
+  width: calc(100% - 40px);
+  max-width: 300px;
+  margin: 10px auto;
 }
 
 .articles-create-article-button:hover {
@@ -36,14 +36,14 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid transparent; /* Default border is transparent */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Add border transition */
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .articles-article-card:hover {
-  transform: scale(1.05); /* Scale the card slightly */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-  border: 1px solid black; /* Add black border on hover */
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
 }
 
 .articles-article-details-left {
@@ -57,13 +57,15 @@
 }
 
 .articles-read-more {
-  width: 40%;
   text-align: center;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .articles-read-more a {
   color: blue;
   text-decoration: none;
+  display: inline-block;
 }
 
 .articles-read-more a:hover {
@@ -86,45 +88,45 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 400px; /* Adjusted width for better alignment */
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  width: 400px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
 .articles-article-form {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
 }
 
 .articles-article-form label {
-  width: 100%; /* Ensures labels are full width */
-  margin-bottom: 5px; /* Space between label and input */
-  text-align: left; /* Aligns text to the left */
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .articles-article-form input,
 .articles-article-form textarea {
-  width: 100%; /* Full width of the form */
+  width: 100%;
   padding: 10px;
-  margin-bottom: 15px; /* Space between inputs */
+  margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  box-sizing: border-box; /* Include padding and border in width */
+  box-sizing: border-box;
 }
 
 .articles-article-form textarea {
-  resize: vertical; /* Allow vertical resizing */
-  height: 80px; /* Set a default height for the textarea */
+  resize: vertical;
+  height: 80px;
 }
 
 .articles-button-container {
-  display: flex; /* Use flexbox for horizontal alignment */
-  justify-content: space-between; /* Space buttons evenly */
-  margin-top: 10px; /* Space above buttons */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .articles-submit-button,
 .articles-close-button {
-  width: 48%; /* Set width for both buttons */
+  width: 48%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -132,17 +134,19 @@
 }
 
 .articles-submit-button {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
+  background-color: #4caf50;
+  color: white;
 }
+
 .articles-submit-button:hover {
   background-color: #096c0b;
 }
 
 .articles-close-button {
-  background-color: #e74c3c; /* Red background */
-  color: white; /* White text */
+  background-color: #e74c3c;
+  color: white;
 }
+
 .articles-close-button:hover {
   background-color: #c23329;
 }
@@ -150,15 +154,69 @@
 .articles-description {
   color: #708090;
 }
+
 .articles-delete-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   margin-left: 10px;
+  display: flex; 
 }
 
 .articles-delete-button:hover {
   opacity: 0.7;
   background-color: rgb(30, 155, 213);
+}
+
+@media (max-width: 768px) {
+  .articles-article-card {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .articles-article-details-left,
+  .articles-article-details-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .articles-create-article-button {
+    padding: 12px 15px;
+    font-size: 18px;
+  }
+
+  .articles-form-popup {
+    width: 90%;
+  }
+
+  .articles-article-form input,
+  .articles-article-form textarea {
+    font-size: 16px;
+  }
+
+  .articles-button-container {
+    flex-direction: column;
+  }
+
+  .articles-submit-button,
+  .articles-close-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .articles-delete-button {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .articles-create-article-button {
+    font-size: 16px;
+  }
+
+  .articles-delete-button {
+    margin-left: 5px;
+  }
 }
