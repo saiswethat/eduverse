@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/Header.css"; // Updated CSS file name
+import "./css/Header.css";
 import logoImage from "./assets/edvlogo.jpg";
 
 function Header() {
@@ -20,13 +20,13 @@ function Header() {
             <a href="/events">Events</a>
           </li>
 
-          {/* Resources Dropdown */}
+
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">Resources</a>
             <div className="header-dropdown-content">
               <a href="/mentorship-program">Mentorship Program</a>
 
-              {/* Career Development Submenu */}
+
               <div className="header-nested-dropdown">
                 <a href="#" className="header-dropdown-toggle">Career Development</a>
                 <div className="header-nested-content">
