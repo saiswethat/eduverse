@@ -104,17 +104,7 @@ export const forums = [
   { forum_id: 7, forum_name: "Cloud Computing", forum_description: "Explore the world of cloud technologies and architecture.", created_by: 1 },
   { forum_id: 8, forum_name: "Blockchain", forum_description: "Talk about blockchain applications, cryptocurrencies, and smart contracts.", created_by: 2 },
   { forum_id: 9, forum_name: "Game Development", forum_description: "Game design and development discussions.", created_by: 3 },
-  { forum_id: 10, forum_name: "Data Structures", forum_description: "Talk about fundamental data structures and algorithms.", created_by: 1 },
-  { forum_id: 11, forum_name: "DevOps", forum_description: "Discuss continuous integration, deployment, and automation.", created_by: 2 },
-  { forum_id: 12, forum_name: "Mobile App Development", forum_description: "Share your mobile development ideas and issues here.", created_by: 3 },
-  { forum_id: 13, forum_name: "Embedded Systems", forum_description: "Discussions on embedded systems and IoT devices.", created_by: 1 },
-  { forum_id: 14, forum_name: "Quantum Computing", forum_description: "A forum for all quantum computing enthusiasts.", created_by: 2 },
-  { forum_id: 15, forum_name: "Big Data Analytics", forum_description: "A space to discuss big data processing and analytics.", created_by: 3 },
-  { forum_id: 16, forum_name: "Robotics", forum_description: "Everything related to robotics and automation.", created_by: 1 },
-  { forum_id: 17, forum_name: "Networking", forum_description: "Discuss network architecture, protocols, and security.", created_by: 2 },
-  { forum_id: 18, forum_name: "Virtual Reality", forum_description: "Talk about VR technologies, tools, and experiences.", created_by: 3 },
-  { forum_id: 19, forum_name: "Natural Language Processing", forum_description: "Discussions on NLP techniques, tools, and projects.", created_by: 1 },
-  { forum_id: 20, forum_name: "Augmented Reality", forum_description: "Talk about the latest in AR technologies and tools.", created_by: 2 }
+  { forum_id: 10, forum_name: "Data Structures", forum_description: "Talk about fundamental data structures and algorithms.", created_by: 1 }
 ];
 
 

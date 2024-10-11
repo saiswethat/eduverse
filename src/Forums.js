@@ -46,14 +46,14 @@ const Forums = () => {
                     <form className="create-forum-form" onSubmit={handleCreateForum}>
                         <input
                             type="text"
-                            placeholder="Forum Name"
+                            placeholder="New Forum Name"
                             value={newForum.forum_name}
                             onChange={(e) => setNewForum({ ...newForum, forum_name: e.target.value })}
                             required
                         />
                         <input
                             type="text"
-                            placeholder="Forum Description"
+                            placeholder="New Forum Description"
                             value={newForum.forum_description}
                             onChange={(e) => setNewForum({ ...newForum, forum_description: e.target.value })}
                             required
