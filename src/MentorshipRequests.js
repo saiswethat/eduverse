@@ -29,9 +29,9 @@ const MentorshipRequests = () => {
   };
 
   const deleteRequest = (id) => {
-    const updatedRequests = requests.filter(request => request.id !== id);
-    setRequests(updatedRequests);
-    alert('Request has been deleted.');
+      const updatedRequests = requests.filter(request => request.id !== id);
+      setRequests(updatedRequests);
+      alert('Request has been deleted.');
   };
 
   return (
@@ -39,7 +39,7 @@ const MentorshipRequests = () => {
       <Header />
       <div className="requests-container">
         <h2 className="requests-heading">Mentorship Program Requests</h2>
-        
+
         {requests.length > 0 ? (
           <div className="requests-list">
             {requests.map((request) => (

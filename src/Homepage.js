@@ -1,7 +1,9 @@
 import React from "react";
-import "./css/HomePage.css"; 
+import "./css/HomePage.css";
+import { users } from "./loadData";
 
 function HomePage() {
+  const currentUser = users[4];
   return (
     <div className="home-home-page text-home-center">
       <div className="home-welcome-section">
@@ -9,7 +11,6 @@ function HomePage() {
         <p className="home-welcome-message">
           EduVerse is your one-stop platform for connecting students, academics, and professionals. Explore upcoming events, recent job postings, and access quick links to tools that will help you on your journey to success.
         </p>
-
         <div className="home-additional-content">
           <p>
             At EduVerse, you'll find everything you need to succeed:
@@ -44,8 +45,11 @@ function HomePage() {
       <div className="home-home-section home-quick-links">
         <h2 className="home-h2">Quick Links</h2>
         <div className="home-link-card">
-          <p><a href="/mentorship-program">Join Mentorship Program</a></p>
-          <p><a href="/build-resume">Resume Builder Tool</a></p>
+          {(currentUser.user_type === "Student") &&
+            <p><a href="/mentorship-program">Join Mentorship Program</a></p>}
+          {(currentUser.user_type === "Mentor") &&
+            <p><a href="/requests">View Mentorship Program Requests</a></p>}
+          <p><a href="/build-resume">Build your Resume</a></p>
           <p><a href="/forums">Forums</a></p>
           <p><a href="/groups">Groups</a></p>
         </div>

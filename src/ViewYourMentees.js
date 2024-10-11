@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/ViewYourMentees.css';
-import Header from './Header'; 
-import { FaTrashAlt } from 'react-icons/fa'; 
+import Header from './Header';
+import { FaTrashAlt } from 'react-icons/fa';
 import SearchBar from './SearchBar';
 
 const ViewYourMentees = () => {
@@ -53,7 +53,10 @@ const ViewYourMentees = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleDelete = (id) => {
-    setMentees(mentees.filter((mentee) => mentee.id !== id));
+    var confirmDelete = window.confirm("Do you want to remove this student ?");
+    if (confirmDelete) {
+      setMentees(mentees.filter((mentee) => mentee.id !== id));
+    }
   };
   const handleSearch = (term) => {
     setSearchTerm(term.toLowerCase());
@@ -61,56 +64,56 @@ const ViewYourMentees = () => {
 
 
   return (
-   
-  <>
-    <Header />
-    <div className="mentees-container">
-      <h2 className="mentees-heading">Your Mentees</h2>
-      <SearchBar onSearch={handleSearch} />
-      {mentees.length > 0 ? (
-        <div className="mentees-list">
-          {mentees.map((mentee) => (
-            <div key={mentee.id} className="mentee-card">
-              <div className="mentee-card-content">
-                {/* Left side - Mentee Icon and Info */}
-                <div className="mentee-left">
-                  <div className="mentee-icon">
-                    {mentee.studentName.charAt(0).toUpperCase()}
+
+    <>
+      <Header />
+      <div className="mentees-container">
+        <h2 className="mentees-heading">Your Mentees</h2>
+        <SearchBar onSearch={handleSearch} />
+        {mentees.length > 0 ? (
+          <div className="mentees-list">
+            {mentees.map((mentee) => (
+              <div key={mentee.id} className="mentee-card">
+                <div className="mentee-card-content">
+                  {/* Left side - Mentee Icon and Info */}
+                  <div className="mentee-left">
+                    <div className="mentee-icon">
+                      {mentee.studentName.charAt(0).toUpperCase()}
+                    </div>
+                    <div className="mentee-info">
+                      <p><strong>Name:</strong> {mentee.studentName}</p>
+                      <p><strong>Email:</strong> {mentee.email}</p>
+                    </div>
                   </div>
-                  <div className="mentee-info">
-                    <p><strong>Name:</strong> {mentee.studentName}</p>
-                    <p><strong>Email:</strong> {mentee.email}</p>
+
+                  {/* Right side - Phone and Delete */}
+                  <div className="mentee-right">
+                    <p><strong>Phone:</strong> {mentee.phone}</p>
+                    <div className="mentee-actions">
+                      <FaTrashAlt
+                        className="delete-icon"
+                        onClick={() => handleDelete(mentee.id)}
+                      />
+                    </div>
                   </div>
                 </div>
-                
-                {/* Right side - Phone and Delete */}
-                <div className="mentee-right">
-                  <p><strong>Phone:</strong> {mentee.phone}</p>
-                  <div className="mentee-actions">
-                    <FaTrashAlt 
-                      className="delete-icon" 
-                      onClick={() => handleDelete(mentee.id)} 
-                    />
-                  </div>
+
+                {/* Full-width reason section */}
+                <div className="mentee-reason">
+                  <p><strong>Reason:</strong> {mentee.reason}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        ) : (
+          // Message to show when there are no mentees
+          <p className="no-mentees-message">You currently have no mentees assigned.</p>
+        )}
+      </div>
+    </>
+  );
 
-              {/* Full-width reason section */}
-              <div className="mentee-reason">
-                <p><strong>Reason:</strong> {mentee.reason}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        // Message to show when there are no mentees
-        <p className="no-mentees-message">You currently have no mentees assigned.</p>
-      )}
-    </div>
-  </>
-);
 
-    
 };
 
 export default ViewYourMentees;

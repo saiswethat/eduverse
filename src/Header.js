@@ -1,8 +1,10 @@
 import React from "react";
 import "./css/Header.css";
 import logoImage from "./assets/edvlogo.jpg";
+import { users } from "./loadData";
 
 function Header() {
+  const currentUser = users[2];
   return (
     <header className="header-header">
       <div className="header-header__logo">
@@ -11,7 +13,8 @@ function Header() {
       <nav className="header-header__nav">
         <ul>
           <li>
-            <a href="/home">Home</a>
+            {(currentUser.user_type === "Student") && <a href="/home">Home</a> }
+            {(currentUser.user_type === "Mentor") && <a href="/mentor">Home</a> }
           </li>
           <li>
             <a href="/opportunities">Opportunities</a>
@@ -25,7 +28,9 @@ function Header() {
               Resources
             </a>
             <div className="header-dropdown-content">
-              <a href="/mentorship-program">Mentorship Program</a>
+              {(currentUser.user_type === "Student") &&
+                <a href="/mentorship-program">Mentorship Program</a> }
+              
 
               <div className="header-nested-dropdown">
                 <a href="#" className="header-dropdown-toggle">
@@ -34,7 +39,8 @@ function Header() {
                 <div className="header-nested-content">
                   <a href="/articles">Articles</a>
                   <a href="/tips">Tips</a>
-                  <a href="/build-resume">Build your resume</a>
+                  {(currentUser.user_type === "Student") &&
+                    <a href="/build-resume">Build your resume</a>}
                 </div>
               </div>
             </div>
@@ -52,12 +58,14 @@ function Header() {
           <li>
             <a href="/chats">Chat</a>
           </li>
-          <li>
-            <a href="/requests">Requests</a>
-          </li>
-          <li>
-            <a href="/your-mentees">Your Mentees</a>
-          </li>
+          {(currentUser.user_type === "Mentor") &&
+            <li>
+              <a href="/mentee-requests">Requests</a>
+            </li>}
+          {(currentUser.user_type === "Mentor") &&
+            <li>
+              <a href="/your-mentees">Your Mentees</a>
+            </li>}
           <li>
             <a href="/contact">Contact Us</a>
           </li>
