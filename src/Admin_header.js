@@ -20,7 +20,7 @@ function Admin_Header() {
               <a href="/opportunities">Requests</a>
             </li>
             <li>
-              <a href="/events">Oppurtunities</a>
+              <a href="/events">Opportunities</a>
             </li>
   
             {/* Resources Dropdown */}
@@ -28,8 +28,8 @@ function Admin_Header() {
               <a href="#" className="admin_header-dropdown-toggle">Resources</a>
               <div className="admin_header-dropdown-content">
                 <a href="/mentorship-program">Events</a>
-                <a href="/mentorship-program">Groups</a>
-                <a href="/mentorship-program">Forums</a>
+                <a href="/manage-groups">Groups</a>
+                <a href="/manage-forums">Forums</a>
                 <a href="/mentorship-program">Articles</a>
                 <a href="/mentorship-program">Tips</a>
                 

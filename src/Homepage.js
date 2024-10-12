@@ -1,10 +1,13 @@
 import React from "react";
 import "./css/HomePage.css";
 import { users } from "./loadData";
+import Header from "./Header";
 
 function HomePage() {
   const currentUser = users[4];
   return (
+    <>
+    <Header currentUser={currentUser}/>
     <div className="home-home-page text-home-center">
       <div className="home-welcome-section">
         <h1 className="home-welcome-title">Welcome to EduVerse</h1>
@@ -55,6 +58,7 @@ function HomePage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
