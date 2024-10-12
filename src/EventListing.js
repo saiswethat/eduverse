@@ -29,8 +29,6 @@ function EventListing({ title, location, date, time, link, onDelete, index }) {
             style={{ marginLeft: "10px", cursor: "pointer", color: "red" }} // Inline styles for quick adjustment
           />
         </div>
-
-        
       </div>
     </div>
   );

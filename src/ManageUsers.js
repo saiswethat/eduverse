@@ -50,8 +50,10 @@ function ManageUsers() {
   };
 
   return (
+    <>
+    <Header />
     <div className="manage-users">
-      <Header />
+      
       <SearchBar />
 
       <table className="user-table">
@@ -97,6 +99,7 @@ function ManageUsers() {
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

@@ -1,0 +1,51 @@
+.manage-groups {
+    padding: 20px;
+}
+  
+.group-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.group-table th,
+.group-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+  
+.group-table th {
+    background-color: #f2f2f2;
+}
+  
+.group-table td {
+    vertical-align: middle; /* Align content vertically */
+}
+  
+/* Flexbox for the action buttons */
+.actions-cell {
+    display: flex;
+    gap: 5px; /* Reduce gap between buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+}
+  
+/* Button styles */
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+  
+button:hover {
+    opacity: 0.8;
+}
+  
+button.delete-button {
+    background-color: #f44336; /* Red for delete */
+    color: white;
+}
+  
+button.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}

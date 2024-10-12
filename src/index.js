@@ -6,7 +6,6 @@ import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import reportWebVitals from "./reportWebVitals";
 import Register from "./Register";
-import App from "./App";
 import Opportunities from "./Opportunities";
 import Articles from "./Articles";
 import Tips from "./Tips";
@@ -28,6 +27,9 @@ import Contact from "./Contact";
 import SettingsPage from "./SettingsPage";
 import AdvisorHomePage from "./AdvisorHomePage";
 import MentorHomePage from "./MentorHomePage";
+import HomePage from "./Homepage";
+import ManageGroups from "./Manage_groups";
+import ManageForums from "./Manage_forums";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,7 +39,7 @@ root.render(
         <Route path="/" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<App />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/opportunities" element={<Opportunities />} />
         <Route path="/logout" element={<Login />} />
         <Route path="/articles" element={<Articles />} />
@@ -61,6 +63,8 @@ root.render(
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/advisor" element={<AdvisorHomePage />} />
         <Route path="/mentor" element={<MentorHomePage />} />
+        <Route path="/manage-groups" element={<ManageGroups />} />
+        <Route path="/manage-forums" element={<ManageForums />} />
       </Routes>
     </Router>
   </React.StrictMode>

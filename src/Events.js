@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import EventListing from "./EventListing";
-import EventModal from "./EventModal"; // Import the modal component
+import EventModal from "./EventModal"; 
 import "./css/Events.css";
 import { FaTrash } from "react-icons/fa";
 

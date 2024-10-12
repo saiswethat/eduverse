@@ -1,56 +1,116 @@
-.main-page {
-    
-    text-align: center;
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 40px;
-}
-
-.admin-tabs {
+.advisor-home-page {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 tabs per row */
-    grid-gap: 20px; /* Space between the tabs */
-    justify-items: center; /* Center the tabs horizontally */
-    
-}
-
-.tab {
-    width: 200px;
-    padding: 70px;
-    background-color: #e0f7fa;
-    border-radius: 10px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.tab-link {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.tab-link:hover {
-    color: black;
-}
-
-@media (max-width: 768px) {
-    .admin-tabs {
-        grid-template-columns: 1fr; /* 1 tab per row on smaller screens */
-    }
-}
-
-.content  {
-   
-    max-width: auto;
-    height: 100vh;
-   
-    background: url("../assets/edvbackground.jpg") no-repeat center center/cover;
-    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    min-height: 100vh;
+    box-sizing: border-box;
   }
+  
+  @media (min-width: 1024px) {
+    .advisor-home-page {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .advisor-home-section {
+      flex: 0 1 300px;
+      margin: 10px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .advisor-home-page {
+      display: block;
+      text-align: center;
+    }
+  
+    .advisor-home-section {
+      margin: 20px 0;
+    }
+  }
+  
+  .advisor-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  
+  .advisor-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .tile {
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .black-tile {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .white-tile {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .tile h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: inherit;
+    font-weight: 600;
+  }
+  
+  .tile p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: inherit;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .advisor-home-page {
+      grid-template-columns: 1fr;
+    }
+  
+    .advisor-header h1 {
+      font-size: 2rem;
+    }
+  
+    .tile h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .advisor-header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .tile h2 {
+      font-size: 1.3rem;
+    }
+  
+    .tile p {
+      font-size: 0.9rem;
+    }
+  }
+  
