@@ -4,7 +4,7 @@ import logoImage from "./assets/edvlogo.jpg";
 import { users } from "./loadData";
 
 function Header() {
-  const currentUser = users[2];
+  const currentUser = users[4];
   return (
     <header className="header-header">
       <div className="header-header__logo">

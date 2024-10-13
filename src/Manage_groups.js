@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Admin_header";
-import SearchBar from "./SearchBar"; // Assuming you want to reuse the same SearchBar component
-import "./css/Manage_groups.css"; // Import the CSS for the table and layout
+import "./css/Manage_groups.css"; 
+import Admin_Header from "./Admin_header";
 
-// Static group data
 const initialGroups = [
   { id: 1, name: "AI Enthusiasts", description: "Group for AI researchers", interests: "Artificial Intelligence, Machine Learning", createdBy: "John Doe" },
   { id: 2, name: "Web Developers", description: "Group for front-end and back-end developers", interests: "React, Node.js, JavaScript", createdBy: "Jane Smith" },
@@ -24,9 +22,10 @@ function ManageGroups() {
   };
 
   return (
+    <>
+    <Admin_Header />
     <div className="manage-groups">
-      <Header />
-      <SearchBar />
+      <h2>Manage Groups</h2>
 
       <table className="group-table">
         <thead>
@@ -55,6 +54,7 @@ function ManageGroups() {
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

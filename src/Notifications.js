@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import "./css/Notifications.css";
 
 function Notifications() {
-    const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [notifications, setNotifications] = useState([
     { id: 1, text: "This ia a very long text to show that the applications wrpas the whole content into the notification card display Your profile was viewed by 5 people", isRead: false },
     { id: 2, text: "You have a new message from John", isRead: false },
@@ -31,42 +31,44 @@ function Notifications() {
   };
 
   return (
-    <div className="notifications-page">
-        <Header />
+    <>
+      <Header />
+      <div className="notifications-page">
         <SearchBar onSearch={setSearchTerm} />
-    <div className="clear-all">
-      <button className="clear-all-button" onClick={clearAll}>
-        Clear All
-      </button>
-      </div>
-      <div className="notifications-list">
-      <ul className="list-items">
-        {notifications.length === 0 ? (
-          <p>No notifications available</p>
-        ) : (
-          notifications.map((notification) => (
-            <div className="notifications-card">
-    <li key={notification.id} className={`notification-item ${notification.isRead ? "read" : ""}`}>
-        <div className="notification-content">
-            <span className="notification-text">{notification.text}</span>
+        <div className="clear-all">
+          <button className="clear-all-button" onClick={clearAll}>
+            Clear All
+          </button>
         </div>
-        <div className="notification-actions">
-            {!notification.isRead && (
-                <button className="mark-read-button" onClick={() => markAsRead(notification.id)}>
-                    Mark as Read
-                </button>
+        <div className="notifications-list">
+          <ul className="list-items">
+            {notifications.length === 0 ? (
+              <p>No notifications available</p>
+            ) : (
+              notifications.map((notification) => (
+                <div className="notifications-card">
+                  <li key={notification.id} className={`notification-item ${notification.isRead ? "read" : ""}`}>
+                    <div className="notification-content">
+                      <span className="notification-text">{notification.text}</span>
+                    </div>
+                    <div className="notification-actions">
+                      {!notification.isRead && (
+                        <button className="mark-read-button" onClick={() => markAsRead(notification.id)}>
+                          Mark as Read
+                        </button>
+                      )}
+                      <button className="delete-button" onClick={() => deleteNotification(notification.id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </li>
+                </div>
+              ))
             )}
-            <button className="delete-button" onClick={() => deleteNotification(notification.id)}>
-                Delete
-            </button>
+          </ul>
         </div>
-    </li>
-</div>
-          ))
-        )}
-      </ul>
       </div>
-    </div>
+    </>
   );
 }
 

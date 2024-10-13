@@ -1,0 +1,125 @@
+.manage-opportunities {
+    padding: 20px;
+}
+
+.opportunity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.opportunity-table th,
+.opportunity-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.opportunity-table th {
+    background-color: #f4f4f4;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button,
+.save-button,
+.delete-button {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #007bff;
+}
+
+.save-button {
+    background-color: #28a745;
+}
+
+.delete-button {
+    background-color: red;
+}
+
+.create-opportunity-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.opp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.opp-modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+.opp-modal-content input,
+.opp-modal-content textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.opp-modal-content button {
+    background-color: transparent;
+    color: #007bff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .opp-cancel-button {
+    background-color: transparent;
+  }
+  
+
+.opp-modal-content button:hover {
+    background-color: #45a049;
+    /* Change background color on hover */
+}
+
+@media (max-width: 768px) {
+    .opportunity-job-listings {
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .create-opportunity-button {
+        width: 50%;
+    }
+
+    .opp-modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}

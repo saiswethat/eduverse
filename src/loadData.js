@@ -190,68 +190,77 @@ export const comments = [
 
 export const tips = [
   {
-    id: 1,    shortDescription: "Tailor your resume for each job.",    content: "When crafting your resume, you might study examples of resumes from your industry for inspiration and best practices. Samples are useful examples of high-quality resumes used in your industry and for your job title. While there are many ways you can use resume samples, there are three main takeaways to look for:Simplicity. Resume samples are straightforward because employers have minimal time to review your resume, so readability is key.Brevity. You may notice that each section of the resume sample is short and to the point, including the summary and experience descriptions. Including only the most key and relevant information means employers can consume more information about you and quickly understand your fitness for the role.Numbers. You might also notice that there are often metrics in the experience section of resume samples because employers are highly responsive to measurable proven value. For example, one bullet point under the experience description for an administrative assistant reads, Processed 100 vendor contracts and implemented a standardized process, reducing contract discrepancies by 90%.",
+    id: 1, shortDescription: "Tailor your resume for each job.", content: "When crafting your resume, you might study examples of resumes from your industry for inspiration and best practices. Samples are useful examples of high-quality resumes used in your industry and for your job title. While there are many ways you can use resume samples, there are three main takeaways to look for:Simplicity. Resume samples are straightforward because employers have minimal time to review your resume, so readability is key.Brevity. You may notice that each section of the resume sample is short and to the point, including the summary and experience descriptions. Including only the most key and relevant information means employers can consume more information about you and quickly understand your fitness for the role.Numbers. You might also notice that there are often metrics in the experience section of resume samples because employers are highly responsive to measurable proven value. For example, one bullet point under the experience description for an administrative assistant reads, Processed 100 vendor contracts and implemented a standardized process, reducing contract discrepancies by 90%.",
     postedBy: 10,
     postedDate: "2024-10-01",
   },
   {
-    id: 2,    shortDescription: "Keep resumes concise.",    content: "Keep your resume concise and avoid unnecessary details.",
+    id: 2, shortDescription: "Keep resumes concise.", content: "Keep your resume concise and avoid unnecessary details.",
     postedBy: 2,
     postedDate: "2024-10-02",
   },
   {
-    id: 3,    shortDescription: "Use action verbs.",    content: "Use strong action verbs to describe your achievements.",
+    id: 3, shortDescription: "Use action verbs.", content: "Use strong action verbs to describe your achievements.",
     postedBy: 3,
     postedDate: "2024-10-03",
   },
   {
-    id: 4,    shortDescription: "Quantify achievements.",    content: "Quantify your accomplishments with numbers.",
+    id: 4, shortDescription: "Quantify achievements.", content: "Quantify your accomplishments with numbers.",
     postedBy: 1,
     postedDate: "2024-10-04",
   },
   {
-    id: 5,    shortDescription: "Research company culture.",    content: "Research the company culture before an interview to better align your responses.",
+    id: 5, shortDescription: "Research company culture.", content: "Research the company culture before an interview to better align your responses.",
     postedBy: 2,
     postedDate: "2024-10-05",
   },
   {
-    id: 6,    shortDescription: "Send thank-you emails.",    content: "Follow up with a thank-you email after the interview to show appreciation.",
+    id: 6, shortDescription: "Send thank-you emails.", content: "Follow up with a thank-you email after the interview to show appreciation.",
     postedBy: 3,
     postedDate: "2024-10-06",
   },
   {
-    id: 7,    shortDescription: "Professional online presence.",    content: "Maintain a professional online presence, especially on LinkedIn.",
+    id: 7, shortDescription: "Professional online presence.", content: "Maintain a professional online presence, especially on LinkedIn.",
     postedBy: 5,
     postedDate: "2024-10-07",
   },
   {
-    id: 8,    shortDescription: "Practice interview questions.",    content: "Practice common interview questions to reduce anxiety and boost confidence.",
+    id: 8, shortDescription: "Practice interview questions.", content: "Practice common interview questions to reduce anxiety and boost confidence.",
     postedBy: 2,
     postedDate: "2024-10-08",
   },
   {
-    id: 9,    shortDescription: "Use cover letters effectively.",    content: "Use a cover letter to highlight specific experiences that match the job.",
+    id: 9, shortDescription: "Use cover letters effectively.", content: "Use a cover letter to highlight specific experiences that match the job.",
     postedBy: 5,
     postedDate: "2024-10-09",
   },
   {
-    id: 10,    shortDescription: "Explain career changes positively.",    content: "Be ready to explain employment gaps or career changes with a positive narrative.",
+    id: 10, shortDescription: "Explain career changes positively.", content: "Be ready to explain employment gaps or career changes with a positive narrative.",
     postedBy: 6,
     postedDate: "2024-10-10",
   },
   {
-    id: 11,    shortDescription: "Break down large tasks.",    content: "Break down large assignments into smaller, manageable tasks.",
+    id: 11, shortDescription: "Break down large tasks.", content: "Break down large assignments into smaller, manageable tasks.",
     postedBy: 7,
     postedDate: "2024-10-11",
   },
   {
-    id: 12,    shortDescription: "Take active notes.",    content: "Active note-taking during lectures enhances retention.",
+    id: 12, shortDescription: "Take active notes.", content: "Active note-taking during lectures enhances retention.",
     postedBy: 8,
     postedDate: "2024-10-12",
   },
   {
-    id: 13,    shortDescription: "Join study groups.",    content: "Join study groups to reinforce learning through discussions.",
+    id: 13, shortDescription: "Join study groups.", content: "Join study groups to reinforce learning through discussions.",
     postedBy: 9,
     postedDate: "2024-10-13",
   },
+];
+
+export const articles = [
+  { id: 1, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
+  { id: 2, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
+  { id: 3, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
+  { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
+  { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
+  { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" }
 ];

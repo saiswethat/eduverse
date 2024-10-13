@@ -1,0 +1,52 @@
+.manage-articles {
+    padding: 20px;
+}
+
+.articles-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.articles-table th,
+.articles-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.articles-table th {
+    background-color: #f4f4f4;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Centering the buttons horizontally */
+    align-items: center; /* Centering vertically */
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+}
+
+.view-link {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.view-link:hover {
+    background-color: #0056b3;
+}

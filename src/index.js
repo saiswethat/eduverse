@@ -30,6 +30,11 @@ import MentorHomePage from "./MentorHomePage";
 import HomePage from "./Homepage";
 import ManageGroups from "./Manage_groups";
 import ManageForums from "./Manage_forums";
+import AdminUserRequests from "./AdminUserRequests";
+import ManageOpportunities from "./ManageOpportunities";
+import ManageEvents from "./ManageEvents";
+import ManageTips from "./ManageTips";
+import ManageArticles from "./ManageArticles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -65,6 +70,11 @@ root.render(
         <Route path="/mentor" element={<MentorHomePage />} />
         <Route path="/manage-groups" element={<ManageGroups />} />
         <Route path="/manage-forums" element={<ManageForums />} />
+        <Route path="/admin-user-requests" element={<AdminUserRequests />} />
+        <Route path="/manage-opportunities" element={<ManageOpportunities />} />
+        <Route path="/manage-events" element={<ManageEvents />} />
+        <Route path="/manage-tips" element={<ManageTips />} />
+        <Route path="/manage-articles" element={<ManageArticles />} />
       </Routes>
     </Router>
   </React.StrictMode>
