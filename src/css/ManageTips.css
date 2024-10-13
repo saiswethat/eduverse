@@ -1,0 +1,144 @@
+.manage-tips {
+    padding: 20px; /* Add padding to the main container */
+}
+
+.tips-table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Collapse borders for a clean look */
+    margin-top: 20px; /* Margin above the table */
+}
+
+.tips-table th,
+.tips-table td {
+    border: 1px solid #ddd; /* Light gray border for table cells */
+    padding: 10px; /* Padding for table cells */
+    text-align: left; /* Left align text in cells */
+    vertical-align: middle; /* Ensure content is vertically centered in cells by default */
+    box-sizing: border-box; /* Ensure borders and padding are included inside cell dimensions */
+}
+
+.tips-table th {
+    background-color: #f4f4f4; /* Light gray background for headers */
+}
+
+.actions-cell {
+    display: flex; /* Use flexbox for the container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between action buttons if there are multiple */
+}
+
+.delete-button {
+    padding: 5px 10px; /* Padding for the delete button */
+    background-color: #ff4d4d; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a; /* Darker red on hover */
+}
+
+/* Optional: styles for modal */
+.modal-overlay {
+    position: fixed; /* Fixed position for the overlay */
+    top: 0; /* Cover entire viewport */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex; /* Flexbox for centering modal */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    background-color: white; /* White background for modal */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside modal */
+    width: 400px; /* Set a width for the modal */
+    max-width: 90%; /* Responsive maximum width */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%; /* Full width for inputs */
+    margin: 10px 0; /* Margin for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for inputs */
+}
+
+.modal-content button {
+    background-color: #007bff; /* Create button color */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-right: 10px; /* Margin between buttons */
+}
+
+.modal-cancel-button {
+    background-color: transparent; /* Transparent cancel button */
+    color: #007bff; /* Blue color to match */
+}
+
+/* Hover effect for modal buttons */
+.modal-content button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.modal-close-button {
+    background-color: transparent; /* Transparent close button */
+    color: #007bff; /* Blue color to match */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.modal-close-button:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.actions-cell {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center the button */
+    align-items: center; /* Vertically center the button */
+    height: 100%; /* Make sure the cell takes full height */
+}
+
+.delete-button {
+    padding: 5px 10px; /* Padding for the delete button */
+    background-color: #ff4d4d; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a; /* Darker red on hover */
+}
+
+.tips-table th,
+.tips-table td {
+    border: 1px solid #ddd; /* Light gray border for table cells */
+    padding: 10px; /* Padding for table cells */
+    text-align: left; /* Left align text in cells */
+    box-sizing: border-box; /* Ensure borders and padding are included inside cell dimensions */
+    vertical-align: top; /* Ensures all cells align properly in case content grows */
+}
+
+.tips-table td {
+    position: relative; /* Ensures full control of content alignment inside the cell */
+}
+
+.actions-cell {
+    height: 100%; /* Ensure the flexbox container takes the full height of the cell */
+    display: flex;
+    justify-content: center; /* Center the delete button horizontally */
+    align-items: center; /* Center the delete button vertically */
+}

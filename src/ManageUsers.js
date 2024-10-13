@@ -53,6 +53,7 @@ function ManageUsers() {
     <>
     <Header />
     <div className="manage-users">
+      <h2>Manage Users</h2>
       
       <SearchBar />
 

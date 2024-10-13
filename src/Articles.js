@@ -3,17 +3,11 @@ import "./css/Articles.css";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import { FaTrashAlt } from 'react-icons/fa';
+import { articles as initialArticles } from "./loadData";
 
 function Articles() {
   const [showForm, setShowForm] = useState(false);
-  const [articles, setArticles] = useState([
-    { id: 1, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
-    { id: 2, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
-    { id: 3, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
-    { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
-    { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
-    { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
-  ]);
+  const [articles, setArticles] = useState(initialArticles);
 
   const [searchTerm, setSearchTerm] = useState("");
 

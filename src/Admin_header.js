@@ -17,26 +17,23 @@ function Admin_Header() {
               <a href="/manage_users">Users</a>
             </li>
             <li>
-              <a href="/opportunities">Requests</a>
+              <a href="/admin-user-requests">Requests</a>
             </li>
             <li>
-              <a href="/events">Opportunities</a>
+              <a href="/manage-opportunities">Opportunities</a>
             </li>
   
-            {/* Resources Dropdown */}
             <li className="admin_header-dropdown">
               <a href="#" className="admin_header-dropdown-toggle">Resources</a>
               <div className="admin_header-dropdown-content">
-                <a href="/mentorship-program">Events</a>
+                <a href="/manage-events">Events</a>
                 <a href="/manage-groups">Groups</a>
                 <a href="/manage-forums">Forums</a>
-                <a href="/mentorship-program">Articles</a>
-                <a href="/mentorship-program">Tips</a>
-                
+                <a href="/manage-articles">Articles</a>
+                <a href="/manage-tips">Tips</a>
               </div>
             </li>
   
-           
             <li>
               <a href="/chats">Chat</a>
             </li>

@@ -1,7 +1,6 @@
 import React from "react";
 import "./css/AdvisorHomePage.css";
 import { users } from "./loadData";
-import Header from "./Header";
 import Admin_Header from "./Admin_header";
 
 function Admin_home() {
@@ -30,7 +29,6 @@ function Admin_home() {
                 <div className="home-home-section home-quick-links">
                     <h2 className="home-h2">Quick Links</h2>
                     <div className="home-link-card">
-                    <p><a href="/chats">Chat</a></p>
                         <p><a href="/chats">Chat</a></p>
                         <p><a href="/events">Events</a></p>
                         <p><a href="/forums">Forums</a></p>
