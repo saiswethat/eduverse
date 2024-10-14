@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./css/ManageEvents.css"; // Import the CSS for styling
+import "./css/ManageEvents.css";
 import Admin_Header from "./Admin_header";
 import EventModal from "./EventModal";
 
-// Initial events data
 const initialEvents = [
     { id: 1, title: "Tech Conference", date: "2024-10-12", location: "New York", time: "09:00 AM" },
     { id: 2, title: "Career Fair", date: "2024-11-05", location: "Dallas", time: "10:30 AM" },
@@ -14,13 +13,11 @@ function ManageEvents() {
     const [events, setEvents] = useState(initialEvents);
     const [isModalOpen, setModalOpen] = useState(false);
 
-    // Handle form submission for creating a new event
     const handleCreateEvent = (newEvent) => {
-        const newId = events.length + 1; 
+        const newId = events.length + 1;
         setEvents([...events, { id: newId, ...newEvent }]);
     };
 
-    // Handle delete click to remove an event
     const handleDeleteClick = (id) => {
         const updatedEvents = events.filter(event => event.id !== id);
         setEvents(updatedEvents);
@@ -31,12 +28,9 @@ function ManageEvents() {
             <Admin_Header />
             <div className="manage-events">
                 <h2>Manage Events</h2>
-
-                {/* Button to open modal for creating new event */}
                 <button className="create-event-button" onClick={() => setModalOpen(true)}>
                     Create Event
                 </button>
-
                 <table className="event-table">
                     <thead>
                         <tr>
@@ -63,7 +57,6 @@ function ManageEvents() {
                         ))}
                     </tbody>
                 </table>
-
                 <EventModal
                     isOpen={isModalOpen}
                     onClose={() => setModalOpen(false)}

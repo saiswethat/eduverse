@@ -23,3 +23,65 @@
     display: flex;
     gap: 10px;
 }
+
+.create-event-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: red;
+}
+
+@media (max-width: 1024px) {
+    .create-event-button {
+        width: 50%;
+    }
+
+    .event-table th, 
+    .event-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manage-events {
+        padding: 15px;
+    }
+
+    .event-table th, 
+    .event-table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .create-event-button {
+        padding: 8px 16px;
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-event-button {
+        padding: 6px 12px;
+        font-size: 12px;
+        width: 50%;
+    }
+
+    .event-table th, 
+    .event-table td {
+        padding: 4px;
+        font-size: 10px;
+    }
+}
