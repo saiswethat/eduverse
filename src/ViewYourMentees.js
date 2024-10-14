@@ -51,6 +51,12 @@ const ViewYourMentees = () => {
   ]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const handleDelete = (id) => {
     var confirmDelete = window.confirm("Do you want to remove this student ?");
     if (confirmDelete) {

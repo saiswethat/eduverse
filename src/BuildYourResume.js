@@ -18,7 +18,13 @@ const BuildYourResume = () => {
     summary: '',
   });
 
-  const [resumes, setResumes] = useState([]); 
+  const [resumes, setResumes] = useState([]);
+
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -114,20 +120,20 @@ const BuildYourResume = () => {
   };
 
   const isValidPhoneNumber = (phone) => {
-    const phoneRegex = /^[0-9]{10}$/; 
+    const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(phone);
   };
 
   const nextStep = () => {
-    if( !formData.name || !formData.email || !formData.phone || !formData.summary ){
+    if (!formData.name || !formData.email || !formData.phone || !formData.summary) {
       alert("Please enter all the details to move forward.");
       return;
     }
-    if(!isValidEmail(formData.email)){
+    if (!isValidEmail(formData.email)) {
       alert("Enter valid email.");
       return;
     }
-    if(!isValidPhoneNumber(formData.phone)){
+    if (!isValidPhoneNumber(formData.phone)) {
       alert("Enter valid phone number.");
       return;
     }
@@ -144,27 +150,27 @@ const BuildYourResume = () => {
 
   const handleCreateResume = (e) => {
     e.preventDefault();
-  
+
     const form = e.target;
-    
+
     if (!form.reportValidity()) {
       return;
     }
-  
+
     const newResume = {
       ...formData,
-      creationDate: new Date().toLocaleString() 
+      creationDate: new Date().toLocaleString()
     };
-  
+
     setResumes((prevResumes) => [newResume, ...prevResumes]);
-    setShowForm(false); 
+    setShowForm(false);
   };
   const handleDeleteResume = (indexToDelete) => {
     setResumes((prevResumes) =>
       prevResumes.filter((_, index) => index !== indexToDelete)
     );
-  };  
-  
+  };
+
 
   const downloadResume = (resume) => {
     const resumeContent = `
@@ -173,30 +179,30 @@ const BuildYourResume = () => {
       Phone: ${resume.phone}\n
       Summary: ${resume.summary}\n
     `;
-  
+
     const blob = new Blob([resumeContent], { type: "application/msword" });
     const url = URL.createObjectURL(blob);
-    
+
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${resume.name}_resume.doc`; 
+    a.download = `${resume.name}_resume.doc`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
-  
-  
+
+
 
   return (
     <>
       <Header />
       <div className="build-resume-resume-page">
         <h1>Build Your Resume</h1>
-        
+
         <button className="build-resume-create-resume-button" onClick={() => {
           setShowForm(true);
-          setCurrentStep(0); 
+          setCurrentStep(0);
           setFormData({
             name: "",
             email: "",
@@ -391,31 +397,31 @@ const BuildYourResume = () => {
           </div>
         )}
 
-<div className="build-resume-resumes-list">
-  <h2>Your Resumes</h2>
-  {resumes.length === 0 ? (
-    <p>No resumes created yet.</p>
-  ) : (
-    <div className="resume-cards-container">
-      {resumes.map((resume, index) => (
-        <div key={index} className="resume-card">
-            
-          <h3>Resume_{index}</h3>
-          <p>Created on: {resume.creationDate}</p>
+        <div className="build-resume-resumes-list">
+          <h2>Your Resumes</h2>
+          {resumes.length === 0 ? (
+            <p>No resumes created yet.</p>
+          ) : (
+            <div className="resume-cards-container">
+              {resumes.map((resume, index) => (
+                <div key={index} className="resume-card">
 
-          <div className="resume-actions">
-          <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
-                <i className="fas fa-trash-alt"></i>
-              </div>
-            <button className="download-button" onClick={() => downloadResume(resume)}>
-              Download Resume
-            </button>
-          </div>
+                  <h3>Resume_{index}</h3>
+                  <p>Created on: {resume.creationDate}</p>
+
+                  <div className="resume-actions">
+                    <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
+                      <i className="fas fa-trash-alt"></i>
+                    </div>
+                    <button className="download-button" onClick={() => downloadResume(resume)}>
+                      Download Resume
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      ))}
-    </div>
-  )}
-</div>
 
       </div>
     </>

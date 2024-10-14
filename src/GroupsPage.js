@@ -26,6 +26,12 @@ function GroupsPage() {
   const [newGroup, setNewGroup] = useState({ name: "", description: "", academicInterest: "", members: [] });
   const [searchTerm, setSearchTerm] = useState("");
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const handleGroupClick = (group) => {
     setSelectedGroup(group);
   };

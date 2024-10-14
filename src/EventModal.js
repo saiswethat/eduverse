@@ -53,6 +53,7 @@ function EventModal({ isOpen, onClose, onCreate }) {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            min={new Date().toISOString().split("T")[0]}
             required
           />
           <input

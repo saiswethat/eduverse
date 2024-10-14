@@ -33,7 +33,6 @@ function GroupChat({ group, handleLeaveGroup, handleBack ,handleDeleteGroup}) {
 
     const [chatMessages, setChatMessages] = useState(initialChatMessages);
     
-    // Create a ref for the chat messages container
     const chatMessagesEndRef = useRef(null);
 
     const handlePostChange = (e) => {

@@ -1,3 +1,11 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
 .header-header {
   background-color: #eaf9f0;
   padding: 10px 20px;
@@ -32,14 +40,14 @@
 }
 
 .notification-badge {
-  background-color: #ff5252; 
-  color: white; 
-  border-radius: 50%; 
-  padding: 3px 6px; 
-  margin-left: 5px; 
-  font-size: 12px; 
-  position: relative; 
-  top: -2px; 
+  background-color: #ff5252;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin-left: 5px;
+  font-size: 12px;
+  position: relative;
+  top: -2px;
 }
 
 .header-header__nav a:hover {
@@ -57,14 +65,14 @@
   position: relative;
 }
 
-.header-dropdown > a::after {
-  content: " ▼"; 
+.header-dropdown>a::after {
+  content: " ▼";
   font-size: 0.8em;
   margin-left: 5px;
 }
 
-.header-dropdown:hover > a::after {
-  content: " ▲"; 
+.header-dropdown:hover>a::after {
+  content: " ▲";
 }
 
 .header-dropdown-content {
@@ -98,14 +106,14 @@
   position: relative;
 }
 
-.header-nested-dropdown > a::after {
-  content: " ▶"; 
+.header-nested-dropdown>a::after {
+  content: " ▶";
   font-size: 0.8em;
   margin-left: 5px;
 }
 
-.header-nested-dropdown:hover > a::after {
-  content: " ▼"; 
+.header-nested-dropdown:hover>a::after {
+  content: " ▼";
 }
 
 .header-nested-content {
@@ -153,7 +161,8 @@
     padding: 10px 20px;
   }
 
-  .header-dropdown-content, .header-nested-content {
+  .header-dropdown-content,
+  .header-nested-content {
     position: relative;
     box-shadow: none;
   }
@@ -168,7 +177,8 @@
     padding-left: 20px;
   }
 
-  .header-dropdown-content a, .header-nested-content a {
+  .header-dropdown-content a,
+  .header-nested-content a {
     padding: 10px;
     width: 100%;
   }
@@ -187,7 +197,8 @@
     padding: 5px 15px;
   }
 
-  .header-dropdown-content, .header-nested-content {
+  .header-dropdown-content,
+  .header-nested-content {
     min-width: 140px;
   }
 }

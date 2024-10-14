@@ -1,3 +1,11 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
 .manage-users {
   padding: 20px;
 }
@@ -103,6 +111,7 @@ button.delete-button:hover {
 }
 
 @media (max-width: 480px) {
+
   .user-table th,
   .user-table td {
     padding: 4px;

@@ -8,8 +8,13 @@ import { articles as initialArticles } from "./loadData";
 function Articles() {
   const [showForm, setShowForm] = useState(false);
   const [articles, setArticles] = useState(initialArticles);
-
   const [searchTerm, setSearchTerm] = useState("");
+
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
 
   const handleSearch = (term) => {
     setSearchTerm(term.toLowerCase());

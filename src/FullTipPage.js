@@ -1,10 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./css/FullTipPage.css";
-import { tips, users } from "./loadData"; // Ensure you have access to your tips data
+import { tips, users } from "./loadData";
 
 function FullTipPage() {
+
     const tipId = useParams().id;
+
+    if (!sessionStorage.getItem("userId")) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
+
     const tip = tips.find(t => t.id === parseInt(tipId, 10));
     console.log(tip);
 

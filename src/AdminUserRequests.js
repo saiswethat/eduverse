@@ -5,14 +5,14 @@ import { userRequestsData } from "./loadData";
 
 const AdminUserRequests = () => {
   const [requests, setRequests] = useState(userRequestsData);
-  const [activeAccordion, setActiveAccordion] = useState(null); 
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const userId = sessionStorage.getItem("userId");
-  if(!userId) {
+  if (!sessionStorage.getItem("userId")) {
     alert("Please login to continue");
     window.location.href = "/login";
+    return
   }
-
+  
   const handleReplyChange = (id, value) => {
     setRequests(
       requests.map((request) =>
@@ -27,7 +27,7 @@ const AdminUserRequests = () => {
         request.id === id ? { ...request, replied: true } : request
       )
     );
-    setActiveAccordion(null); 
+    setActiveAccordion(null);
   };
 
   const handleDeleteRequest = (id) => {

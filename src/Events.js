@@ -4,7 +4,6 @@ import SearchBar from "./SearchBar";
 import EventListing from "./EventListing";
 import EventModal from "./EventModal";
 import "./css/Events.css";
-import { FaTrash } from "react-icons/fa";
 
 function Events() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,6 +36,13 @@ function Events() {
     },
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  /* Check for valid session */
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
 
   const filteredEvents = events.filter(
     (event) =>

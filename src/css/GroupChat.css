@@ -1,3 +1,11 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
 .group-chat {
     padding: 20px;
     background-color: #fafafa;
@@ -5,7 +13,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Back Button Styling */
+
 .back-button {
     background-color: #007bff;
     color: white;
@@ -22,7 +30,7 @@
     background-color: #0056b3;
 }
 
-/* Chat Messages Section */
+
 .chat-messages {
     max-height: 400px;
     overflow-y: scroll;
@@ -42,14 +50,14 @@
     transition: transform 0.2s;
     width: 70%;
     display: flex;
-    flex-direction: column; /* Stack sender name above the message */
+    flex-direction: column;
 }
 
 .sender-name {
     font-weight: bold;
-    font-size: 12px; /* Smaller size for username */
-    color: #555; /* Lighter color to make it less prominent */
-    margin-bottom: 5px; /* Space between the username and message */
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 5px;
 }
 
 
@@ -68,7 +76,6 @@
 }
 
 
-/* Chat Input Section */
 .chat-input {
     display: flex;
     gap: 10px;
@@ -98,7 +105,7 @@
     background-color: #0056b3;
 }
 
-/* Tab Buttons */
+
 .tab-buttons {
     display: flex;
     justify-content: space-around;
@@ -120,7 +127,6 @@
     color: white;
 }
 
-/* Leave Group Button */
 .leave-group-button {
     background-color: red;
     color: white;
@@ -137,7 +143,6 @@
     background-color: darkred;
 }
 
-/* Posts Section */
 .posts-section {
     padding: 20px;
     background-color: #f9f9f9;
@@ -154,13 +159,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
 }
 
 .post-username {
     font-weight: bold;
-    color: #007bff; /* Optional: Username color */
-    margin-bottom: 8px; /* Space between username and post details */
+    color: #007bff;
+    margin-bottom: 8px;
 }
 
 .post-content {
@@ -187,7 +192,6 @@
     color: white;
 }
 
-/* New Post Form */
 .new-post-form {
     margin-top: 20px;
 }
@@ -214,25 +218,29 @@
 .new-post-form button:hover {
     background-color: #0056b3;
 }
+
 .comment-username {
     font-weight: bold;
-    font-size: 12px; /* Small size for the username */
-    color: #555; /* Light color for the username */
-    margin-right: 5px; /* Space between username and comment text */
+    font-size: 12px;
+    color: #555;
+    margin-right: 5px;
 }
+
 .members-list {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between member cards */
+    gap: 10px;
 }
-.group-text-center{
+
+.group-text-center {
     text-align: center;
 }
+
 .comment {
     margin-bottom: 5px;
     font-size: 14px;
     display: flex;
-    flex-direction: column; /* Stack the username and comment text */
+    flex-direction: column;
 }
 
 .comments-section {
@@ -240,13 +248,13 @@
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
-    width: 100%; /* Ensure it takes 100% of the parent width */
+    width: 100%;
 }
 
 .new-comment {
     display: flex;
     gap: 10px;
-    width: 100%; /* Full width for the comment input section */
+    width: 100%;
 }
 
 .new-comment input {
@@ -254,7 +262,7 @@
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 100%; /* Ensure input takes full width */
+    width: 100%;
 }
 
 .new-comment button {
@@ -264,7 +272,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100px; /* Set a fixed width for the button */
+    width: 100px;
 }
 
 .new-comment button:hover {
@@ -272,7 +280,6 @@
 }
 
 
-/* Scrollbar Styling for Chat Messages */
 .chat-messages::-webkit-scrollbar {
     width: 8px;
 }
@@ -285,6 +292,7 @@
 .chat-messages::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
+
 .delete-group-button {
     background-color: darkorange;
     color: white;
@@ -294,21 +302,22 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    margin-left: 10px; /* Add some space between the buttons */
+    margin-left: 10px;
 }
 
 .delete-group-button:hover {
     background-color: orangered;
 }
+
 .group-delete-post-button {
     border: none;
     cursor: pointer;
     padding: 5px;
     background: none;
     margin-left: auto;
-  }
-  
-  .group-delete-post-button:hover {
+}
+
+.group-delete-post-button:hover {
     opacity: 0.7;
     background-color: white;
-  }
+}

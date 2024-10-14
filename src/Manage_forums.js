@@ -6,6 +6,12 @@ import Admin_Header from "./Admin_header";
 function ManageForums() {
   const [forums, setForums] = useState(initialForums);
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const handleDeleteClick = (id) => {
     if (window.confirm("Are you sure you want to delete this forum?")) {
       const updatedForums = forums.filter((forum) => forum.forum_id !== id);

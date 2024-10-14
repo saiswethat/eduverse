@@ -20,6 +20,12 @@ function ManageUsers() {
   const [users, setUsers] = useState(initialUsers);
   const [editRowId, setEditRowId] = useState(null);
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const handleEditClick = (id) => {
     setEditRowId(id);
   };

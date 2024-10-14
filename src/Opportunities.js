@@ -44,6 +44,12 @@ function Opportunities() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [newJob, setNewJob] = useState({ title: "", company: "", location: "", description: "", link: "" });
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const filteredListings = jobListings.filter(
     (job) =>
       job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

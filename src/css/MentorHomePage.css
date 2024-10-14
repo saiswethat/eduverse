@@ -1,4 +1,12 @@
-/* Mentor Home Page Container */
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
+
 .mentor-home-page {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -9,7 +17,6 @@
     box-sizing: border-box;
 }
 
-/* General header styling */
 .mentor-header {
     grid-column: 1 / -1;
     text-align: center;
@@ -23,14 +30,14 @@
     font-weight: 700;
 }
 
-/* General tile styles */
+
 .tile {
     background: linear-gradient(145deg, #ffffff, #f9f9f9);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* Make sure content is centered */
+    text-align: center; 
 }
 
 .tile:hover {
@@ -52,7 +59,7 @@
     line-height: 1.5;
 }
 
-/* Responsive styles for tablet screens */
+
 @media (max-width: 1024px) {
     .mentor-home-page {
         grid-template-columns: 1fr;
@@ -68,7 +75,6 @@
     }
 }
 
-/* Responsive styles for mobile screens */
 @media (max-width: 768px) {
     .mentor-header h1 {
         font-size: 1.8rem;
@@ -87,7 +93,6 @@
     }
 }
 
-/* Custom colors for different tile types */
 .blue-tile {
     background-color: #3498db;
     color: white;

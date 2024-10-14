@@ -1,3 +1,11 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
 .forum-page {
   padding: 20px;
   background-color: #f9f9f9;
@@ -126,7 +134,6 @@ h3 {
   color: white;
 }
 
-/* New Post Form */
 .new-post-form {
   margin-top: 20px;
 }
@@ -228,7 +235,6 @@ h3 {
 }
 
 
-/* Tablet Screens (min-width: 600px) */
 @media only screen and (min-width: 600px) {
   .forum-page {
     padding: 20px;
@@ -275,7 +281,6 @@ h3 {
   }
 }
 
-/* Laptop & Desktop Screens (min-width: 1024px) */
 @media only screen and (min-width: 1024px) {
   .forum-page {
     max-width: 1200px;
@@ -327,7 +332,7 @@ h3 {
   }
 }
 
-/* Large Desktop Screens (min-width: 1440px) */
+
 @media only screen and (min-width: 1440px) {
   .forum-page {
     max-width: 1400px;

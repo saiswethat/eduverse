@@ -1,10 +1,15 @@
 import React from "react";
 import "./css/AdvisorHomePage.css";
-import { users } from "./loadData";
 import Admin_Header from "./Admin_header";
 
 function Admin_home() {
-    const currentUser = users[2];
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
+
     return (
         <>
             <Admin_Header />

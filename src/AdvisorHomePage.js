@@ -1,13 +1,18 @@
 import React from "react";
 import "./css/AdvisorHomePage.css";
-import { users } from "./loadData";
 import Header from "./Header";
 
 function AdvisorHomePage() {
-  const currentUser = users[2];
+  const userId = sessionStorage.getItem("userId");
+  if (!userId) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   return (
     <>
-      <Header currentUser={currentUser} />
+      <Header />
       <div className="home-home-page text-home-center">
         <div className="home-welcome-section">
           <h1 className="home-welcome-title">Welcome to Your Advisor Dashboard</h1>

@@ -12,6 +12,13 @@ function Notifications() {
     { id: 4, text: "Reminder: Meeting at 3 PM tomorrow", isRead: false },
   ]);
 
+  
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+  
   const markAsRead = (id) => {
     const updatedNotifications = notifications.filter(
       (notification) => notification.id !== id 
@@ -33,6 +40,7 @@ function Notifications() {
             Clear All
           </button>
         </div>
+        <br/>
         <div className="notifications-list">
           <ul className="list-items">
             {notifications.length === 0 ? (

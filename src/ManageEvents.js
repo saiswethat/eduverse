@@ -13,6 +13,12 @@ function ManageEvents() {
     const [events, setEvents] = useState(initialEvents);
     const [isModalOpen, setModalOpen] = useState(false);
 
+    if (!sessionStorage.getItem("userId")) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
+
     const handleCreateEvent = (newEvent) => {
         const newId = events.length + 1;
         setEvents([...events, { id: newId, ...newEvent }]);
