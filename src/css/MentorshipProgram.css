@@ -17,57 +17,102 @@
 }
 
 .mentorship-form-container {
-    background-color: #d4e3e3;
-    padding: 40px; 
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+  background-color: #d4e3e3;
+  padding: 40px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.mentorship-form-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Jua', sans-serif;
+  color: #333;
+}
+
+.mentorship-form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+.mentorship-form-input,
+.mentorship-form-textarea,
+.mentorship-form-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.mentorship-form-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #73c2ef;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mentorship-form-submit:hover {
+  background-color: #1473e8;
+}
+
+@media (max-width: 768px) {
+  .mentorship-form-container {
+    padding: 20px;
   }
-  
+
+  .mentorship-message h2 {
+    font-size: 22px;
+  }
 
   .mentorship-form-heading {
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: 'Jua', sans-serif;
-    color: #333;
+    font-size: 22px;
   }
-  
-
-  .mentorship-form-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-    font-size: 16px;
-  }
-  
 
   .mentorship-form-input,
   .mentorship-form-textarea,
   .mentorship-form-select {
-    width: 95%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
   }
-  
 
   .mentorship-form-submit {
-    width: 100%;
-    padding: 12px;
-    background-color: #73c2ef;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mentorship-message {
+    padding: 15px;
+  }
+
+  .mentorship-message h2 {
+    font-size: 18px;
+  }
+
+  .mentorship-form-container {
+    padding: 15px;
+    width:90%;
+  }
+
+  .mentorship-form-input,
+  .mentorship-form-textarea,
+  .mentorship-form-select {
+    font-size: 14px;
+    width:95%;
+  }
+
+  .mentorship-form-submit {
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
   }
-  
-  .mentorship-form-submit:hover {
-    background-color: #1473e8;
-  }
-  
+}

@@ -9,7 +9,7 @@ const ChatWindow = ({ chat }) => {
   ]);
 
   const [newMessage, setNewMessage] = useState('');
-  const messagesEndRef = useRef(null); // Create a ref for the messages end
+  const messagesEndRef = useRef(null); 
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -20,16 +20,15 @@ const ChatWindow = ({ chat }) => {
         type: 'sent',
       };
       setMessages([...messages, newMsg]);
-      setNewMessage(''); // clear input after sending
+      setNewMessage(''); 
     }
   };
 
-  // Scroll to the bottom whenever messages change
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages]); // Only run when messages change
+  }, [messages]); 
 
   return (
     <div className="chat-window">
@@ -41,7 +40,6 @@ const ChatWindow = ({ chat }) => {
             <span className="message-time">{msg.time}</span>
           </div>
         ))}
-        {/* Empty div to act as a scroll target */}
         <div ref={messagesEndRef} /> 
       </div>
       <div className="message-input-section">
