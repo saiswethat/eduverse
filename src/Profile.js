@@ -7,18 +7,15 @@ import { users } from "./loadData";
 import Admin_Header from "./Admin_header";
 
 function ProfilePage() {
-
   const userId = sessionStorage.getItem("userId");
-  if(!userId){
+  if (!userId) {
     alert("Please login to continue");
     window.location.href = "/login";
   }
   const currentUser = users[userId];
   const [profileImage, setProfileImage] = useState(defaultProfileImage);
   const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({...currentUser, bio:"Software developer passionate about web technologies."});
-
-  
+  const [formData, setFormData] = useState({ ...currentUser, bio: "Software developer passionate about web technologies." });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,9 +37,19 @@ function ProfilePage() {
     setEditMode(!editMode);
   };
 
+  const handleProfileEdit = (e) => {
+    e.preventDefault(); 
+    if (!/^\d{10}$/.test(formData.phone_number)) {
+      alert("Phone number must be 10 digits.");
+      return; 
+    }
+    setEditMode(false);
+    alert("Profile saved successfully!"); 
+  };
+
   return (
     <div>
-      {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header/> }
+      {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header />}
       <div className="profile-card">
         <div className="profile-card__image">
           <img src={profileImage} alt="Profile" />
@@ -80,12 +87,12 @@ function ProfilePage() {
             readOnly
             className="profile-card__input"
           />
-          
+
           <label>User Role</label>
           <input
             type="text"
             name="user_type"
-            value={formData.user_type }
+            value={formData.user_type}
             readOnly
             className="profile-card__input"
           />
@@ -95,22 +102,18 @@ function ProfilePage() {
             name="bio"
             value={formData.bio}
             onChange={handleInputChange}
-            className={`profile-card__textarea ${
-              editMode ? "editable" : "read-only"
-            }`}
+            className={`profile-card__textarea ${editMode ? "editable" : "read-only"}`}
             placeholder="Your bio"
             readOnly={!editMode}
           />
 
           <label>Mobile Number</label>
           <input
-            type="text"
-            name="mobile"
+            type="tel"
+            name="phone_number"
             value={formData.phone_number}
             onChange={handleInputChange}
-            className={`profile-card__input ${
-              editMode ? "editable" : "read-only"
-            }`}
+            className={`profile-card__input ${editMode ? "editable" : "read-only"}`}
             readOnly={!editMode}
           />
         </div>
@@ -121,7 +124,7 @@ function ProfilePage() {
               Edit Profile
             </button>
           ) : (
-            <button className="profile-card__save-btn" onClick={toggleEditMode}>
+            <button className="profile-card__save-btn" onClick={handleProfileEdit}>
               Save Profile
             </button>
           )}

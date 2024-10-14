@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import "./css/ManageTips.css"; 
+import "./css/ManageTips.css";
 import Admin_Header from "./Admin_header";
 import { tips as initialTips } from "./loadData";
 
 function ManageTips() {
     const [tips, setTips] = useState(initialTips);
+
+    if (!sessionStorage.getItem("userId")) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
 
     const handleDeleteClick = (id) => {
         const updatedTips = tips.filter(tip => tip.id !== id);

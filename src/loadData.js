@@ -1,97 +1,97 @@
-//loadData.js
 
 export const users = {
   1: {
     user_id: 1,
     user_name: "John Doe",
-    email: "admin@example.com",
+    email: "admin@eduverse.com",
     password: "admin",
     user_type: "Admin",
-    phone_number: "123-456-7890",
+    phone_number: "1234567890",
     profile_id: 101,
   },
   2: {
     user_id: 2,
     user_name: "Jane Smith",
-    email: "mentor@example.com",
+    email: "mentor@eduverse.com",
     password: "mentor",
     user_type: "Mentor",
-    phone_number: "987-654-3210",
+    phone_number: "9876543210",
     profile_id: 102,
   },
   3: {
     user_id: 3,
     user_name: "Michael Brown",
-    email: "advisor@example.com",
+    email: "advisor@eduverse.com",
     password: "advisor",
     user_type: "Advisor",
-    phone_number: "555-555-5555",
+    phone_number: "5555555555",
     profile_id: 103,
   },
   4: {
     user_id: 4,
     user_name: "Alice Johnson",
-    email: "student@example.com",
+    email: "student@eduverse.com",
     password: "student",
     user_type: "Student",
-    phone_number: "222-333-4444",
+    phone_number: "2223334444",
     profile_id: 104,
   },
   5: {
     user_id: 5,
     user_name: "Sarah Thompson",
-    email: "sarah.thompson@example.com",
+    email: "sarah.thompson@eduverse.com",
     password: "mentorpass1",
     user_type: "Mentor",
-    phone_number: "312-555-0123",
+    phone_number: "3125550123",
     profile_id: 105,
   },
   6: {
     user_id: 6,
     user_name: "David Clark",
-    email: "david.clark@example.com",
+    email: "david.clark@eduverse.com",
     password: "mentorpass2",
     user_type: "Mentor",
-    phone_number: "645-456-7890",
+    phone_number: "6454567890",
     profile_id: 106,
   },
   7: {
     user_id: 7,
     user_name: "Emily Davis",
-    email: "emily.davis@example.com",
+    email: "emily.davis@eduverse.com",
     password: "mentorpass3",
     user_type: "Mentor",
-    phone_number: "789-654-3210",
+    phone_number: "7896543210",
     profile_id: 107,
   },
   8: {
     user_id: 8,
     user_name: "Paul Garcia",
-    email: "paul.garcia@example.com",
+    email: "paul.garcia@eduverse.com",
     password: "advisorpass1",
     user_type: "Advisor",
-    phone_number: "444-555-6666",
+    phone_number: "4445556666",
     profile_id: 108,
   },
   9: {
     user_id: 9,
     user_name: "Laura White",
-    email: "laura.white@example.com",
+    email: "laura.white@eduverse.com",
     password: "advisorpass2",
     user_type: "Advisor",
-    phone_number: "777-888-9999",
+    phone_number: "7778889999",
     profile_id: 109,
   },
   10: {
     user_id: 10,
     user_name: "Mark Harris",
-    email: "mark.harris@example.com",
+    email: "mark.harris@eduverse.com",
     password: "advisorpass3",
     user_type: "Advisor",
-    phone_number: "123-987-6543",
+    phone_number: "1239876543",
     profile_id: 110,
   }
 };
+
 
 
 export const forums = [
@@ -257,12 +257,12 @@ export const tips = [
 ];
 
 export const articles = [
-  { id: 1, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
-  { id: 2, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
-  { id: 3, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" },
-  { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
-  { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
-  { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" }
+  { id: 1, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "https://example.com/" },
+  { id: 2, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "https://example.com/" },
+  { id: 3, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "https://example.com/" },
+  { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "https://example.com/" },
+  { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "https://example.com/" },
+  { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "https://example.com/" }
 ];
 
 

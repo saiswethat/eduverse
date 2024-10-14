@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/Manage_groups.css"; 
+import "./css/Manage_groups.css";
 import Admin_Header from "./Admin_header";
 
 const initialGroups = [
@@ -10,6 +10,12 @@ const initialGroups = [
 
 function ManageGroups() {
   const [groups, setGroups] = useState(initialGroups);
+
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
 
   const handleDeleteGroup = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this group?");

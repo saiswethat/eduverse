@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import "./css/ManageArticles.css"; 
+import "./css/ManageArticles.css";
 import Admin_Header from "./Admin_header";
-import { articles as initialArticles } from "./loadData"; 
+import { articles as initialArticles } from "./loadData";
 
 function ManageArticles() {
     const [articles, setArticles] = useState(initialArticles);
+    
+    if (!sessionStorage.getItem("userId")) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
 
     const handleDeleteClick = (id) => {
         const updatedArticles = articles.filter(article => article.id !== id);
@@ -36,7 +42,7 @@ function ManageArticles() {
                                 <td>{article.postedBy}</td>
                                 <td>{article.date}</td>
                                 <td >
-                                    <button className="delete-button actions-cell" onClick={() => handleDeleteClick(article.id)}>Delete</button><br/>
+                                    <button className="delete-button actions-cell" onClick={() => handleDeleteClick(article.id)}>Delete</button><br />
                                     <a href={article.link} className="view-link " target="_blank" rel="noopener noreferrer">View</a>
                                 </td>
                             </tr>

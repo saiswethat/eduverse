@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Select from "react-select";
 import Admin_header from "./Admin_header";
 import "./css/ManageOpportunities.css";
 
@@ -7,11 +6,6 @@ const initialOpportunities = [
     { id: 1, title: "Frontend Developer", company: "Tech Corp", location: "New York", type: "Internship" },
     { id: 2, title: "Data Analyst", company: "Data Insights", location: "San Francisco", type: "Full-Time" },
     { id: 3, title: "UX Designer", company: "Creative Solutions", location: "Austin", type: "Full-Time" },
-];
-
-const typeOptions = [
-    { value: "Full-Time", label: "Full-Time" },
-    { value: "Part-Time", label: "Part-Time" }
 ];
 
 function ManageOpportunities() {
@@ -25,6 +19,12 @@ function ManageOpportunities() {
         description: "",
         link: ""
     });
+
+    if (!sessionStorage.getItem("userId")) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
 
     const handleTypeChange = (selectedOption, id) => {
         const updatedOpportunities = opportunities.map((opportunity) =>

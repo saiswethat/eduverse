@@ -22,6 +22,12 @@ const MentorshipRequests = () => {
     },
   ]);
 
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+
   const acceptRequest = (id) => {
     const acceptedRequest = requests.find(request => request.id === id);
     alert(`Request from ${acceptedRequest.studentName} has been accepted!`);
@@ -29,9 +35,9 @@ const MentorshipRequests = () => {
   };
 
   const deleteRequest = (id) => {
-      const updatedRequests = requests.filter(request => request.id !== id);
-      setRequests(updatedRequests);
-      alert('Request has been deleted.');
+    const updatedRequests = requests.filter(request => request.id !== id);
+    setRequests(updatedRequests);
+    alert('Request has been deleted.');
   };
 
   return (

@@ -20,11 +20,12 @@ const SettingsPage = () => {
   const [passwordErrors, setPasswordErrors] = useState({});
   const [themeSuccess, setThemeSuccess] = useState(false);
   const [passwordSuccess, setPasswordSuccess] = useState(false);
+  
   const userId = sessionStorage.getItem("userId");
-
   if (!userId) {
     alert("Please login to continue");
     window.location.href = "/login";
+    return;
   }
 
   const currentUser = users[userId];

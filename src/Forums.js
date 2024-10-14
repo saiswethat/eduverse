@@ -5,27 +5,31 @@ import SearchBar from "./SearchBar";
 import { forums as initialForums, users } from "./loadData";
 
 const Forums = () => {
-    const currentUser = users[2];
+    const [forumList, setForumList] = useState(initialForums); 
+    const [showCreateForm, setShowCreateForm] = useState(false); 
+    const [newForum, setNewForum] = useState({ forum_name: "", forum_description: "" }); 
 
-    const [forumList, setForumList] = useState(initialForums); // Manage forum state locally
-    const [showCreateForm, setShowCreateForm] = useState(false); // Toggle create form visibility
-    const [newForum, setNewForum] = useState({ forum_name: "", forum_description: "" }); // New forum form state
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
+    const currentUser = users[userId];
 
-    // Handle form submit to create a new forum
     const handleCreateForum = (e) => {
         e.preventDefault();
-        const newId = forumList.length ? forumList[forumList.length - 1].forum_id + 1 : 1; // Ensure unique ID
+        const newId = forumList.length ? forumList[forumList.length - 1].forum_id + 1 : 1; 
         const createdForum = { forum_id: newId, ...newForum };
-        setForumList([...forumList, createdForum]); // Update the forum list
-        setNewForum({ forum_name: "", forum_description: "" }); // Reset form state
-        setShowCreateForm(false); // Hide form after creation
+        setForumList([...forumList, createdForum]); 
+        setNewForum({ forum_name: "", forum_description: "" }); 
+        setShowCreateForm(false);
     };
 
-    // Handle forum deletion
     function handleDelete(forumId) {
         const confirmDelete = window.confirm("Are you sure you want to delete this forum?");
         if (confirmDelete) {
-            setForumList(forumList.filter(forum => forum.forum_id !== forumId)); // Update the forum list
+            setForumList(forumList.filter(forum => forum.forum_id !== forumId));
             console.log("Forum deleted:", forumId);
         }
     }
@@ -64,7 +68,7 @@ const Forums = () => {
                 <br />
 
                 <div className="forums-grid">
-                    {forumList.map((forum) => ( // Render from forumList state
+                    {forumList.map((forum) => (
                         <div className="forum-box" key={forum.forum_id}>
                             <h3>{forum.forum_name}</h3>
                             <p>{forum.forum_description}</p>

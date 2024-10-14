@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/ForumPage.css";
 import { useParams } from "react-router-dom";
-import { postsData, forums } from "./loadData";
+import { postsData, forums, users } from "./loadData";
 import Header from "./Header";
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -14,13 +14,21 @@ const ForumPage = () => {
     const [newPost, setNewPost] = useState({ title: "", content: "", link: "" });
     const [newComment, setNewComment] = useState({});
 
-    // Handle adding a new post
+    /* Check for valid session */
+    const userId = sessionStorage.getItem("userId");
+    if (!userId) {
+        alert("Please login to continue");
+        window.location.href = "/login";
+        return
+    }
+    const currentUser = users[userId];
+
     const handleAddPost = (e) => {
         e.preventDefault();
         if (newPost.title.trim() && newPost.content.trim()) {
             const postToAdd = {
                 post_id: posts.length + 1,
-                posted_by: "Current User", // Assuming a logged-in user
+                posted_by: currentUser.user_name,
                 posted_date: new Date().toLocaleDateString(),
                 posted_time: new Date().toLocaleTimeString(),
                 forum_id: forum_id,
@@ -30,11 +38,10 @@ const ForumPage = () => {
                 comments: []
             };
             setPosts([...posts, postToAdd]);
-            setNewPost({ title: "", content: "", link: "" }); // Clear the form after submission
+            setNewPost({ title: "", content: "", link: "" }); 
         }
     };
 
-    // Handle deleting a post
     const handleDeletePost = (postId) => {
         const updatedPosts = posts.filter(post => post.post_id !== postId);
         setPosts(updatedPosts);

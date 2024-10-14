@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/SearchBar.css"; // Updated CSS file name
+import "./css/SearchBar.css"; 
 
 function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -7,7 +7,7 @@ function SearchBar({ onSearch }) {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-    onSearch(value);
+    //onSearch(value);
   };
 
   return (

@@ -13,10 +13,17 @@ function Tips() {
   const [shortDescription, setShortDescription] = useState("");
   const [showCreateForm, setShowCreateForm] = useState(false);
 
+
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * tips.length);
     setRandomTip(tips[randomIndex]);
   }, [tips]);
+
+  if (!sessionStorage.getItem("userId")) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
 
   const handleDeleteTips = (tipId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this tip?");
