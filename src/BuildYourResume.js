@@ -18,7 +18,7 @@ const BuildYourResume = () => {
     summary: '',
   });
 
-  const [resumes, setResumes] = useState([]); // Store created resumes
+  const [resumes, setResumes] = useState([]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,7 +108,29 @@ const BuildYourResume = () => {
     }));
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const isValidPhoneNumber = (phone) => {
+    const phoneRegex = /^[0-9]{10}$/; 
+    return phoneRegex.test(phone);
+  };
+
   const nextStep = () => {
+    if( !formData.name || !formData.email || !formData.phone || !formData.summary ){
+      alert("Please enter all the details to move forward.");
+      return;
+    }
+    if(!isValidEmail(formData.email)){
+      alert("Enter valid email.");
+      return;
+    }
+    if(!isValidPhoneNumber(formData.phone)){
+      alert("Enter valid phone number.");
+      return;
+    }
     if (currentStep < 1) {
       setCurrentStep(currentStep + 1);
     }
@@ -123,14 +145,19 @@ const BuildYourResume = () => {
   const handleCreateResume = (e) => {
     e.preventDefault();
   
+    const form = e.target;
+    
+    if (!form.reportValidity()) {
+      return;
+    }
+  
     const newResume = {
       ...formData,
-      creationDate: new Date().toLocaleString() // Capture the current date and time for each resume
+      creationDate: new Date().toLocaleString() 
     };
   
-    // Prepend the new resume to the beginning of the array
     setResumes((prevResumes) => [newResume, ...prevResumes]);
-    setShowForm(false); // Close the form
+    setShowForm(false); 
   };
   const handleDeleteResume = (indexToDelete) => {
     setResumes((prevResumes) =>
@@ -140,7 +167,6 @@ const BuildYourResume = () => {
   
 
   const downloadResume = (resume) => {
-    // Create a formatted string for the resume
     const resumeContent = `
       Name: ${resume.name}\n
       Email: ${resume.email}\n
@@ -148,13 +174,12 @@ const BuildYourResume = () => {
       Summary: ${resume.summary}\n
     `;
   
-    // Create a blob for a Word document
     const blob = new Blob([resumeContent], { type: "application/msword" });
     const url = URL.createObjectURL(blob);
     
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${resume.name}_resume.doc`; // Specify .doc as the file extension
+    a.download = `${resume.name}_resume.doc`; 
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -169,10 +194,9 @@ const BuildYourResume = () => {
       <div className="build-resume-resume-page">
         <h1>Build Your Resume</h1>
         
-        {/* Fixed Position Button */}
         <button className="build-resume-create-resume-button" onClick={() => {
           setShowForm(true);
-          setCurrentStep(0); // Always start at the first step
+          setCurrentStep(0); 
           setFormData({
             name: "",
             email: "",
@@ -289,7 +313,7 @@ const BuildYourResume = () => {
                         placeholder="Enter your work experience"
                       />
                     ))}
-                    <button type="button" onClick={addExperienceField}>
+                    <button type="button" className="resume-button" onClick={addExperienceField}>
                       Add Experience
                     </button>
 
@@ -303,7 +327,7 @@ const BuildYourResume = () => {
                         placeholder="Enter your skill"
                       />
                     ))}
-                    <button type="button" onClick={addSkillField}>
+                    <button type="button" className="resume-button" onClick={addSkillField}>
                       Add Skill
                     </button>
 
@@ -317,7 +341,7 @@ const BuildYourResume = () => {
                         placeholder="Enter your strength"
                       />
                     ))}
-                    <button type="button" onClick={addStrengthField}>
+                    <button type="button" className="resume-button" onClick={addStrengthField}>
                       Add Strength
                     </button>
 
@@ -331,7 +355,7 @@ const BuildYourResume = () => {
                         placeholder="Enter your weakness"
                       />
                     ))}
-                    <button type="button" onClick={addWeaknessField}>
+                    <button type="button" className="resume-button" onClick={addWeaknessField}>
                       Add Weakness
                     </button>
 
