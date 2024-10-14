@@ -9,9 +9,9 @@ function Tips() {
   const currentUser = users[1];
   const [tips, setTips] = useState(InitialTips);
   const [randomTip, setRandomTip] = useState(null);
-  const [newTip, setNewTip] = useState(""); // For new tip input
-  const [shortDescription, setShortDescription] = useState(""); // For short description input
-  const [showCreateForm, setShowCreateForm] = useState(false); // Toggle form visibility
+  const [newTip, setNewTip] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [showCreateForm, setShowCreateForm] = useState(false);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * tips.length);
@@ -29,15 +29,15 @@ function Tips() {
     if (newTip.trim() && shortDescription.trim()) {
       const newTipObj = {
         id: tips.length + 1,
-        shortDescription: shortDescription.substring(0, 50), // Example short description
+        shortDescription: shortDescription.substring(0, 50),
         content: newTip,
-        postedBy: 1, // You can adjust this to reflect the actual poster
-        postedDate: new Date().toISOString().split('T')[0], // Format as YYYY-MM-DD
+        postedBy: 1,
+        postedDate: new Date().toISOString().split('T')[0],
       };
-      setTips([...tips, newTipObj]); // Add new tip to the list
+      setTips([...tips, newTipObj]);
       setNewTip("");
-      setShortDescription(""); // Reset short description
-      setShowCreateForm(false); // Close the form
+      setShortDescription("");
+      setShowCreateForm(false);
     }
   };
 
@@ -45,8 +45,6 @@ function Tips() {
     <>
       <Header />
       <div className="tips-tips-page">
-
-        {/* Display Random Tip of the Day */}
         {(currentUser.user_type === "Student") && randomTip && (
           <div className="tips-random-tip">
             <h2>Tip of the Day</h2>
@@ -62,24 +60,15 @@ function Tips() {
             </div>
           </div>
         )}
-
         <h2>All Tips</h2>
-
-        {/* Create Tip Button */}
-        <button
-          className="create-tip-button"
-          onClick={() => setShowCreateForm(true)}
-        >
+        <button className="create-tip-button" onClick={() => setShowCreateForm(true)}>
           Create Tip
         </button>
-
-        {/* Create Tip Modal */}
         {showCreateForm && (
           <div className="modal-overlay">
             <div className="modal-content">
               <h3>Add Your Tip</h3>
               <form onSubmit={(e) => { e.preventDefault(); handleCreateTip(); }}>
-                {/* Input for Short Description */}
                 <input
                   type="text"
                   value={shortDescription}
@@ -88,8 +77,6 @@ function Tips() {
                   className="create-tip-input"
                   required
                 />
-
-                {/* Input for Content */}
                 <textarea
                   value={newTip}
                   onChange={(e) => setNewTip(e.target.value)}
@@ -97,7 +84,6 @@ function Tips() {
                   className="create-tip-input"
                   required
                 />
-
                 <div>
                   <button type="submit" className="submit-tip-button">
                     Submit
@@ -110,10 +96,7 @@ function Tips() {
             </div>
           </div>
         )}
-
         <SearchBar />
-
-        {/* Display tips in a one-column card view */}
         <div className="tips-list">
           {tips.map((tip) => (
             <div key={tip.id} className="tips-tip-card">
@@ -137,10 +120,7 @@ function Tips() {
                   <span>User not found</span>
                 )}
               </div>
-              <button
-                className="tips-delete-button"
-                onClick={() => handleDeleteTips(tip.id)}
-              >
+              <button className="tips-delete-button" onClick={() => handleDeleteTips(tip.id)}>
                 <FaTrashAlt size={15} color="red" />
               </button>
             </div>

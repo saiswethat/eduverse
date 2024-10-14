@@ -23,32 +23,32 @@
 }
 
 .tips-tip-card {
-  width: 60%; /* Adjust width for column view */
+  width: 60%;
   margin: 10px 0;
   padding: 15px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex; /* Use flexbox to position elements */
-  justify-content: space-between; /* Space out content */
-  align-items: center; /* Center items vertically */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .tips-tip-card:hover {
-  transform: scale(1.03); /* Slightly reduce scaling */
+  transform: scale(1.03);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .tips-tip-content {
-  flex: 1; /* Take remaining space for tip content */
-  text-align: left; /* Left-align for better readability */
-  margin-right: 10px; /* Space between content and delete button */
+  flex: 1;
+  text-align: left;
+  margin-right: 10px;
 }
 
 .tips-tip-poster {
   display: flex;
-  justify-content: flex-start; /* Align text to the left */
+  justify-content: flex-start;
   color: #777;
 }
 
@@ -57,7 +57,7 @@
   cursor: pointer;
   padding: 5px;
   background: none;
-  margin-left: auto; /* Push the delete button to the right */
+  margin-left: auto;
 }
 
 .tips-delete-button:hover {
@@ -71,15 +71,14 @@
 
 @media screen and (max-width: 768px) {
   .tips-tip-card {
-    width: 90%; /* Make card full-width on smaller screens */
+    width: 90%;
   }
 }
 
-/* Create Tip Button Styles */
 .create-tip-button {
-  position: fixed; /* Make the button fixed */
-  bottom: 20px; /* Distance from the bottom */
-  right: 20px; /* Distance from the right */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   padding: 10px 20px;
   background-color: #ff7f50;
   color: white;
@@ -88,7 +87,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 1000; /* Ensure the button is on top */
+  z-index: 1000;
 }
 
 .create-tip-button:hover {
@@ -96,7 +95,6 @@
   transform: scale(1.05);
 }
 
-/* Create Tip Form Styles */
 .create-tip-form {
   display: flex;
   flex-direction: column;
@@ -148,33 +146,31 @@
   background-color: #d32f2f;
 }
 
-/* Adjust form responsiveness */
 @media screen and (max-width: 768px) {
   .create-tip-form {
     width: 90%;
   }
 }
 
-/* Improved hover effect on cards */
 .tips-tip-card:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
+
 .view-full-content-link {
-  color: #007BFF; /* Bootstrap primary color */
-  text-decoration: underline; /* Underline to indicate it's a link */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  transition: color 0.3s ease; /* Smooth color transition */
+  color: #007BFF;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
   border: none;
   background-color: white;
   font-family: inherit;
 }
 
 .view-full-content-link:hover {
-  color: #0056b3; /* Darker blue on hover */
+  color: #0056b3;
 }
 
-/* Responsive improvements for smaller screens */
 @media screen and (max-width: 768px) {
   .tips-random-tip,
   .create-tip-form {
@@ -182,7 +178,6 @@
   }
 }
 
-/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -193,7 +188,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1001; /* Ensure modal is above all other content */
+  z-index: 1001;
 }
 
 .modal-content {
@@ -201,8 +196,8 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  max-width: 500px; /* Set a max width for modals */
-  width: 90%; /* Responsive width */
+  max-width: 500px;
+  width: 80%;
 }
 
 .modal-close {

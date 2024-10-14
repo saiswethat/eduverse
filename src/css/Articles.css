@@ -82,14 +82,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .articles-form-popup {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90%;
+  overflow-y: auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
 .articles-article-form {
@@ -107,7 +112,7 @@
 .articles-article-form textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -120,14 +125,15 @@
 
 .articles-button-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: 10px;
 }
 
 .articles-submit-button,
 .articles-close-button {
-  width: 48%;
+  width: 100%;
   padding: 10px;
+  margin-top: 5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
