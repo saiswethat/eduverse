@@ -4,7 +4,13 @@ import logoImage from "./assets/edvlogo.jpg";
 import { users } from "./loadData";
 
 function Header() {
-  const currentUser = users[4];
+  const userId = sessionStorage.getItem("userId");
+  if(!userId){
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+  const currentUser = users[userId];
   return (
     <header className="header-header">
       <div className="header-header__logo">

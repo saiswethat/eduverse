@@ -3,17 +3,22 @@ import "./css/ProfilePage.css";
 import Header from "./Header";
 import defaultProfileImage from "./assets/profileImage.jpg";
 import { FaPencilAlt } from "react-icons/fa";
+import { users } from "./loadData";
+import Admin_Header from "./Admin_header";
 
 function ProfilePage() {
+
+  const userId = sessionStorage.getItem("userId");
+  if(!userId){
+    alert("Please login to continue");
+    window.location.href = "/login";
+  }
+  const currentUser = users[userId];
   const [profileImage, setProfileImage] = useState(defaultProfileImage);
   const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "John Doe",
-    email: "johndoe@example.com",
-    bio: "Software developer passionate about web technologies.",
-    location: "New York, USA",
-    mobile: "123-456-7890",
-  });
+  const [formData, setFormData] = useState({...currentUser, bio:"Software developer passionate about web technologies."});
+
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +42,7 @@ function ProfilePage() {
 
   return (
     <div>
-      <Header />
+      {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header/> }
       <div className="profile-card">
         <div className="profile-card__image">
           <img src={profileImage} alt="Profile" />
@@ -62,7 +67,7 @@ function ProfilePage() {
           <input
             type="text"
             name="name"
-            value={formData.name}
+            value={formData.user_name}
             readOnly
             className="profile-card__input"
           />
@@ -72,6 +77,15 @@ function ProfilePage() {
             type="email"
             name="email"
             value={formData.email}
+            readOnly
+            className="profile-card__input"
+          />
+          
+          <label>User Role</label>
+          <input
+            type="text"
+            name="user_type"
+            value={formData.user_type }
             readOnly
             className="profile-card__input"
           />
@@ -88,23 +102,11 @@ function ProfilePage() {
             readOnly={!editMode}
           />
 
-          <label>Location</label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleInputChange}
-            className={`profile-card__input ${
-              editMode ? "editable" : "read-only"
-            }`}
-            readOnly={!editMode}
-          />
-
           <label>Mobile Number</label>
           <input
             type="text"
             name="mobile"
-            value={formData.mobile}
+            value={formData.phone_number}
             onChange={handleInputChange}
             className={`profile-card__input ${
               editMode ? "editable" : "read-only"

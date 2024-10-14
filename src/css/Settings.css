@@ -32,13 +32,38 @@ h2 {
   font-weight: bold;
 }
 
+.input-group input[type="radio"] {
+  margin-right: 10px;
+}
+
 .input-group input,
 .input-group select {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; 
+}
+
+.input-group-notification {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: inline-flex;
+}
+
+.input-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .error-message {
@@ -70,4 +95,38 @@ h2 {
 
 .submit-btn button:hover {
   background-color: #0056b3;
+}
+
+.clear-all {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.clear-all button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-all button:hover {
+  background-color: #cc0000;
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    padding: 15px;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    font-size: 14px;
+  }
+
+  .submit-btn button {
+    padding: 8px 16px;
+  }
 }

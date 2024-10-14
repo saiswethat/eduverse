@@ -30,9 +30,9 @@ function Admin_home() {
                     <h2 className="home-h2">Quick Links</h2>
                     <div className="home-link-card">
                         <p><a href="/chats">Chat</a></p>
-                        <p><a href="/events">Events</a></p>
-                        <p><a href="/forums">Forums</a></p>
-                        <p><a href="/groups">Groups</a></p>
+                        <p><a href="/manage-events">Manage Events</a></p>
+                        <p><a href="/manage-forums">Manage Forums</a></p>
+                        <p><a href="/manage-groups">Manage Groups</a></p>
                     </div>
                 </div>
             </div>

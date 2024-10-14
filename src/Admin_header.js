@@ -1,8 +1,15 @@
 import React from 'react';
 import './css/Admin_header.css';
 import logoImage from "./assets/edvlogo.jpg";
+import { users } from './loadData';
 
 function Admin_Header() {
+  const userId = sessionStorage.getItem("userId");
+  if(!userId){
+    alert("Please login to continue");
+    window.location.href = "/login";
+  }
+  const currentUser = users[userId];
     return (
         <header className="admin_header-header">
         <div className="admin_header-header__logo">
@@ -38,7 +45,7 @@ function Admin_Header() {
               <a href="/chats">Chat</a>
             </li>
             <li className="admin_header-dropdown">
-              <a href="#" className="admin_header-dropdown-toggle">Name</a>
+              <a href="#" className="admin_header-dropdown-toggle">{currentUser.user_name}</a>
               <div className="admin_header-dropdown-content">
                 <a href="/profile">Profile</a>
                 <a href="/notifications"> Notifications

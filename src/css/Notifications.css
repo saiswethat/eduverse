@@ -7,6 +7,22 @@
     background-color: #e8f5e9; /* Light green background */
 }
 
+.notification-preferences {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.preferences-options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.preferences-options input[type="checkbox"] {
+  margin-right: 10px;
+}
 
 
 /* Notification card styling */

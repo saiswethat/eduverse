@@ -1,15 +1,45 @@
 import React, { useState } from "react";
-import "./css/Login.css"; // Updated CSS file name
-import iconimage from "./assets/eduverse.jpg"; // Import the logo
+import "./css/Login.css";
+import iconimage from "./assets/eduverse.jpg";
+import { users } from "./loadData";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const loadHomePage = (userType) => {
+    switch (userType) {
+      case 'Admin':
+        window.location.href = "/admin_home";
+        break;
+      case 'Advisor':
+        window.location.href = "/advisor";
+        break;
+      case 'Mentor':
+        window.location.href = "/mentor";
+        break;
+      case 'Student':
+        window.location.href = "/home";
+        break;
+      default:
+        window.location.href = "/login";
+        break;
+    }
+  };  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+
+    const user = Object.values(users).find(user => user.email === email && user.password === password);
+
+    if (user) {
+      sessionStorage.setItem('userId', user.user_id);
+      console.log('Logged in user:', user.user_id);
+      loadHomePage(user.user_type);
+    } else {
+      setError('Invalid email or password');
+    }
   };
 
   return (
@@ -18,11 +48,14 @@ function Login() {
         <img
           src={iconimage}
           alt="EduVerse"
-          className="login-custom-image" 
+          className="login-custom-image"
         />
       </a>
       <div className="login-bg-white login-p-8 login-rounded-lg login-shadow-md login-w-full login-max-w-md login-mt-4">
         <h1 className="login-text-4xl login-md-text-5xl login-font-bold login-text-center login-text-gray-800 login-font-jua">Login</h1>
+
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+
         <form onSubmit={handleSubmit}>
           <div>
             <input

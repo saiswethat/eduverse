@@ -1,3 +1,20 @@
+.mentorship-message {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mentorship-message h2 {
+  color: #007bff; 
+  margin-bottom: 10px;
+}
+
+.mentorship-message p {
+  color: #333;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
 
 .mentorship-form-container {
     background-color: #d4e3e3;

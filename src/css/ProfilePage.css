@@ -46,7 +46,7 @@
   text-align: left;
 }
 
-.profile-card__input,
+.profile-card__input, 
 .profile-card__textarea {
   width: 100%;
   padding: 10px;

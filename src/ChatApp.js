@@ -4,10 +4,20 @@ import ChatWindow from './ChatWindow';
 import SearchBar from './SearchBar';
 import './css/ChatApp.css';
 import Header from './Header';
+import Admin_Header from './Admin_header';
+import { users } from './loadData';
 
 const ChatApp = () => {
   const [selectedChat, setSelectedChat] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const userId = sessionStorage.getItem("userId");
+  if(!userId){
+    alert("Please login to continue");
+    window.location.href = "/login";
+    return
+  }
+  const currentUser = users[userId];
 
   const chats = [
     { id: 1, name: 'Alice' },
@@ -25,7 +35,7 @@ const ChatApp = () => {
 
   return (
     <>
-    <Header/>
+    {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header/> }
     <div className="chat-app">
       <div className="chat-list-section">
         <SearchBar onSearch={handleSearch} />

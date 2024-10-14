@@ -17,7 +17,17 @@ const MentorshipProgram = () => {
     return (
         <>
         <Header/>
-       
+
+        <div className="mentorship-message">
+          <h2>Take Your Career to the Next Level!</h2>
+          <p>
+            Are you passionate about technology, business, or any other field? Join our Mentorship Program to connect with
+            experienced professionals who can guide you through your career journey. Whether you're looking to improve your
+            skills, network with industry experts, or get personalized career advice, this program is tailored to support
+            your goals. Don't miss out on this opportunity to fast-track your success!
+          </p>
+        </div>
+
       <form className="mentorship-form-container" onSubmit={handleSubmit}>
         <h2 className="mentorship-form-heading">Mentorship Program Application</h2>
   
