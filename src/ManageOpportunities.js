@@ -16,7 +16,7 @@ const typeOptions = [
 
 function ManageOpportunities() {
     const [opportunities, setOpportunities] = useState(initialOpportunities);
-    const [isModalOpen, setModalOpen] = useState(false); 
+    const [isModalOpen, setModalOpen] = useState(false);
     const [newJob, setNewJob] = useState({
         title: "",
         company: "",
@@ -60,7 +60,7 @@ function ManageOpportunities() {
         <>
             <Admin_header />
             <div className="manage-opportunities">
-                <h2>Manage Opportunities</h2> 
+                <h2>Manage Opportunities</h2>
                 <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
                     Create Opportunity
                 </button>
@@ -82,13 +82,7 @@ function ManageOpportunities() {
                                 <td>{opportunity.title}</td>
                                 <td>{opportunity.company}</td>
                                 <td>{opportunity.location}</td>
-                                <td>
-                                    <Select
-                                        value={opportunity.type ? typeOptions.find(option => option.value === opportunity.type) : { value: "", label: "Select" }}
-                                        onChange={(selectedOption) => handleTypeChange(selectedOption, opportunity.id)}
-                                        options={[{ value: "", label: "Select" }, ...typeOptions]}
-                                    />
-                                </td>
+                                <td>{opportunity.type}</td>
                                 <td>
                                     <button className="delete-button actions-cell" onClick={() => handleDeleteClick(opportunity.id)}>Delete</button>
                                 </td>
@@ -100,51 +94,53 @@ function ManageOpportunities() {
                     <div className="opp-modal-overlay">
                         <div className="opp-modal-content">
                             <h2>Create Opportunity</h2>
-                            <input
-                                type="text"
-                                placeholder="Job Title"
-                                value={newJob.title}
-                                onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
-                                required
-                            />
-                            <input
-                                type="text"
-                                placeholder="Company"
-                                value={newJob.company}
-                                onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
-                                required
-                            />
-                            <select
-                                value={newJob.type}
-                                onChange={(e) => setNewJob({ ...newJob, type: e.target.value })}
-                                required
-                            >
-                                <option value="">Select Opportunity Type</option>
-                                <option value="Full-Time">Full-Time</option>
-                                <option value="Internship">Internship</option>
-                            </select>
-                            <input
-                                type="text"
-                                placeholder="Location"
-                                value={newJob.location}
-                                onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
-                                required
-                            />
-                            <textarea
-                                placeholder="Description"
-                                value={newJob.description}
-                                onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
-                                required
-                            />
-                            <input
-                                type="text"
-                                placeholder="Job Link"
-                                value={newJob.link}
-                                onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
-                                required
-                            />
-                            <button onClick={handleCreateOpportunity} className="opp-create-button">Create</button>
-                            <button onClick={handleCloseModel} className="opp-cancel-button">Cancel</button>
+                            <form onSubmit={handleCreateOpportunity}>
+                                <input
+                                    type="text"
+                                    placeholder="Job Title"
+                                    value={newJob.title}
+                                    onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Company"
+                                    value={newJob.company}
+                                    onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
+                                    required
+                                />
+                                <select
+                                    value={newJob.type}
+                                    onChange={(e) => setNewJob({ ...newJob, type: e.target.value })}
+                                    required
+                                >
+                                    <option value="">Select Opportunity Type</option>
+                                    <option value="Full-Time">Full-Time</option>
+                                    <option value="Internship">Internship</option>
+                                </select>
+                                <input
+                                    type="text"
+                                    placeholder="Location"
+                                    value={newJob.location}
+                                    onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
+                                    required
+                                />
+                                <textarea
+                                    placeholder="Description"
+                                    value={newJob.description}
+                                    onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Job Link"
+                                    value={newJob.link}
+                                    onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
+                                    required
+                                />
+                                <button type="submit" className="opp-create-button">Create</button>
+                                <button type="button" onClick={handleCloseModel} className="opp-cancel-button">Cancel</button>
+                            </form>
                         </div>
                     </div>
                 )}

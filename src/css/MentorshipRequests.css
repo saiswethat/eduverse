@@ -1,66 +1,93 @@
 .requests-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #e5e2e2;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .requests-heading {
-    text-align: center;
-    font-family: 'Jua', sans-serif;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .requests-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .request-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #e5e2e2;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+
+.requests-heading {
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.request-card {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.request-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.request-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mentor-accept-button, .mentor-delete-button {
+  padding: 10px 20px;
+  width: 25%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+
+.mentor-accept-button {
+  background-color: #4CAF50;
+}
+
+.mentor-accept-button:hover {
+  background-color: #45a049;
+}
+
+.mentor-delete-button {
+  background-color: #f44336;
+}
+
+.mentor-delete-button:hover {
+  background-color: #e53935;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .request-card p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #333;
+    font-size: 14px;
   }
-  
-  .request-actions {
-    display: flex;
-    justify-content: space-between;
+
+  .mentor-accept-button, .mentor-delete-button {
+    padding: 8px 16px;
+    width: 50%;
   }
-  
-  .accept-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .requests-container {
+    padding: 16px;
   }
-  
-  .accept-button:hover {
-    background-color: #45a049;
+}
+
+@media (max-width: 480px) {
+  .requests-heading {
+    font-size: 1.25rem;
   }
-  
-  .delete-button {
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .request-card {
+    padding: 16px;
   }
-  
-  .delete-button:hover {
-    background-color: #e53935;
-  }
-  
+}

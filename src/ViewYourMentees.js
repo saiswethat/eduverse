@@ -5,7 +5,6 @@ import { FaTrashAlt } from 'react-icons/fa';
 import SearchBar from './SearchBar';
 
 const ViewYourMentees = () => {
-  // Dummy mentees data
   const [mentees, setMentees] = useState([
     {
       id: 1,

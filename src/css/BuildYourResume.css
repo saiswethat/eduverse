@@ -177,7 +177,7 @@ button:hover {
 
 .resume-button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 15px;
   
 }
