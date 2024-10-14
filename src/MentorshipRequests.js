@@ -51,8 +51,8 @@ const MentorshipRequests = () => {
                 <p><strong>Reason:</strong> {request.reason}</p>
 
                 <div className="request-actions">
-                  <button className="accept-button" onClick={() => acceptRequest(request.id)}>Accept</button>
-                  <button className="delete-button" onClick={() => deleteRequest(request.id)}>Delete</button>
+                  <button className="mentor-accept-button" onClick={() => acceptRequest(request.id)}>Accept</button>
+                  <button className="mentor-delete-button" onClick={() => deleteRequest(request.id)}>Delete</button>
                 </div>
               </div>
             ))}

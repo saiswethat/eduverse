@@ -90,53 +90,55 @@ function Opportunities() {
         {isModalOpen && (
           <div className="opp-modal-overlay">
             <div className="opp-modal-content">
-              <h2>Create Opportunity</h2>
-              <input
-                type="text"
-                placeholder="Job Title"
-                value={newJob.title}
-                onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Company"
-                value={newJob.company}
-                onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
-                required
-              />
-              <select
-                value={newJob.type}
-                onChange={(e) => setNewJob({ ...newJob, type: e.target.value })}
-                required
-              >
-                <option value="">Select Opportunity Type</option>
-                <option value="Full-Time">Full-Time</option>
-                <option value="Internship">Internship</option>
-              </select>
-              <input
-                type="text"
-                placeholder="Location"
-                value={newJob.location}
-                onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
-                required
-              />
-              <textarea
-                placeholder="Description"
-                value={newJob.description}
-                onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Job Link"
-                value={newJob.link}
-                onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
-                required
-              />
+              <form onSubmit={handleCreateOpportunity}>
+                <h2>Create Opportunity</h2>
+                <input
+                  type="text"
+                  placeholder="Job Title"
+                  value={newJob.title}
+                  onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Company"
+                  value={newJob.company}
+                  onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
+                  required
+                />
+                <select
+                  value={newJob.type}
+                  onChange={(e) => setNewJob({ ...newJob, type: e.target.value })}
+                  required
+                >
+                  <option value="">Select Opportunity Type</option>
+                  <option value="Full-Time">Full-Time</option>
+                  <option value="Internship">Internship</option>
+                </select>
+                <input
+                  type="text"
+                  placeholder="Location"
+                  value={newJob.location}
+                  onChange={(e) => setNewJob({ ...newJob, location: e.target.value })}
+                  required
+                />
+                <textarea
+                  placeholder="Description"
+                  value={newJob.description}
+                  onChange={(e) => setNewJob({ ...newJob, description: e.target.value })}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Job Link"
+                  value={newJob.link}
+                  onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
+                  required
+                />
 
-              <button onClick={handleCreateOpportunity} className="opp-create-button">Create</button>
-              <button onClick={() => setModalOpen(false)} className="opp-cancel-button">Cancel</button>
+                <button type="submit" className="opp-create-button">Create</button>
+                <button onClick={() => setModalOpen(false)} className="opp-cancel-button">Cancel</button>
+              </form>
             </div>
           </div>
         )}
