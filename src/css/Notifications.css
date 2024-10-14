@@ -1,108 +1,77 @@
-/* Ensure the background covers the full page */
 .notifications-page {
-    height: 100vh; /* Full viewport height */
+    height: 100%; 
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #e8f5e9; /* Light green background */
+    background-color: #e8f5e9; 
+    align-items: center; 
+
 }
 
-.notification-preferences {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.notifications-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0; 
+    margin-bottom: 20px;
+    width: 100%; 
+    max-width: 1000px; 
+    margin: 0 auto; 
 }
 
-.preferences-options label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.preferences-options input[type="checkbox"] {
-  margin-right: 10px;
+.list-items {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0; 
 }
 
 
-/* Notification card styling */
 .notifications-card {
     display: flex;
-    align-items: flex-start; /* Align items at the start */
+    flex-direction: column; 
+    align-items: center; 
     border: 1px solid #0c0c0c;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 20px;
-    background-color:rgba(74, 230, 180, 0.2); /* Green background */
+    background-color: rgba(74, 230, 180, 0.2);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; 
 }
-
-/* Full width text styling */
 
 .notification-text {
-    flex: 1; /* Take all available space */
-    margin-right: 15px; /* Space between text and buttons */
-    overflow-wrap: break-word; /* Ensure that very long words break */
-    white-space: normal; /* Allow text to wrap into multiple lines */
+    margin-bottom: 15px; 
     font-size: 16px;
+    overflow-wrap: break-word; 
+    white-space: normal; 
 }
 
-/* Align buttons horizontally */
 .notification-actions {
     display: flex;
-    
-    
+    justify-content: center; 
 }
 
-/* Button styling */
-.mark-read-button,
-.delete-button {
+.mark-read-button {
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-}
-
-/* Mark as Read button */
-.mark-read-button {
-    background-color: #21b9f0; /* Dark green */
+    background-color: #21b9f0; 
     color: white;
 }
 
 .mark-read-button:hover {
-    background-color: #0cb0ec; /* Darker green on hover */
+    background-color: #0cb0ec; 
 }
 
-/* Delete button */
-.delete-button {
-    background-color: #f77373; /* Red for delete */
-    color: white;
-
-}
-
-.notifications-card:hover {
-    transform: translateY(-3px);
-    background-color: rgba(46, 143, 112, 0.2);
-  }
-.delete-button:hover {
-    background-color: #c62828; /* Darker red on hover */
-}
-
-/* Read notification style */
-.notification-item.read {
-    background-color: #81c784; /* Lighter green for read notifications */
-    color: #6d6d6d; /* Grey color for read text */
-}
-
-/* Clear all button styling */
 .clear-all {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Spacing from the notification list */
+    margin-top: 20px; 
 }
 
 .clear-all-button {
-    background-color:#f77373; /* Red shade for clear all button */
+    background-color: #f77373; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -111,17 +80,63 @@
 }
 
 .clear-all-button:hover {
-    background-color: #ff1744; /* Slightly darker red on hover */
+    background-color: #ff1744; 
 }
 
-/* Notifications list styling */
-.notifications-list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0 200px; /* Horizontal padding for alignment */
-    margin-bottom: 20px;
+@media (max-width: 768px) {
+    .notifications-card {
+        padding: 10px;
+    }
+
+    .notification-text {
+        font-size: 14px; 
+    }
+    .notifications-list{
+        width: 80%;
+    }
 }
-.list-items{
-    list-style-type: none;
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .notifications-card {
+        flex-direction: row; 
+        justify-content: space-between; 
+        padding: 15px; 
+    }
+
+    .notification-text {
+        font-size: 18px; 
+    }
+
+    .notification-actions {
+        margin-left: auto; 
+    }
+
+    .mark-read-button {
+        padding: 6px 12px; 
+    }
+    .notifications-list{
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .notifications-page {
+        padding: 10px; 
+    }
+
+    .notifications-card {
+        padding: 8px; 
+    }
+
+    .mark-read-button {
+        padding: 4px 8px; 
+        font-size: 12px; 
+    }
+
+    .clear-all-button {
+        padding: 8px 16px; 
+    }
+    .notifications-list{
+        width: 80%;
+    }
 }

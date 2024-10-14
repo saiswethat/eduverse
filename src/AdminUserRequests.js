@@ -3,13 +3,12 @@ import "./css/AdminUserRequests.css";
 import Admin_Header from "./Admin_header";
 import { userRequestsData } from "./loadData";
 
-
 const AdminUserRequests = () => {
   const [requests, setRequests] = useState(userRequestsData);
   const [activeAccordion, setActiveAccordion] = useState(null); 
 
   const userId = sessionStorage.getItem("userId");
-  if(!userId){
+  if(!userId) {
     alert("Please login to continue");
     window.location.href = "/login";
   }
@@ -49,18 +48,14 @@ const AdminUserRequests = () => {
         ) : (
           requests.map((request) => (
             <div key={request.id} className="accordion-card">
-              {/* Accordion Header */}
               <div className="accordion-header" onClick={() => toggleAccordion(request.id)}>
                 <h3>{`${request.firstName} ${request.lastName}`}</h3>
                 <p><strong>Message:</strong> {request.message}</p>
               </div>
-
-              {/* Accordion Content (only visible if the accordion is active) */}
               {activeAccordion === request.id && (
                 <div className="accordion-content">
                   <p><strong>Phone:</strong> {request.phone}</p>
                   <p><strong>Email:</strong> {request.email}</p>
-
                   {request.replied ? (
                     <div className="reply-section">
                       <h4>Reply Sent:</h4>
@@ -71,9 +66,7 @@ const AdminUserRequests = () => {
                       <textarea
                         placeholder="Type your reply here"
                         value={request.replyMessage}
-                        onChange={(e) =>
-                          handleReplyChange(request.id, e.target.value)
-                        }
+                        onChange={(e) => handleReplyChange(request.id, e.target.value)}
                       ></textarea>
                       <button
                         className="reply-btn"
@@ -83,7 +76,6 @@ const AdminUserRequests = () => {
                       </button>
                     </div>
                   )}
-
                   <button
                     className="delete-btn"
                     onClick={() => handleDeleteRequest(request.id)}
