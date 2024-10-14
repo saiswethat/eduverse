@@ -1,6 +1,5 @@
-// EventModal.js
 import React, { useState } from "react";
-import "./css/Events.css"; // Ensure your CSS has relevant styles
+import "./css/Events.css";
 
 function EventModal({ isOpen, onClose, onCreate }) {
   const [title, setTitle] = useState("");
@@ -12,11 +11,10 @@ function EventModal({ isOpen, onClose, onCreate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onCreate({ title, location, date, time, link });
-    resetForm(); // Reset form after creating
-    onClose(); // Close modal after creating
+    resetForm();
+    onClose();
   };
 
-  // Reset form inputs
   const resetForm = () => {
     setTitle("");
     setLocation("");
@@ -25,17 +23,16 @@ function EventModal({ isOpen, onClose, onCreate }) {
     setLink("");
   };
 
-  // Close the modal and reset form inputs
   const handleClose = () => {
-    resetForm(); // Reset form values
-    onClose(); // Close modal
+    resetForm();
+    onClose();
   };
 
-  if (!isOpen) return null; // Do not render if not open
+  if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="event-modal-overlay">
+      <div className="event-modal-content">
         <h2 className="event-center">Create New Event</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -70,9 +67,10 @@ function EventModal({ isOpen, onClose, onCreate }) {
             value={link}
             onChange={(e) => setLink(e.target.value)}
           />
-          <button type="submit" className="modal-submit-button">Create Event</button>
+          <button type="submit" className="event-modal-submit-button">Create Event</button>
+          <button onClick={handleClose} className="event-modal-close-button">Close</button>
         </form>
-        <button onClick={handleClose} className="modal-close-button">Close</button>
+        
       </div>
     </div>
   );

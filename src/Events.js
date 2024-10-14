@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import EventListing from "./EventListing";
-import EventModal from "./EventModal"; 
+import EventModal from "./EventModal";
 import "./css/Events.css";
 import { FaTrash } from "react-icons/fa";
 
@@ -52,41 +51,38 @@ function Events() {
   const handleDeleteEvent = (index) => {
     setEvents((prevEvents) => prevEvents.filter((_, i) => i !== index));
   };
-  
-
-  
 
   return (
-    <> <Header />
-    <div className="events">
-     
-      <h2 className="event-center-event">Events</h2>
-      <SearchBar onSearch={setSearchTerm} />
-      <div className="button-center">
-        <button className="create-event-button" onClick={() => setIsModalOpen(true)}>
-          Create Event
-        </button>
+    <>
+      <Header />
+      <div className="events">
+        <h2 className="event-center-event">Events</h2>
+        <SearchBar onSearch={setSearchTerm} />
+        <div className="button-center">
+          <button className="create-event-button" onClick={() => setIsModalOpen(true)}>
+            Create Event
+          </button>
+        </div>
+        <div className="event-listings">
+          {filteredEvents.map((event, index) => (
+            <EventListing
+              key={index}
+              title={event.title}
+              location={event.location}
+              date={event.date}
+              time={event.time}
+              link={event.link}
+              onDelete={handleDeleteEvent}
+              index={index}
+            />
+          ))}
+        </div>
+        <EventModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onCreate={handleCreateEvent}
+        />
       </div>
-      <div className="event-listings">
-    {filteredEvents.map((event, index) => (
-      <EventListing
-        key={index}
-        title={event.title}
-        location={event.location}
-        date={event.date}
-        time={event.time}
-        link={event.link}
-        onDelete={handleDeleteEvent} // Pass the delete handler
-        index={index} // Pass the index of the event
-      />
-    ))}
-  </div>
-      <EventModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onCreate={handleCreateEvent}
-      />
-    </div>
     </>
   );
 }
