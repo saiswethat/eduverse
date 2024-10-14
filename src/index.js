@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {users} from "./loadData";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import reportWebVitals from "./reportWebVitals";
@@ -35,6 +36,8 @@ import ManageOpportunities from "./ManageOpportunities";
 import ManageEvents from "./ManageEvents";
 import ManageTips from "./ManageTips";
 import ManageArticles from "./ManageArticles";
+import Logout from "./Logout";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -42,11 +45,12 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/opportunities" element={<Opportunities />} />
-        <Route path="/logout" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/build-resume" element={<BuildYourResume />} />
         <Route path="/tips" element={<Tips />} />

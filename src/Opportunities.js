@@ -69,6 +69,7 @@ function Opportunities() {
     <>
       <Header />
       <div className="opportunity-opportunities">
+        <h2>Opportunities</h2>
         <SearchBar onSearch={setSearchTerm} />
         <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
           Create Opportunity

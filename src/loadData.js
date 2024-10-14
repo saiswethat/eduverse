@@ -4,8 +4,8 @@ export const users = {
   1: {
     user_id: 1,
     user_name: "John Doe",
-    email: "john.doe@example.com",
-    password: "password123",
+    email: "admin@example.com",
+    password: "admin",
     user_type: "Admin",
     phone_number: "123-456-7890",
     profile_id: 101,
@@ -13,8 +13,8 @@ export const users = {
   2: {
     user_id: 2,
     user_name: "Jane Smith",
-    email: "jane.smith@example.com",
-    password: "password456",
+    email: "mentor@example.com",
+    password: "mentor",
     user_type: "Mentor",
     phone_number: "987-654-3210",
     profile_id: 102,
@@ -22,8 +22,8 @@ export const users = {
   3: {
     user_id: 3,
     user_name: "Michael Brown",
-    email: "michael.brown@example.com",
-    password: "password789",
+    email: "advisor@example.com",
+    password: "advisor",
     user_type: "Advisor",
     phone_number: "555-555-5555",
     profile_id: 103,
@@ -31,8 +31,8 @@ export const users = {
   4: {
     user_id: 4,
     user_name: "Alice Johnson",
-    email: "alice.johnson@example.com",
-    password: "password000",
+    email: "student@example.com",
+    password: "student",
     user_type: "Student",
     phone_number: "222-333-4444",
     profile_id: 104,
@@ -263,4 +263,58 @@ export const articles = [
   { id: 4, name: "The Importance of Career Mentorship", postedBy: "John Doe", date: "10/02/2024", description: "Learn how mentorship can play a crucial role in career development and success.", link: "#" },
   { id: 5, name: "Top 5 Tips for Job Interviews", postedBy: "Jane Smith", date: "10/03/2024", description: "These five tips will help you nail your next job interview and land your dream job.", link: "#" },
   { id: 6, name: "Building an Effective Resume", postedBy: "Chris Lee", date: "10/01/2024", description: "Discover how to craft a professional resume that catches the eye of recruiters.", link: "#" }
+];
+
+
+export const userRequestsData = [
+  {
+    id: 1,
+    firstName: "John",
+    lastName: "Doe",
+    phone: "1234567890",
+    email: "john.doe@example.com",
+    message: "I need help with my account.",
+    replied: false,
+    replyMessage: "",
+  },
+  {
+    id: 2,
+    firstName: "Jane",
+    lastName: "Smith",
+    phone: "0987654321",
+    email: "jane.smith@example.com",
+    message: "Can you assist with event registration?",
+    replied: false,
+    replyMessage: "",
+  },
+  {
+    id: 3,
+    firstName: "Emily",
+    lastName: "Brown",
+    phone: "4567891234",
+    email: "emily.brown@example.com",
+    message: "How do I reset my password?",
+    replied: false,
+    replyMessage: "",
+  },
+  {
+    id: 4,
+    firstName: "Michael",
+    lastName: "Johnson",
+    phone: "5678912345",
+    email: "michael.johnson@example.com",
+    message: "Can you help with updating my profile?",
+    replied: false,
+    replyMessage: "",
+  },
+  {
+    id: 5,
+    firstName: "Laura",
+    lastName: "Williams",
+    phone: "6789123456",
+    email: "laura.williams@example.com",
+    message: "How can I cancel my event registration?",
+    replied: false,
+    replyMessage: "",
+  }
 ];

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import "./css/Notifications.css";
+import { users } from "./loadData";
+import Admin_Header from "./Admin_header";
 
 function Notifications() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,6 +13,13 @@ function Notifications() {
     { id: 3, text: "Your subscription is about to expire", isRead: false },
     { id: 4, text: "Reminder: Meeting at 3 PM tomorrow", isRead: false },
   ]);
+
+  const userId = sessionStorage.getItem("userId");
+  if (!userId) {
+    alert("Please login to continue");
+    window.location.href = "/login";
+  }
+  const currentUser = users[userId];
 
   const markAsRead = (id) => {
     const updatedNotifications = notifications.map((notification) =>
@@ -32,7 +41,7 @@ function Notifications() {
 
   return (
     <>
-      <Header />
+      {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header />}
       <div className="notifications-page">
         <SearchBar onSearch={setSearchTerm} />
         <div className="clear-all">

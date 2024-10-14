@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import "./css/Settings.css";
+import Admin_Header from "./Admin_header";
+import { users } from "./loadData";
 
 const SettingsPage = () => {
   const [passwordData, setPasswordData] = useState({
@@ -13,9 +15,19 @@ const SettingsPage = () => {
     theme: "light",
   });
 
+  const [preferences, setPreferences] = useState("email"); 
+
   const [passwordErrors, setPasswordErrors] = useState({});
   const [themeSuccess, setThemeSuccess] = useState(false);
   const [passwordSuccess, setPasswordSuccess] = useState(false);
+  const [preferencesSuccess, setPreferencesSuccess] = useState(false);
+
+  const userId = sessionStorage.getItem("userId");
+  if(!userId){
+    alert("Please login to continue");
+    window.location.href = "/login";
+  }
+  const currentUser = users[userId];
 
   const handlePasswordInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,6 +45,10 @@ const SettingsPage = () => {
     });
 
     document.body.setAttribute("data-theme", theme);
+  };
+
+  const handlePreferenceChange = (e) => {
+    setPreferences(e.target.value);
   };
 
   const validatePasswordFields = () => {
@@ -89,13 +105,20 @@ const SettingsPage = () => {
     setThemeSuccess(true);
   };
 
+  const handlePreferencesSubmit = (e) => {
+    e.preventDefault();
+    setPreferencesSuccess(true);
+  };
+
   return (
     <div>
-      <Header />
+
+{(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header/> }
 
       <div className="settings-container">
         <h2>Settings</h2>
 
+        {/* Password Section */}
         <div className="card">
           <h3>Reset Password</h3>
           {passwordSuccess && (
@@ -158,6 +181,7 @@ const SettingsPage = () => {
           </form>
         </div>
 
+        {/* Theme Section */}
         <div className="card">
           <h3>Change Theme</h3>
           {themeSuccess && (
@@ -180,6 +204,45 @@ const SettingsPage = () => {
 
             <div className="submit-btn">
               <button type="submit">Save Theme</button>
+            </div>
+          </form>
+        </div>
+
+        {/* Notification Preferences Section */}
+        <div className="card">
+          <h3>Notification Preferences</h3>
+          {preferencesSuccess && (
+            <div className="success-message">
+              Notification preferences have been updated successfully!
+            </div>
+          )}
+          <form onSubmit={handlePreferencesSubmit}>
+            <div className="input-group-notification">
+              <label>Receive notifications via Email</label>
+              <input
+                type="radio"
+                name="preference"
+                value="email"
+                checked={preferences === "email"}
+                onChange={handlePreferenceChange}
+              />
+
+            </div>
+
+            <div className="input-group-notification">
+              <label>Receive notifications via SMS</label>
+              <input
+                type="radio"
+                name="preference"
+                value="sms"
+                checked={preferences === "sms"}
+                onChange={handlePreferenceChange}
+              />
+
+            </div>
+
+            <div className="submit-btn">
+              <button type="submit">Save Preferences</button>
             </div>
           </form>
         </div>
