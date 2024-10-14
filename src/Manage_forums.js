@@ -8,7 +8,7 @@ function ManageForums() {
 
   const handleDeleteClick = (id) => {
     if (window.confirm("Are you sure you want to delete this forum?")) {
-      const updatedForums = forums.filter((forum) => forum.id !== id);
+      const updatedForums = forums.filter((forum) => forum.forum_id !== id);
       setForums(updatedForums);
     }
   };
@@ -35,8 +35,8 @@ function ManageForums() {
                 <td>{forum.forum_name}</td>
                 <td>{forum.forum_description}</td>
                 <td>{users[forum.created_by].user_name}</td>
-                <td className="actions-cell">
-                  <button className="delete-button" onClick={() => handleDeleteClick(forum.id)}>
+                <td >
+                  <button className="delete-button actions-cell" onClick={() => handleDeleteClick(forum.forum_id)}>
                     Delete
                   </button>
                 </td>

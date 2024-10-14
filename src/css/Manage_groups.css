@@ -1,51 +1,99 @@
 .manage-groups {
     padding: 20px;
-}
+  }
   
-.group-table {
+  .group-table {
     width: 100%;
     border-collapse: collapse;
-}
+  }
   
-.group-table th,
-.group-table td {
+  .group-table th,
+  .group-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
+  }
   
-.group-table th {
+  .group-table th {
     background-color: #f2f2f2;
-}
+  }
   
-.group-table td {
-    vertical-align: middle; /* Align content vertically */
-}
+  .group-table td {
+    vertical-align: middle;
+  }
   
-/* Flexbox for the action buttons */
-.actions-cell {
+  .actions-cell {
     display: flex;
-    gap: 5px; /* Reduce gap between buttons */
-    justify-content: flex-start; /* Align buttons to the left */
-}
+    justify-content: center;
+    padding: 0;
+  }
   
-/* Button styles */
-button {
+  button {
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-}
+  }
   
-button:hover {
+  button:hover {
     opacity: 0.8;
-}
+  }
   
-button.delete-button {
-    background-color: #f44336; /* Red for delete */
+  button.delete-button {
+    background-color: #f44336;
     color: white;
-}
+  }
   
-button.delete-button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-}
+  button.delete-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  @media (max-width: 1024px) {
+    .manage-groups {
+      padding: 15px;
+    }
+  
+    .group-table th,
+    .group-table td {
+      padding: 8px;
+    }
+  
+    .group-table {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .group-table th,
+    .group-table td {
+      padding: 6px;
+    }
+  
+    .group-table {
+      font-size: 12px;
+    }
+  
+    .manage-groups {
+      padding: 10px;
+    }
+  
+    button {
+      padding: 4px 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .group-table th,
+    .group-table td {
+      padding: 4px;
+    }
+  
+    .group-table {
+      font-size: 10px;
+    }
+  
+    .manage-groups {
+      padding: 5px;
+    }
+  }
+  

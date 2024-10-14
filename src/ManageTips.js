@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/ManageTips.css"; 
 import Admin_Header from "./Admin_header";
-import {tips as initialTips} from "./loadData";
+import { tips as initialTips } from "./loadData";
 
 function ManageTips() {
     const [tips, setTips] = useState(initialTips);
@@ -36,8 +36,8 @@ function ManageTips() {
                                 <td>{tip.content}</td>
                                 <td>{tip.postedBy}</td>
                                 <td>{tip.postedDate}</td>
-                                <td className="actions-cell">
-                                    <button className="delete-button" onClick={() => handleDeleteClick(tip.id)}>Delete</button>
+                                <td >
+                                    <button className="delete-button actions-cell" onClick={() => handleDeleteClick(tip.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
