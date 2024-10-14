@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/EventListing.css";
-import { FaTrash } from "react-icons/fa"; // Import the trash icon
+import { FaTrash } from "react-icons/fa";
 
 function EventListing({ title, location, date, time, link, onDelete, index }) {
   return (
@@ -13,7 +13,7 @@ function EventListing({ title, location, date, time, link, onDelete, index }) {
             <a href={link} target="_blank" rel="noopener noreferrer">
               Link for meeting
             </a>
-          </p> // Optional link
+          </p>
         )}
       </div>
       <div className="event-card__date-time">
@@ -21,12 +21,10 @@ function EventListing({ title, location, date, time, link, onDelete, index }) {
         <p className="event-card__time">{time}</p>
         <div className="event-interested-button-container">
           <button className="event-interested-button">Register</button>
-          {/* Add the delete icon beside the register button */}
           <FaTrash
-            onClick={() => onDelete(index)} // Call the delete function when clicked
-            className="event-delete-icon" // CSS class for styling
-            title="Delete Event" // Tooltip for better UX
-            style={{ marginLeft: "10px", cursor: "pointer", color: "red" }} // Inline styles for quick adjustment
+            onClick={() => onDelete(index)}
+            className="event-delete-icon"
+            title="Delete Event"
           />
         </div>
       </div>

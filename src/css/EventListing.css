@@ -17,16 +17,14 @@
 }
 
 .event-card__info {
-  display: flex;
-  flex-direction: column;
   flex: 1;
 }
 
 .event-card__date-time {
   display: flex;
-  flex-direction: column; /* Align date, time, and button vertically */
-  align-items: flex-end; /* Align to the right */
-  margin-left: 20px; /* Add spacing between info and date/time */
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 20px;
 }
 
 .event-card__title {
@@ -39,30 +37,26 @@
 .event-card__location {
   font-size: 16px;
   color: #5a00e5;
-  text-decoration: none;
   margin-top: 5px;
 }
 
-.event-card__time {
+.event-card__time,
+.event-card__date {
   font-size: 14px;
-  color: #555; /* Optional: Change the color to differentiate */
-  margin: 5px 0; /* Add margin for spacing */
-}
-
-.event-card__link {
-  margin-top: 5px;
+  color: #555;
+  margin: 5px 0;
 }
 
 .event-card__link a {
-  color: #00f; /* Link color */
-  
+  color: #00f;
 }
-.event-card__link a:hover{
-  text-decoration: underline; /* Underline links */
+
+.event-card__link a:hover {
+  text-decoration: underline;
 }
 
 .event-interested-button-container {
-  margin-top: 10px; /* Add margin for spacing between time and button */
+  margin-top: 10px;
 }
 
 .event-interested-button {
@@ -71,22 +65,39 @@
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 14px;
   cursor: pointer;
 }
 
-.event-card__date {
-  font-size: 14px;
-  color: #000;
-  margin: -6px 0;
-}
 .event-delete-icon {
-  cursor: pointer; /* Pointer cursor on hover */
-  color: red; /* Color for delete icon */
-  transition: color 0.2s; /* Smooth color transition */
-  margin-top: 10px; /* Space above the icon */
+  cursor: pointer;
+  color: red;
+  transition: color 0.2s;
+  margin-top: 10px;
 }
 
 .event-delete-icon:hover {
-  color: darkred; /* Darker color on hover */
+  color: darkred;
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-card__date-time {
+    align-items: flex-start;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .event-card__title {
+    font-size: 24px;
+  }
+
+  .event-card__location,
+  .event-card__time,
+  .event-card__date {
+    font-size: 18px;
+  }
 }
