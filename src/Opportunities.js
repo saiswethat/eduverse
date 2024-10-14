@@ -12,7 +12,7 @@ function Opportunities() {
       company: "PayCom Inc.",
       location: "Boston, VA",
       description: "Data Analyst for Human Resources based applications",
-      type:"Full-Time",
+      type: "Full-Time",
       link: "#"
     },
     {
@@ -20,7 +20,7 @@ function Opportunities() {
       company: "Salesforce",
       location: "Dallas, TX",
       description: "New Grad Intern",
-      type:"Internship",
+      type: "Internship",
       link: "#"
     },
     {
@@ -28,7 +28,7 @@ function Opportunities() {
       company: "Google",
       location: "Arlington, VA",
       description: "Entry Level Developer",
-      type:"Full-Time",
+      type: "Full-Time",
       link: "#"
     },
     {
@@ -36,7 +36,7 @@ function Opportunities() {
       company: "Microsoft",
       location: "Arlington, VA",
       description: "Developer with minimum one year experience",
-      type:"Full-Time",
+      type: "Full-Time",
       link: "#"
     },
   ]);
@@ -105,6 +105,15 @@ function Opportunities() {
                 onChange={(e) => setNewJob({ ...newJob, company: e.target.value })}
                 required
               />
+              <select
+                value={newJob.type}
+                onChange={(e) => setNewJob({ ...newJob, type: e.target.value })}
+                required
+              >
+                <option value="">Select Opportunity Type</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Internship">Internship</option>
+              </select>
               <input
                 type="text"
                 placeholder="Location"
@@ -125,7 +134,7 @@ function Opportunities() {
                 onChange={(e) => setNewJob({ ...newJob, link: e.target.value })}
                 required
               />
-              
+
               <button onClick={handleCreateOpportunity} className="opp-create-button">Create</button>
               <button onClick={() => setModalOpen(false)} className="opp-cancel-button">Cancel</button>
             </div>
