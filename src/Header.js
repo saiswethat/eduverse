@@ -21,6 +21,7 @@ function Header() {
           <li>
             {(currentUser.user_type === "Student") && <a href="/home">Home</a> }
             {(currentUser.user_type === "Mentor") && <a href="/mentor">Home</a> }
+            {(currentUser.user_type === "Advisor") && <a href="/advisor">Home</a> }
           </li>
           <li>
             <a href="/opportunities">Opportunities</a>
@@ -77,7 +78,7 @@ function Header() {
           </li>
           <li className="header-dropdown">
             <a href="#" className="header-dropdown-toggle">
-              Name
+              {currentUser.user_name}
             </a>
             <div className="header-dropdown-content">
               <a href="/profile">Profile</a>

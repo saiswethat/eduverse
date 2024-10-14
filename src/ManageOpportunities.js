@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import Header from "./Admin_header";
+import Admin_header from "./Admin_header";
 import "./css/ManageOpportunities.css";
 
 const initialOpportunities = [
@@ -11,9 +11,7 @@ const initialOpportunities = [
 
 const typeOptions = [
     { value: "Full-Time", label: "Full-Time" },
-    { value: "Part-Time", label: "Part-Time" },
-    { value: "Internship", label: "Internship" },
-    { value: "Remote  ", label: "Remote  " },
+    { value: "Part-Time", label: "Part-Time" }
 ];
 
 function ManageOpportunities() {
@@ -60,7 +58,7 @@ function ManageOpportunities() {
 
     return (
         <>
-            <Header />
+            <Admin_header />
             <div className="manage-opportunities">
                 <h2>Manage Opportunities</h2> 
                 <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
