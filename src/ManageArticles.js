@@ -16,7 +16,6 @@ function ManageArticles() {
             <Admin_Header />
             <div className="manage-articles">
                 <h2>Manage Articles</h2>
-
                 <table className="articles-table">
                     <thead>
                         <tr>
@@ -36,9 +35,9 @@ function ManageArticles() {
                                 <td>{article.description}</td>
                                 <td>{article.postedBy}</td>
                                 <td>{article.date}</td>
-                                <td className="actions-cell">
-                                    <button className="delete-button" onClick={() => handleDeleteClick(article.id)}>Delete</button>
-                                    <a href={article.link} className="view-link" target="_blank" rel="noopener noreferrer">View</a>
+                                <td >
+                                    <button className="delete-button actions-cell" onClick={() => handleDeleteClick(article.id)}>Delete</button><br/>
+                                    <a href={article.link} className="view-link " target="_blank" rel="noopener noreferrer">View</a>
                                 </td>
                             </tr>
                         ))}

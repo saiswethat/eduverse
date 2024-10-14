@@ -1,54 +1,100 @@
 .manage-forums {
     padding: 20px;
-}
-
-/* Table styling for forums */
-.forum-table {
+  }
+  
+  .forum-table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.forum-table th,
-.forum-table td {
+  }
+  
+  .forum-table th,
+  .forum-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-.forum-table th {
+  }
+  
+  .forum-table th {
     background-color: #f2f2f2;
-}
-
-.forum-table td {
-    vertical-align: middle; /* Align content vertically */
-}
-
-/* Flexbox for the action buttons */
-.actions-cell {
+  }
+  
+  .forum-table td {
+    vertical-align: middle;
+  }
+  
+  .actions-cell {
     display: flex;
-    gap: 5px; /* Reduce gap between buttons */
-    justify-content: flex-start; /* Align buttons to the left */
-}
-
-/* Button styles */
-button {
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  button {
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     opacity: 0.8;
-}
-
-button.delete-button {
-    background-color: #f44336; /* Red for delete */
+  }
+  
+  button.delete-button {
+    background-color: #f44336;
     color: white;
-}
-
-button.delete-button:hover {
-    background-color: #d32f2f; /* Darker red on hover */
-}
-
-
+  }
+  
+  button.delete-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  @media (max-width: 1024px) {
+    .manage-forums {
+      padding: 15px;
+    }
+  
+    .forum-table th,
+    .forum-table td {
+      padding: 8px;
+    }
+  
+    .forum-table {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .forum-table th,
+    .forum-table td {
+      padding: 6px;
+    }
+  
+    .forum-table {
+      font-size: 12px;
+    }
+  
+    .manage-forums {
+      padding: 10px;
+    }
+  
+    .delete-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .forum-table th,
+    .forum-table td {
+      padding: 4px;
+    }
+  
+    .forum-table {
+      font-size: 10px;
+    }
+  
+    .manage-forums {
+      padding: 5px;
+    }
+  }
+  

@@ -1,84 +1,90 @@
 .manage-tips {
-    padding: 20px; /* Add padding to the main container */
+    padding: 20px;
 }
 
 .tips-table {
-    width: 100%; /* Full width for the table */
-    border-collapse: collapse; /* Collapse borders for a clean look */
-    margin-top: 20px; /* Margin above the table */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 .tips-table th,
 .tips-table td {
-    border: 1px solid #ddd; /* Light gray border for table cells */
-    padding: 10px; /* Padding for table cells */
-    text-align: left; /* Left align text in cells */
-    vertical-align: middle; /* Ensure content is vertically centered in cells by default */
-    box-sizing: border-box; /* Ensure borders and padding are included inside cell dimensions */
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    box-sizing: border-box;
 }
 
 .tips-table th {
-    background-color: #f4f4f4; /* Light gray background for headers */
+    background-color: #f4f4f4;
 }
 
 .actions-cell {
-    display: flex; /* Use flexbox for the container */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    gap: 10px; /* Space between action buttons if there are multiple */
-}
-
-.delete-button {
-    padding: 5px 10px; /* Padding for the delete button */
-    background-color: #ff4d4d; /* Red background for delete button */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-.delete-button:hover {
-    background-color: #ff1a1a; /* Darker red on hover */
-}
-
-
-
-.actions-cell {
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Horizontally center the button */
-    align-items: center; /* Vertically center the button */
-    height: 100%; /* Make sure the cell takes full height */
-}
-
-.delete-button {
-    padding: 5px 10px; /* Padding for the delete button */
-    background-color: #ff4d4d; /* Red background for delete button */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-.delete-button:hover {
-    background-color: #ff1a1a; /* Darker red on hover */
-}
-
-.tips-table th,
-.tips-table td {
-    border: 1px solid #ddd; /* Light gray border for table cells */
-    padding: 10px; /* Padding for table cells */
-    text-align: left; /* Left align text in cells */
-    box-sizing: border-box; /* Ensure borders and padding are included inside cell dimensions */
-    vertical-align: top; /* Ensures all cells align properly in case content grows */
-}
-
-.tips-table td {
-    position: relative; /* Ensures full control of content alignment inside the cell */
-}
-
-.actions-cell {
-    height: 100%; /* Ensure the flexbox container takes the full height of the cell */
     display: flex;
-    justify-content: center; /* Center the delete button horizontally */
-    align-items: center; /* Center the delete button vertically */
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+}
+
+@media (max-width: 1024px) {
+    .manage-tips {
+        padding: 15px;
+    }
+
+    .tips-table th,
+    .tips-table td {
+        padding: 8px;
+    }
+
+    .tips-table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tips-table th,
+    .tips-table td {
+        padding: 6px;
+    }
+
+    .tips-table {
+        font-size: 12px;
+    }
+
+    .manage-tips {
+        padding: 10px;
+    }
+
+    .delete-button {
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tips-table th,
+    .tips-table td {
+        padding: 4px;
+    }
+
+    .tips-table {
+        font-size: 10px;
+    }
+
+    .manage-tips {
+        padding: 5px;
+    }
 }

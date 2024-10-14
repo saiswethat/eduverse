@@ -22,8 +22,8 @@
 .actions-cell {
     display: flex;
     gap: 10px;
-    justify-content: center; /* Centering the buttons horizontally */
-    align-items: center; /* Centering vertically */
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-button {
@@ -49,4 +49,54 @@
 
 .view-link:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 1024px) {
+    .manage-articles {
+        padding: 15px;
+    }
+
+    .articles-table th,
+    .articles-table td {
+        padding: 8px;
+    }
+
+    .articles-table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-table th,
+    .articles-table td {
+        padding: 6px;
+    }
+
+    .articles-table {
+        font-size: 12px;
+    }
+
+    .manage-articles {
+        padding: 10px;
+    }
+
+    .delete-button,
+    .view-link {
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .articles-table th,
+    .articles-table td {
+        padding: 4px;
+    }
+
+    .articles-table {
+        font-size: 10px;
+    }
+
+    .manage-articles {
+        padding: 5px;
+    }
 }

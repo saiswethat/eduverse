@@ -11,49 +11,46 @@ const initialGroups = [
 function ManageGroups() {
   const [groups, setGroups] = useState(initialGroups);
 
-  // Delete group handler
   const handleDeleteGroup = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this group?");
     if (confirmDelete) {
       const updatedGroups = groups.filter(group => group.id !== id);
       setGroups(updatedGroups);
     }
-  
   };
 
   return (
     <>
-    <Admin_Header />
-    <div className="manage-groups">
-      <h2>Manage Groups</h2>
-
-      <table className="group-table">
-        <thead>
-          <tr>
-            <th>Group ID</th>
-            <th>Group Name</th>
-            <th>Description</th>
-            <th>Academic Interests</th>
-            <th>Created By</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {groups.map((group) => (
-            <tr key={group.id}>
-              <td>{group.id}</td>
-              <td>{group.name}</td>
-              <td>{group.description}</td>
-              <td>{group.interests}</td>
-              <td>{group.createdBy}</td>
-              <td>
-                <button className="delete-button" onClick={() => handleDeleteGroup(group.id)}>Delete</button>
-              </td>
+      <Admin_Header />
+      <div className="manage-groups">
+        <h2>Manage Groups</h2>
+        <table className="group-table">
+          <thead>
+            <tr>
+              <th>Group ID</th>
+              <th>Group Name</th>
+              <th>Description</th>
+              <th>Academic Interests</th>
+              <th>Created By</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {groups.map((group) => (
+              <tr key={group.id}>
+                <td>{group.id}</td>
+                <td>{group.name}</td>
+                <td>{group.description}</td>
+                <td>{group.interests}</td>
+                <td>{group.createdBy}</td>
+                <td>
+                  <button className="delete-button" onClick={() => handleDeleteGroup(group.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
