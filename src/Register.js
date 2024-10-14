@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./css/Register.css"; // Updated CSS file name
-import logoImage from "./assets/eduverseLogo.jpg"; // Import the logo
+import "./css/Register.css"; 
+import logoImage from "./assets/eduverseLogo.jpg"; 
 
 function Register() {
   const [fullName, setFullName] = useState('');

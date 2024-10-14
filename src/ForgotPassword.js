@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./css/ForgotPassword.css"; // Updated CSS file name
-import iconimage from "./assets/eduverse.jpg"; // Import the logo
+import "./css/ForgotPassword.css"; 
+import iconimage from "./assets/eduverse.jpg"; 
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');

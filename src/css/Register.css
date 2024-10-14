@@ -1,7 +1,5 @@
-/* Import the 'Jua' font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
-/* General styling for the entire page */
 body {
   font-family: 'Jua', sans-serif;
   background-color: rgba(168, 237, 215, 0.2);
@@ -10,12 +8,11 @@ body {
   box-sizing: border-box;
 }
 
-/* Center the content horizontally but align it at the start (top) vertically */
 .register-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align at the top of the container */
+  justify-content: center;
 }
 
 .register-min-h-screen {
@@ -26,39 +23,35 @@ body {
   padding: 16px;
 }
 
-/* Styling for the logo image */
 .register-custom-image {
-  width: 100%; /* Adjust for mobile screens */
+  width: 100%;
   height: auto;
   max-width: 550px;
   margin-top: 20px;
   margin-bottom: 24px;
 }
 
-/* Styling for the main container */
 .register-bg-white {
   background-color: #fff;
-  padding: 32px; /* Ensure consistent padding */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Max width for responsiveness */
+  max-width: 400px;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Styling for the header text */
 h1 {
-  margin: 0; /* Remove default margin */
-  text-align: center; /* Center text */
-  color: #2d3748; /* Gray color */
-  font-size: 2.5rem; /* Large font size */
-  font-weight: 700; /* Bold font */
-  width: 100%; /* Ensure it takes full width */
+  margin: 0;
+  text-align: center;
+  color: #2d3748;
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 100%;
 }
 
-/* Styling for input fields */
 .register-input-box {
   width: 100%;
   height: 48px;
@@ -69,12 +62,12 @@ h1 {
   text-align: center;
   margin-bottom: 16px;
   box-sizing: border-box;
+  font-family: 'Jua',sans-serif;
 }
 
-/* Smaller submit button */
 .register-submit-button {
-  width: 50%;    /* Full width for smaller screens */
-  height: 40px;   /* Keep height fixed */
+  width: 50%;
+  height: 40px;
   font-size: 1rem;
   background-color: #38a169;
   color: white;
@@ -88,13 +81,14 @@ h1 {
   background-color: #2f855a;
 }
 
-/* Styling for links */
 .register-text-blue-500 {
   color: #4299e1;
 }
-.register-text-center{
+
+.register-text-center {
   text-align: center;
 }
+
 .register-hover-underline:hover {
   text-decoration: underline;
 }
@@ -103,7 +97,6 @@ h1 {
   margin-top: 16px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .register-text-4xl {
     font-size: 1.5rem;
@@ -115,6 +108,7 @@ h1 {
 
   .register-input-box {
     font-size: 1rem;
+    width: 95%;
   }
 
   .register-submit-button {
