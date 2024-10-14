@@ -1,7 +1,5 @@
-/* Import the 'Jua' font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
-/* General styling for the entire page */
 body {
   font-family: 'Jua', sans-serif;
   background-color: rgba(168, 237, 215, 0.2);
@@ -10,97 +8,60 @@ body {
   box-sizing: border-box;
 }
 
-/* Center the content horizontally but align it at the start (top) vertically */
 .login-flex {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-}
-
-.login-min-h-screen {
+  justify-content: center;
   min-height: 100vh;
-}
-
-.login-p-4 {
   padding: 16px;
 }
+.login-text-center{
+  text-align: center;
+}
 
-/* Styling for the logo image */
 .login-custom-image {
-  width: 200%;
+  width: 80%;
   height: auto;
   max-width: 550px;
   margin-top: 20px;
-  margin-bottom: 0;
 }
 
-/* Styling for the main container */
 .login-bg-white {
   background-color: #fff;
-}
-
-.login-p-8 {
   padding: 32px;
-}
-
-.login-rounded-lg {
   border-radius: 10px;
-}
-
-.login-shadow-md {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.login-w-full {
   width: 100%;
-}
-
-.login-max-w-md {
   max-width: 400px;
-  width: 90%;
 }
 
-/* Styling for the header text */
-.login-text-center {
+.login-header {
+  font-size: 1.75rem;
   text-align: center;
-}
-
-.login-text-gray-800 {
   color: #2d3748;
 }
 
-.login-text-4xl {
-  font-size: 1.75rem;
+.login-error {
+  color: red;
+  text-align: center;
 }
 
-.login-md-text-5xl {
-  font-size: 2.5rem;
-}
-
-.login-font-bold {
-  font-weight: 700;
-}
-
-
-/* Styling for input fields */
 .login-input-box {
-  width: 100%;
+  width: 95%;
   height: 48px;
   padding: 12px;
   border-radius: 6px;
-  font-size: 1.25rem;
   border: 1px solid #ddd;
   text-align: center;
   margin-bottom: 16px;
-  box-sizing: border-box;
+  font-size: 1.25rem;
+  font-family:'Jua', sans-serif ;
 }
 
-/* Smaller submit button */
 .login-submit-button {
   width: 50%;
   height: 40px;
-  font-size: 1rem;
   background-color: #38a169;
   color: white;
   border-radius: 6px;
@@ -113,34 +74,87 @@ body {
   background-color: #2f855a;
 }
 
-/* Styling for links */
-.login-text-blue-500 {
-  color: #4299e1;
+.login-links {
+  margin-top: 16px;
+  text-align: center;
 }
 
-.login-hover-underline:hover {
+.login-link {
+  color: #4299e1;
+  text-decoration: none;
+}
+
+.login-link:hover {
   text-decoration: underline;
 }
-
-.login-mt-4 {
-  margin-top: 16px;
+.login-custom-image {
+  width: 100%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .login-text-4xl {
+@media (max-width: 1024px) {
+  .login-header {
     font-size: 1.5rem;
-  }
-
-  .login-md-text-5xl {
-    font-size: 2rem;
   }
 
   .login-input-box {
     font-size: 1rem;
+    
   }
 
   .login-submit-button {
     font-size: 0.875rem;
+  }
+  .login-custom-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-custom-image {
+    width: 100%;
+  }
+
+
+  .login-bg-white {
+    padding: 24px;
+  }
+
+  .login-header {
+    font-size: 1.5rem;
+  }
+
+  .login-input-box {
+    height: 40px;
+    width: 95%;
+  }
+
+  .login-submit-button {
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-header {
+    font-size: 1.25rem;
+  }
+  .login-flex{
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .login-input-box {
+    height: 38px;
+    font-size: 0.9rem;
+    width: 95%;
+  }
+
+  .login-submit-button {
+    height: 34px;
+    font-size: 0.8rem;
+  }
+  .login-custom-image {
+    width: 100%;
   }
 }
