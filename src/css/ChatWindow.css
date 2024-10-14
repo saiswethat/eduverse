@@ -1,4 +1,3 @@
-/* Chat Window */
 .chat-window {
     flex: 0.8 1;
     padding: 20px;
@@ -8,86 +7,79 @@
     overflow-y: auto;
     background-color: white;
     border-radius: 8px;
-    max-width: 100%; /* Full width */
+    max-width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Chat Messages Container */
-.pm-chat-messages {
+  }
+  
+  .pm-chat-messages {
     flex: 1;
     padding: 10px;
     display: flex;
-    flex-direction: column; /* Stack messages vertically */
-    overflow-y: auto; /* Scrolling for long chats */
-}
-/* Chat Window Section */
-.chat-window-section {
-    flex: 0.8; 
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .chat-window-section {
+    flex: 0.8;
     display: flex;
     flex-direction: inherit;
     justify-content: space-evenly;
-    padding: 0; 
+    padding: 0;
     background-color: #e6f7f5;
     position: relative;
     max-height: 100%;
   }
-
-/* Message Bubbles */
-.chat-message {
-    max-width: 50%; /* Set a max-width to keep it from being too wide */
+  
+  .chat-message {
+    max-width: 50%;
     padding: 10px 15px;
-    margin: 5px 0; /* Space between messages */
+    margin: 5px 0;
     border-radius: 20px;
     position: relative;
     word-wrap: break-word;
-    display: inline-block; /* Allow the message to shrink to fit content */
-}
-
-/* Sender (Your) messages on the right */
-.chat-message.sent {
-    align-self: flex-end; /* Align to the right */
-    background-color: #dcf8c6; /* WhatsApp green for sent messages */
-    text-align: right; /* Align text to the right */
-}
-
-/* Receiver (Other person's) messages on the left */
-.chat-message.received {
-    align-self: flex-start; /* Align to the left */
-    background-color: #ffffff; /* White for received messages */
+    display: inline-block;
+  }
+  
+  .chat-message.sent {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    text-align: right;
+  }
+  
+  .chat-message.received {
+    align-self: flex-start;
+    background-color: #ffffff;
     border: 1px solid #ddd;
-    text-align: left; /* Align text to the left */
-}
-
-/* Message text */
-.message-text {
+    text-align: left;
+  }
+  
+  .message-text {
     margin: 0;
     font-size: 14px;
-}
-
-/* Timestamp */
-.message-time {
+  }
+  
+  .message-time {
     font-size: 12px;
     color: #888;
     margin-top: 5px;
-}
-
-/* Input section */
-.message-input-section {
+  }
+  
+  .message-input-section {
     display: flex;
     padding: 10px;
     border-top: 1px solid #ddd;
     background-color: white;
-}
-
-.message-input-section input {
+  }
+  
+  .message-input-section input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
-}
-
-.message-input-section button {
+  }
+  
+  .message-input-section button {
     padding: 10px 20px;
     margin-left: 10px;
     background-color: #73c2ef;
@@ -96,8 +88,35 @@
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.message-input-section button:hover {
+  }
+  
+  .message-input-section button:hover {
     background-color: #1473e8;
-}
+  }
+  @media (max-width: 768px) {
+    .chat-window-section {
+        flex: unset;
+        width: 100%;
+      }
+    
+      .pm-chat-messages {
+        max-height: 300px;
+      }
+    
+      .chat-message {
+        max-width: 80%;
+      }
+    
+      .chat-window {
+        padding: 10px;
+      }
+  }
+  @media (max-width: 480px) {
+    .message-input-section input {
+        padding: 8px;
+      }
+    
+      .message-input-section button {
+        padding: 8px 15px;
+      } 
+ }

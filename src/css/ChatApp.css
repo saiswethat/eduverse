@@ -1,20 +1,17 @@
-/* Chat App */
 .chat-app {
   display: flex;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   width: 100%;
 }
 
-/* Chat List Section */
 .chat-list-section {
-  flex: 0.2; /* 30% of the screen */
+  flex: 0.2;
   background-color: #f4f4f9;
   padding: 20px;
   border-right: 1px solid #ddd;
-  overflow-y: auto; /* Allows scrolling if list is long */
+  overflow-y: auto;
 }
 
-/* Search Bar Styling */
 .search-bar {
   display: flex;
   justify-content: space-between;
@@ -48,7 +45,6 @@
   background-color: #23e166;
 }
 
-/* Chat List */
 .chat-list {
   list-style-type: none;
   padding: 0;
@@ -73,7 +69,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Profile Image */
 .chat-list li img {
   width: 40px;
   height: 40px;
@@ -81,25 +76,49 @@
   margin-right: 15px;
 }
 
-/* Chat Name */
 .chat-list li .chat-name {
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
 
-/* Subtext (last message or time) */
 .chat-list li .chat-subtext {
   font-size: 14px;
   color: #777;
-  margin-left: auto; /* Align to the right */
+  margin-left: auto;
 }
 
-.list-text-center{
+.list-text-center {
   text-align: center;
 }
 
 
 
+@media (max-width: 768px) {
+  .chat-app {
+    flex-direction: column;
+  }
 
+  .chat-list-section {
+    flex: unset;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
 
+@media (max-width: 480px) {
+  .search-bar input {
+    font-size: 14px;
+  }
+
+  .search-bar button {
+    font-size: 14px;
+  }
+
+  .chat-list li {
+    font-size: 14px;
+  }
+
+  
+}
