@@ -85,7 +85,7 @@ function Header() {
               <a href="/notifications">
                 {" "}
                 Notifications
-                <span className="notification-badge">3</span>
+                <span className="notification-badge">4</span>
               </a>
               <a href="/settings">Settings</a>
               <a href="/logout">Logout</a>

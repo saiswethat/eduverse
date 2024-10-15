@@ -49,7 +49,7 @@ function Admin_Header() {
               <div className="admin_header-dropdown-content">
                 <a href="/profile">Profile</a>
                 <a href="/notifications"> Notifications
-                <span className="admin_notification-badge">3</span>
+                <span className="admin_notification-badge">4</span>
                 </a>
                 <a href="/settings">Preferences</a>
                 <a href="/logout">Logout</a>
