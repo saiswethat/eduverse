@@ -15,7 +15,11 @@ function ProfilePage() {
   const currentUser = users[userId];
   const [profileImage, setProfileImage] = useState(defaultProfileImage);
   const [editMode, setEditMode] = useState(false);
-  const [formData, setFormData] = useState({ ...currentUser, bio: "Software developer passionate about web technologies." });
+  const [formData, setFormData] = useState({
+    ...currentUser,
+    academic_interests: "Enter your academic interests.",
+    research_interests: "Enter your research interests."
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -97,13 +101,23 @@ function ProfilePage() {
             className="profile-card__input"
           />
 
-          <label>Summary</label>
+          <label>Academic Interests</label>
           <textarea
-            name="bio"
-            value={formData.bio}
+            name="academic_interests"
+            value={formData.academic_interests}
             onChange={handleInputChange}
             className={`profile-card__textarea ${editMode ? "editable" : "read-only"}`}
-            placeholder="Your bio"
+            placeholder="Your academic interests"
+            readOnly={!editMode}
+          />
+
+          <label>Research Interests</label>
+          <textarea
+            name="research_interests"
+            value={formData.research_interests}
+            onChange={handleInputChange}
+            className={`profile-card__textarea ${editMode ? "editable" : "read-only"}`}
+            placeholder="Your research interests"
             readOnly={!editMode}
           />
 
