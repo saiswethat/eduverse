@@ -32,7 +32,7 @@ function AdvisorHomePage() {
         </div>
 
         <div className="home-home-section home-upcoming-events">
-          <h2 className="home-h2">Upcoming Events</h2>
+          <h2 className="home-h2">Recently Updated Events</h2>
           <div className="home-event-card">
             <p>Conference on AI - Oct 12, 2024</p>
             <p>Workshop on Web Development - Nov 8, 2024</p>
@@ -41,7 +41,7 @@ function AdvisorHomePage() {
         </div>
 
         <div className="home-home-section home-job-postings">
-          <h2 className="home-h2">Recent Job Postings</h2>
+          <h2 className="home-h2">Recently Posted Jobs</h2>
           <div className="home-job-card">
             <p>Full-Stack Developer at XYZ Company</p>
             <p>Data Analyst at ABC Corp</p>

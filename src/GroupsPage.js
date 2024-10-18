@@ -93,15 +93,17 @@ function GroupsPage() {
       <Header />
       <div className="groups-page">
         <h1>Interest-Based Groups</h1>
-        <button className="create-group-button" onClick={toggleModal}>
-          Create Group
-        </button>
+        {!selectedGroup &&
+          (<button className="create-group-button" onClick={toggleModal}>
+            Create Group
+          </button>)
+        }
         {selectedGroup ? (
-          <GroupChat 
-            group={selectedGroup} 
-            handleLeaveGroup={handleLeaveGroup} 
-            handleBack={handleBack} 
-            handleDeleteGroup={handleDeleteGroup} 
+          <GroupChat
+            group={selectedGroup}
+            handleLeaveGroup={handleLeaveGroup}
+            handleBack={handleBack}
+            handleDeleteGroup={handleDeleteGroup}
           />
         ) : (
           <div>
