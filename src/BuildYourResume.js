@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import './css/BuildYourResume.css'; // Ensure you import your CSS for styling
-import Header from './Header'; // Import your Header component
+import './css/BuildYourResume.css';
+import Header from './Header';
+import { Document, Packer, Paragraph, TextRun } from "docx";
+import { saveAs } from "file-saver";
 
 const BuildYourResume = () => {
   const [showForm, setShowForm] = useState(false);
@@ -11,19 +13,21 @@ const BuildYourResume = () => {
     phone: '',
     education: [],
     experience: [],
+    certifications: [],
     skills: [],
     interests: '',
     strengths: [],
     weaknesses: [],
     summary: '',
+    isEditing: false, 
+    editIndex: null,  
   });
-
   const [resumes, setResumes] = useState([]);
 
   if (!sessionStorage.getItem("userId")) {
     alert("Please login to continue");
     window.location.href = "/login";
-    return
+    return;
   }
 
   const handleChange = (e) => {
@@ -37,13 +41,22 @@ const BuildYourResume = () => {
   const addEducationField = () => {
     setFormData((prevData) => ({
       ...prevData,
-      education: [...prevData.education, ''],
+      education: [...prevData.education, { university: '', degree: '', major: '', gpa: '', fromYear: '', toYear: '' }],
     }));
   };
 
   const handleEducationChange = (index, e) => {
+    const { name, value } = e.target;
     const newEducation = [...formData.education];
-    newEducation[index] = e.target.value;
+    newEducation[index] = { ...newEducation[index], [name]: value };
+    setFormData((prevData) => ({
+      ...prevData,
+      education: newEducation,
+    }));
+  };
+
+  const deleteEducationField = (index) => {
+    const newEducation = formData.education.filter((_, i) => i !== index);
     setFormData((prevData) => ({
       ...prevData,
       education: newEducation,
@@ -53,16 +66,50 @@ const BuildYourResume = () => {
   const addExperienceField = () => {
     setFormData((prevData) => ({
       ...prevData,
-      experience: [...prevData.experience, ''],
+      experience: [...prevData.experience, { jobTitle: '', company: '', fromYear: '', toYear: '', description: '' }],
     }));
   };
 
   const handleExperienceChange = (index, e) => {
+    const { name, value } = e.target;
     const newExperience = [...formData.experience];
-    newExperience[index] = e.target.value;
+    newExperience[index] = { ...newExperience[index], [name]: value };
     setFormData((prevData) => ({
       ...prevData,
       experience: newExperience,
+    }));
+  };
+
+  const deleteExperienceField = (index) => {
+    const newExperience = formData.experience.filter((_, i) => i !== index);
+    setFormData((prevData) => ({
+      ...prevData,
+      experience: newExperience,
+    }));
+  };
+
+  const addCertificationField = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      certifications: [...prevData.certifications, { title: '', issuer: '', date: '' }],
+    }));
+  };
+
+  const handleCertificationChange = (index, e) => {
+    const { name, value } = e.target;
+    const newCertifications = [...formData.certifications];
+    newCertifications[index] = { ...newCertifications[index], [name]: value };
+    setFormData((prevData) => ({
+      ...prevData,
+      certifications: newCertifications,
+    }));
+  };
+
+  const deleteCertificationField = (index) => {
+    const newCertifications = formData.certifications.filter((_, i) => i !== index);
+    setFormData((prevData) => ({
+      ...prevData,
+      certifications: newCertifications,
     }));
   };
 
@@ -82,35 +129,18 @@ const BuildYourResume = () => {
     }));
   };
 
-  const addStrengthField = () => {
-    setFormData((prevData) => ({
-      ...prevData,
-      strengths: [...prevData.strengths, ''],
-    }));
+
+  const handleDeleteResume = (indexToDelete) => {
+    setResumes((prevResumes) =>
+      prevResumes.filter((_, index) => index !== indexToDelete)
+    );
   };
 
-  const handleStrengthsChange = (index, e) => {
-    const newStrengths = [...formData.strengths];
-    newStrengths[index] = e.target.value;
+  const deleteSkillField = (index) => {
+    const newSkills = formData.skills.filter((_, i) => i !== index);
     setFormData((prevData) => ({
       ...prevData,
-      strengths: newStrengths,
-    }));
-  };
-
-  const addWeaknessField = () => {
-    setFormData((prevData) => ({
-      ...prevData,
-      weaknesses: [...prevData.weaknesses, ''],
-    }));
-  };
-
-  const handleWeaknessesChange = (index, e) => {
-    const newWeaknesses = [...formData.weaknesses];
-    newWeaknesses[index] = e.target.value;
-    setFormData((prevData) => ({
-      ...prevData,
-      weaknesses: newWeaknesses,
+      skills: newSkills,
     }));
   };
 
@@ -130,11 +160,11 @@ const BuildYourResume = () => {
       return;
     }
     if (!isValidEmail(formData.email)) {
-      alert("Enter valid email.");
+      alert("Enter a valid email.");
       return;
     }
     if (!isValidPhoneNumber(formData.phone)) {
-      alert("Enter valid phone number.");
+      alert("Enter a valid phone number.");
       return;
     }
     if (currentStep < 1) {
@@ -150,49 +180,176 @@ const BuildYourResume = () => {
 
   const handleCreateResume = (e) => {
     e.preventDefault();
-
+  
     const form = e.target;
-
+  
     if (!form.reportValidity()) {
       return;
     }
-
+    if (formData.education.length === 0 && formData.experience.length === 0 && formData.certifications.length === 0) {
+      alert("Please add at least one education, experience, or certification.");
+      return;
+    }
+  
     const newResume = {
       ...formData,
       creationDate: new Date().toLocaleString()
     };
-
-    setResumes((prevResumes) => [newResume, ...prevResumes]);
+  
+    if (formData.isEditing) {
+      setResumes((prevResumes) =>
+        prevResumes.map((resume, index) => index === formData.editIndex ? newResume : resume)
+      );
+    } else {
+      setResumes((prevResumes) => [newResume, ...prevResumes]);
+    }
+  
     setShowForm(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      education: [],
+      experience: [],
+      certifications: [],
+      skills: [],
+      interests: "",
+      strengths: [],
+      weaknesses: [],
+      summary: "",
+      isEditing: false, 
+      editIndex: null, 
+    });
   };
-  const handleDeleteResume = (indexToDelete) => {
-    setResumes((prevResumes) =>
-      prevResumes.filter((_, index) => index !== indexToDelete)
-    );
-  };
+  
 
 
   const downloadResume = (resume) => {
-    const resumeContent = `
-      Name: ${resume.name}\n
-      Email: ${resume.email}\n
-      Phone: ${resume.phone}\n
-      Summary: ${resume.summary}\n
-    `;
+  const doc = new Document({
+  creator: "Your Name", 
+      title: "Resume",
+      description: `Resume of ${resume.name}`,
+    sections: [{
+      properties: {},
+      children: [
+        new Paragraph({
+          text: resume.name,
+          heading: "Title",
+          bold: true,
+          size: 32,
+          alignment: "center",
+        }),
+        new Paragraph({
+          text: resume.email,
+          alignment: "center",
+        }),
+        new Paragraph({
+          text: resume.phone,
+          alignment: "center",
+        }),
+        new Paragraph({
+          text: resume.summary,
+          spacing: { after: 300 },
+        }),
 
-    const blob = new Blob([resumeContent], { type: "application/msword" });
-    const url = URL.createObjectURL(blob);
+        new Paragraph({
+          text: "Education",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        ...resume.education.map(edu => (
+          new Paragraph({
+            text: `${edu.degree} in ${edu.major}, ${edu.university} (${edu.fromYear} - ${edu.toYear})`,
+            spacing: { after: 100 },
+          })
+        )),
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${resume.name}_resume.doc`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
+        new Paragraph({
+          text: "Experience",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        ...resume.experience.map(exp => (
+          new Paragraph({
+            text: `${exp.jobTitle} at ${exp.company} (${exp.fromYear} - ${exp.toYear}): ${exp.description}`,
+            spacing: { after: 100 },
+          })
+        )),
 
+        new Paragraph({
+          text: "Certifications",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        ...resume.certifications.map(cert => (
+          new Paragraph({
+            text: `${cert.title}, Issued by ${cert.issuer} on ${cert.date}`,
+            spacing: { after: 100 },
+          })
+        )),
 
+        new Paragraph({
+          text: "Skills",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        new Paragraph({
+          text: resume.skills.join(', '),
+          spacing: { after: 200 },
+        }),
+
+        new Paragraph({
+          text: "Interests",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        new Paragraph({
+          text: resume.interests,
+          spacing: { after: 200 },
+        }),
+
+        new Paragraph({
+          text: "Strengths",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        new Paragraph({
+          text: resume.strengths.join(', '),
+          spacing: { after: 200 },
+        }),
+        new Paragraph({
+          text: "Weaknesses",
+          heading: "Heading1",
+          bold: true,
+          size: 24,
+          spacing: { after: 200 },
+        }),
+        new Paragraph({
+          text: resume.weaknesses.join(', '),
+          spacing: { after: 200 },
+        }),
+      ],
+    }],
+  });
+
+  Packer.toBlob(doc).then((blob) => {
+    saveAs(blob, `${resume.name}_resume.docx`);
+  });
+};
+
+  
 
   return (
     <>
@@ -209,12 +366,13 @@ const BuildYourResume = () => {
             phone: "",
             education: [],
             experience: [],
+            certifications: [],
             skills: [],
             interests: "",
             strengths: [],
             weaknesses: [],
             summary: "",
-          }); // Reset form data
+          });
         }}>
           Create New Resume
         </button>
@@ -244,7 +402,6 @@ const BuildYourResume = () => {
               </div>
 
               <form className="resume-form" onSubmit={handleCreateResume}>
-                {/* Step 1: Personal Information and Summary */}
                 {currentStep === 0 && (
                   <>
                     <label>
@@ -252,7 +409,6 @@ const BuildYourResume = () => {
                       <input
                         type="text"
                         name="name"
-                        className="resume-input"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -263,7 +419,6 @@ const BuildYourResume = () => {
                       <input
                         type="email"
                         name="email"
-                        className="resume-input"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -274,7 +429,6 @@ const BuildYourResume = () => {
                       <input
                         type="tel"
                         name="phone"
-                        className="resume-input"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -292,104 +446,192 @@ const BuildYourResume = () => {
                   </>
                 )}
 
-                {/* Step 2: Resume Details */}
                 {currentStep === 1 && (
                   <>
                     <h3>Education</h3>
                     {formData.education.map((edu, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={edu}
-                        onChange={(e) => handleEducationChange(index, e)}
-                        placeholder="Enter your education"
-                      />
+                      <div key={index} className="education-entry">
+                        <input
+                          type="text"
+                          name="university"
+                          value={edu.university}
+                          placeholder="University"
+                          onChange={(e) => handleEducationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="degree"
+                          value={edu.degree}
+                          placeholder="Degree"
+                          onChange={(e) => handleEducationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="major"
+                          value={edu.major}
+                          placeholder="Major"
+                          onChange={(e) => handleEducationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="gpa"
+                          value={edu.gpa}
+                          placeholder="GPA"
+                          onChange={(e) => handleEducationChange(index, e)}
+                        />
+                        <input
+                          type="text"
+                          name="fromYear"
+                          value={edu.fromYear}
+                          placeholder="From Year"
+                          onChange={(e) => handleEducationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="toYear"
+                          value={edu.toYear}
+                          placeholder="To Year"
+                          onChange={(e) => handleEducationChange(index, e)}
+                          required
+                        />
+                        <button type="button" onClick={() => deleteEducationField(index)}>Delete</button>
+                      </div>
                     ))}
-                    <button className="resume-button" onClick={addEducationField}>
-                      Add Education
-                    </button>
+                    <button type="button" onClick={addEducationField}>Add Education</button>
 
                     <h3>Experience</h3>
                     {formData.experience.map((exp, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={exp}
-                        onChange={(e) => handleExperienceChange(index, e)}
-                        placeholder="Enter your work experience"
-                      />
+                      <div key={index} className="experience-entry">
+                        <input
+                          type="text"
+                          name="jobTitle"
+                          value={exp.jobTitle}
+                          placeholder="Job Title"
+                          onChange={(e) => handleExperienceChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="company"
+                          value={exp.company}
+                          placeholder="Company"
+                          onChange={(e) => handleExperienceChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="fromYear"
+                          value={exp.fromYear}
+                          placeholder="From Year"
+                          onChange={(e) => handleExperienceChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="toYear"
+                          value={exp.toYear}
+                          placeholder="To Year"
+                          onChange={(e) => handleExperienceChange(index, e)}
+                          required
+                        />
+                        <textarea
+                          name="description"
+                          value={exp.description}
+                          placeholder="Description"
+                          onChange={(e) => handleExperienceChange(index, e)}
+                          required
+                        />
+                        <button type="button" onClick={() => deleteExperienceField(index)}>Delete</button>
+                      </div>
                     ))}
-                    <button type="button" className="resume-button" onClick={addExperienceField}>
-                      Add Experience
-                    </button>
+                    <button type="button" onClick={addExperienceField}>Add Experience</button>
+
+                    <h3>Certifications</h3>
+                    {formData.certifications.map((cert, index) => (
+                      <div key={index} className="certification-entry">
+                        <input
+                          type="text"
+                          name="title"
+                          value={cert.title}
+                          placeholder="Certification Title"
+                          onChange={(e) => handleCertificationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="issuer"
+                          value={cert.issuer}
+                          placeholder="Issuer"
+                          onChange={(e) => handleCertificationChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="date"
+                          value={cert.date}
+                          placeholder="Date Obtained"
+                          onChange={(e) => handleCertificationChange(index, e)}
+                          required
+                        />
+                        <button type="button" onClick={() => deleteCertificationField(index)}>Delete</button>
+                      </div>
+                    ))}
+                    <button type="button" onClick={addCertificationField}>Add Certification</button>
 
                     <h3>Skills</h3>
                     {formData.skills.map((skill, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={skill}
-                        onChange={(e) => handleSkillsChange(index, e)}
-                        placeholder="Enter your skill"
-                      />
+                      <div key={index} className="skill-entry">
+                        <input
+                          type="text"
+                          value={skill}
+                          onChange={(e) => handleSkillsChange(index, e)}
+                          placeholder="Skill"
+                          required
+                        />
+                        <button type="button" onClick={() => deleteSkillField(index)}>Delete</button>
+                      </div>
                     ))}
-                    <button type="button" className="resume-button" onClick={addSkillField}>
-                      Add Skill
-                    </button>
-
-                    <h3>Strengths</h3>
-                    {formData.strengths.map((strength, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={strength}
-                        onChange={(e) => handleStrengthsChange(index, e)}
-                        placeholder="Enter your strength"
-                      />
-                    ))}
-                    <button type="button" className="resume-button" onClick={addStrengthField}>
-                      Add Strength
-                    </button>
-
-                    <h3>Weaknesses</h3>
-                    {formData.weaknesses.map((weakness, index) => (
-                      <input
-                        key={index}
-                        type="text"
-                        value={weakness}
-                        onChange={(e) => handleWeaknessesChange(index, e)}
-                        placeholder="Enter your weakness"
-                      />
-                    ))}
-                    <button type="button" className="resume-button" onClick={addWeaknessField}>
-                      Add Weakness
-                    </button>
+                    <button type="button" onClick={addSkillField}>Add Skill</button>
 
                     <label>
                       Interests:
-                      <input
-                        type="text"
+                      <textarea
                         name="interests"
                         value={formData.interests}
                         onChange={handleChange}
-                        required
+                      />
+                    </label>
+                    <label>
+                      Strengths:
+                      <input
+                        type="text"
+                        name="strengths"
+                        value={formData.strengths.join(', ')}
+                        onChange={(e) => setFormData({ ...formData, strengths: e.target.value.split(',') })}
+                      />
+                    </label>
+                    <label>
+                      Weaknesses:
+                      <input
+                        type="text"
+                        name="weaknesses"
+                        value={formData.weaknesses.join(', ')}
+                        onChange={(e) => setFormData({ ...formData, weaknesses: e.target.value.split(',') })}
                       />
                     </label>
                   </>
                 )}
 
-                <div className="resume-button-container">
-                  {currentStep > 0 && (
-                    <button type="button" className="prev-button" onClick={prevStep}>
-                      Back
-                    </button>
-                  )}
+                <div className="button-container">
+                  {currentStep > 0 && <button type="button" onClick={prevStep}>Back</button>}
                   {currentStep < 1 ? (
-                    <button type="button" className="next-button" onClick={nextStep}>
-                      Next
-                    </button>
+                    <button type="button" onClick={nextStep}>Next</button>
                   ) : (
-                    <button type="submit" className="submit-button">Build Resume</button>
+                    <button type="submit">Create Resume</button>
                   )}
                 </div>
               </form>
@@ -398,31 +640,30 @@ const BuildYourResume = () => {
         )}
 
         <div className="build-resume-resumes-list">
-          <h2>Your Resumes</h2>
-          {resumes.length === 0 ? (
-            <p>No resumes created yet.</p>
-          ) : (
-            <div className="resume-cards-container">
-              {resumes.map((resume, index) => (
-                <div key={index} className="resume-card">
-
-                  <h3>Resume_{index}</h3>
-                  <p>Created on: {resume.creationDate}</p>
-
-                  <div className="resume-actions">
-                    <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
-                      <i className="fas fa-trash-alt"></i>
-                    </div>
-                    <button className="download-button" onClick={() => downloadResume(resume)}>
-                      Download Resume
-                    </button>
-                  </div>
-                </div>
-              ))}
+  <h2>Your Resumes</h2>
+  {resumes.length > 0 ? (
+    <div className="resume-cards-container">
+      {resumes.map((resume, index) => (
+        <div key={index} className="resume-card">
+          <h3>{resume.name}</h3>
+          <div className="resume-actions">
+            <button className="download-button" onClick={() => downloadResume(resume)}>Download</button>
+            <button className="edit-button" onClick={() => {
+  setFormData({ ...resume, isEditing: true, editIndex: index });
+  setCurrentStep(1);
+  setShowForm(true);
+}}>Edit</button>
+            <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
+              <i className="fas fa-trash-alt"></i>
             </div>
-          )}
+          </div>
         </div>
-
+      ))}
+    </div>
+  ) : (
+    <p>No resumes created yet.</p>
+  )}
+</div>
       </div>
     </>
   );
