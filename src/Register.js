@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./css/Register.css"; 
 import logoImage from "./assets/eduverseLogo.jpg"; 
+import GuestHeader from "./Header";
+import { users } from "./loadData";
 
 function Register() {
   const [fullName, setFullName] = useState('');
@@ -8,6 +10,25 @@ function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+
+  useEffect(() => {
+    const userId = sessionStorage.getItem('userId');
+    console.log("User ID from session storage:", userId); 
+
+    if (userId) {
+      const user = Object.values(users).find(user => user.user_id.toString() === userId);
+      console.log("User found:", user); 
+      if (user) {
+        const routes = {
+          Admin: "/admin_home",
+          Advisor: "/advisor",
+          Mentor: "/mentor",
+          Student: "/home",
+        };
+        window.location.replace(routes[user.user_type] || "/home");
+      }
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +45,8 @@ function Register() {
   };
 
   return (
+    <>
+    <GuestHeader/>
     <div className="register-flex register-flex-col register-items-center register-justify-start register-min-h-screen register-bg-[rgba(168,237,215,0.2)] register-p-4">
       <a href="/"><img
         src={logoImage}
@@ -92,6 +115,7 @@ function Register() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 
