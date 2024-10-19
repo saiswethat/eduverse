@@ -37,22 +37,21 @@ import ManageTips from "./ManageTips";
 import ManageArticles from "./ManageArticles";
 import Logout from "./Logout";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
       <Routes>
+
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
+
         <Route path="/home" element={<HomePage />} />
         <Route path="/opportunities" element={<Opportunities />} />
-        <Route path="/logout" element={<Logout />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/build-resume" element={<BuildYourResume />} />
-        <Route path="/tips" element={<Tips />} />
         <Route path="/events" element={<Events />} />
         <Route path="/groups" element={<GroupsPage />} />
         <Route path="/chats" element={<ChatApp />} />
@@ -78,6 +77,8 @@ root.render(
         <Route path="/manage-events" element={<ManageEvents />} />
         <Route path="/manage-tips" element={<ManageTips />} />
         <Route path="/manage-articles" element={<ManageArticles />} />
+
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   </React.StrictMode>

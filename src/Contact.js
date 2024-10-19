@@ -11,15 +11,12 @@ const ContactUs = () => {
     message: "",
   });
 
+ 
   const [errors, setErrors] = useState({});
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
-  /* Check for valid session */
-  if (!sessionStorage.getItem("userId")) {
-    alert("Please login to continue");
-    window.location.href = "/login";
-    return
-  }
+ 
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

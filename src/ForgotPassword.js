@@ -1,11 +1,32 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./css/ForgotPassword.css"; 
 import iconimage from "./assets/eduverse.jpg"; 
+import GuestHeader from "./Header";
+import { users } from "./loadData";
 
 function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  useEffect(() => {
+    const userId = sessionStorage.getItem('userId');
+    console.log("User ID from session storage:", userId); 
+
+    if (userId) {
+      const user = Object.values(users).find(user => user.user_id.toString() === userId);
+      console.log("User found:", user); 
+      if (user) {
+        const routes = {
+          Admin: "/admin_home",
+          Advisor: "/advisor",
+          Mentor: "/mentor",
+          Student: "/home",
+        };
+        window.location.replace(routes[user.user_type] || "/home");
+      }
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +41,8 @@ function ForgotPassword() {
   };
 
   return (
+    <>
+    <GuestHeader/>
     <div className="forget-flex forget-flex-col forget-items-center forget-justify-start forget-min-h-screen forget-bg-[rgba(168,237,215,0.2)] forget-p-4">
       <a href="/"><img
         src={iconimage}
@@ -68,6 +91,7 @@ function ForgotPassword() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 
