@@ -1,18 +1,11 @@
-/*
-Agnihotram, Anand Manohar – 1002149690
-Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
-Addepalli, Sravani – 1002148407
-Konduru Balakrishna, Hanish – 1002175225
-Akepati, Prem Nandhan Reddy - 1002170918
-*/
-
 .events {
   padding: 20px;
 }
 
 .event-listings {
   margin-top: -200px;
-  padding:200px;
+  padding: 200px;
+
 }
 
 .button-center {
@@ -35,12 +28,8 @@ Akepati, Prem Nandhan Reddy - 1002170918
   background-color: #1dd771;
 }
 
-.event-center {
-  text-align: center;
-}
-
 .event-center-event {
-  margin-top: 5px;
+  margin-top: 20px;
   text-align: center;
   font-size: 40px;
 }
@@ -48,131 +37,40 @@ Akepati, Prem Nandhan Reddy - 1002170918
 @media (max-width: 768px) {
   .create-event-button {
     width: 50%;
-    padding: 15px;
+    padding: 12px;
   }
 
   .events {
     padding: 10px;
   }
-}
-.event-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  overflow-y: auto;
-}
 
-.event-modal-content {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 400px;
-  max-width: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.event-modal-content h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.event-modal-content form {
-  display: flex;
-  flex-direction: column;
-}
-
-.event-modal-content input {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 95%;
-}
-
-.event-modal-submit-button {
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  width:50%;
-}
-
-.event-modal-submit-button:hover {
-  background-color: #218838;
-}
-
-.event-modal-close-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-  width:50%;
-}
-
-.event-modal-close-button:hover {
-  background-color: #c82333;
-}
-
-@media (max-width: 768px) {
-  .event-modal-content {
-    width: 100%;
-    padding: 15px;
+  .event-listings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .event-modal-submit-button,
-  .event-modal-close-button {
-    padding: 12px;
-    font-size: 18px;
+  .event-center-event {
+    font-size: 30px;
   }
-  .event-modal-submit-button{
-    width: 50%;
+}
+
+@media (max-width: 480px) {
+  .create-event-button {
+    width: 80%;
+    padding: 10px;
   }
 
-  .event-modal-content input {
-    padding: 12px;
-    font-size: 18px;
-  }
-
-  .event-modal-content h2 {
+  .event-center-event {
     font-size: 24px;
   }
-}
 
-@media (max-width: 640px) {
-  .event-modal-content {
-    width: 100%;
-    padding: 15px;
-    margin-top: 170px; 
-  }
-
-  .event-modal-content input {
-    padding: 8px;
-    font-size: 14px; 
-  }
-
-  .event-modal-submit-button,
-  .event-modal-close-button {
+  .event-listings {
     padding: 10px;
-    font-size: 14px;
+    margin-top: auto;
   }
 
-  .event-modal-content h2 {
-    font-size: 20px;
+  .events {
+    padding: 5px;
   }
 }
-

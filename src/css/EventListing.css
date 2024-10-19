@@ -1,15 +1,7 @@
-/*
-Agnihotram, Anand Manohar – 1002149690
-Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
-Addepalli, Sravani – 1002148407
-Konduru Balakrishna, Hanish – 1002175225
-Akepati, Prem Nandhan Reddy - 1002170918
-*/
-
 .event-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 20px;
   border: 2px solid #000;
   border-radius: 10px;
   padding: 15px;
@@ -25,14 +17,9 @@ Akepati, Prem Nandhan Reddy - 1002170918
 }
 
 .event-card__info {
-  flex: 1;
-}
-
-.event-card__date-time {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-left: 20px;
+  justify-content: space-between;
 }
 
 .event-card__title {
@@ -63,8 +50,10 @@ Akepati, Prem Nandhan Reddy - 1002170918
   text-decoration: underline;
 }
 
-.event-interested-button-container {
-  margin-top: 10px;
+.event-card__buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .event-interested-button {
@@ -80,32 +69,94 @@ Akepati, Prem Nandhan Reddy - 1002170918
   cursor: pointer;
   color: red;
   transition: color 0.2s;
-  margin-top: 10px;
 }
 
 .event-delete-icon:hover {
   color: darkred;
 }
 
-@media (max-width: 768px) {
-  .event-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.event-map-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: #2980b9;
+  transition: color 0.3s ease;
+}
 
-  .event-card__date-time {
-    align-items: flex-start;
-    margin-left: 0;
-    margin-top: 10px;
+.event-map-icon-hide {
+  cursor: pointer;
+  font-size: 24px;
+  color: #2980b9;
+  transition: color 0.3s ease;
+  visibility: hidden;
+  height: 50px;
+  width: 50px;
+}
+
+.event-map-icon:hover {
+  color: #1a73e8;
+}
+
+.event-card__map-container {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f4f6f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: none;
+}
+
+.event-card__map-container.open {
+  display: block;
+}
+
+.event-card__map-container iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .event-card {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 75%;
   }
 
   .event-card__title {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .event-card__location,
   .event-card__time,
   .event-card__date {
+    font-size: 12px;
+  }
+
+  .event-card__buttons {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .event-interested-button {
+    width: 100px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .event-delete-icon {
     font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .event-map-icon {
+    font-size: 20px;
+  }
+
+  .event-card__map-container iframe {
+    height: 180px;
+    width: 100%;
   }
 }
