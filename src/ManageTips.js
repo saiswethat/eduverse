@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/ManageTips.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import { tips as initialTips } from "./loadData";
 
 function ManageTips() {
@@ -19,7 +19,7 @@ function ManageTips() {
 
     return (
         <>
-            <Admin_Header />
+            <AdminHeader />
             <div className="manage-tips">
                 <h2>Manage Tips</h2>
 

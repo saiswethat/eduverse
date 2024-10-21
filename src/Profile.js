@@ -4,7 +4,7 @@ import Header from "./Header";
 import defaultProfileImage from "./assets/profileImage.jpg";
 import { FaPencilAlt } from "react-icons/fa";
 import { users } from "./loadData";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 
 function ProfilePage() {
   const userId = sessionStorage.getItem("userId");
@@ -53,7 +53,7 @@ function ProfilePage() {
 
   return (
     <div>
-      {(currentUser.user_type === "Admin") ? <Admin_Header /> : <Header />}
+      {(currentUser.user_type === "Admin") ? <AdminHeader /> : <Header />}
       <div className="profile-card">
         <div className="profile-card__image">
           <img src={profileImage} alt="Profile" />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import "./css/Settings.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import { users } from "./loadData";
 
 const SettingsPage = () => {
@@ -91,7 +91,7 @@ const SettingsPage = () => {
 
   return (
     <div>
-      {currentUser.user_type === "Admin" ? <Admin_Header /> : <Header />}
+      {currentUser.user_type === "Admin" ? <AdminHeader /> : <Header />}
       <div className="settings-container">
         <h2>Settings</h2>
 

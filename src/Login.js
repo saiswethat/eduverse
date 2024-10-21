@@ -18,7 +18,7 @@ function Login() {
       console.log("User found:", user); 
       if (user) {
         const routes = {
-          Admin: "/admin_home",
+          Admin: "/admin",
           Advisor: "/advisor",
           Mentor: "/mentor",
           Student: "/home",
@@ -33,9 +33,10 @@ function Login() {
     const user = Object.values(users).find(user => user.email === email && user.password === password);
     if (user) {
       sessionStorage.setItem('userId', user.user_id);
+      sessionStorage.setItem('userRole', user.user_type);
       console.log("User logged in:", user); 
       const routes = {
-        Admin: "/admin_home",
+        Admin: "/admin",
         Advisor: "/advisor",
         Mentor: "/mentor",
         Student: "/home",

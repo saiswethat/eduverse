@@ -95,10 +95,8 @@ Akepati, Prem Nandhan Reddy - 1002170918
   padding: 20px;
   width: 400px;
   max-width: 90%;
-  /* Make the modal responsive */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   overflow: auto;
-  /* Allow scrolling if content is too large */
 }
 
 .opp-modal-content input,

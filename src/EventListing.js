@@ -3,10 +3,10 @@ import "./css/EventListing.css";
 import { FaTrash, FaMapMarkerAlt } from "react-icons/fa";
 
 function EventListing({ title, location, date, time, link, mapUrl, onDelete, index }) {
-  const [isMapOpen, setIsMapOpen] = useState(false); 
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
   const toggleMap = () => {
-    setIsMapOpen(!isMapOpen); 
+    setIsMapOpen(!isMapOpen);
   };
 
   return (
@@ -32,15 +32,17 @@ function EventListing({ title, location, date, time, link, mapUrl, onDelete, ind
           <FaMapMarkerAlt onClick={toggleMap}
             className="event-map-icon"
             title="Map" />
-        ): (<FaMapMarkerAlt onClick={toggleMap}
+        ) : (<FaMapMarkerAlt onClick={toggleMap}
           className="event-map-icon-hide"
-          title="Map" />) }
+          title="Map" />)}
         <button className="event-interested-button">Register</button>
-        <FaTrash
-          onClick={() => onDelete(index)}
-          className="event-delete-icon"
-          title="Delete Event"
-        />
+        {(sessionStorage.getItem("userRole") !== "Student") &&
+          <FaTrash
+            onClick={() => onDelete(index)}
+            className="event-delete-icon"
+            title="Delete Event"
+          />
+        }
       </div>
       {mapUrl && (
         <div className={`event-card__map-container ${isMapOpen ? 'open' : ''}`}>

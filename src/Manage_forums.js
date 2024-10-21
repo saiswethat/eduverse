@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/Manage_forums.css";
 import { forums as initialForums, users } from "./loadData";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 
 function ManageForums() {
   const [forums, setForums] = useState(initialForums);
@@ -21,7 +21,7 @@ function ManageForums() {
 
   return (
     <>
-      <Admin_Header />
+      <AdminHeader />
       <div className="manage-forums">
         <h2>Manage Forums</h2>
         <table className="forum-table">

@@ -11,12 +11,8 @@ const ContactUs = () => {
     message: "",
   });
 
- 
   const [errors, setErrors] = useState({});
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-
- 
-  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

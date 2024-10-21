@@ -77,9 +77,11 @@ function Opportunities() {
       <div className="opportunity-opportunities">
         <h2>Opportunities</h2>
         <SearchBar onSearch={setSearchTerm} />
-        <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
-          Create Opportunity
-        </button>
+        {(sessionStorage.getItem("userRole") !== "Student") &&
+          <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>
+            Create Opportunity
+          </button>
+        }
         <div className="opportunity-job-listings">
           {filteredListings.map((job, index) => (
             <JobListing

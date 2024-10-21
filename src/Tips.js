@@ -68,9 +68,11 @@ function Tips() {
           </div>
         )}
         <h2>All Tips</h2>
-        <button className="create-tip-button" onClick={() => setShowCreateForm(true)}>
-          Create Tip
-        </button>
+        {(sessionStorage.getItem("userRole") !== "Student") &&
+          <button className="create-tip-button" onClick={() => setShowCreateForm(true)}>
+            Create Tip
+          </button>
+        }
         {showCreateForm && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -127,9 +129,11 @@ function Tips() {
                   <span>User not found</span>
                 )}
               </div>
-              <button className="tips-delete-button" onClick={() => handleDeleteTips(tip.id)}>
-                <FaTrashAlt size={15} color="red" />
-              </button>
+              {(sessionStorage.getItem("userRole") !== "Student") &&
+                <button className="tips-delete-button" onClick={() => handleDeleteTips(tip.id)}>
+                  <FaTrashAlt size={15} color="red" />
+                </button>
+              }
             </div>
           ))}
         </div>

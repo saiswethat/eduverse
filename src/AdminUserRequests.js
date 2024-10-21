@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/AdminUserRequests.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import { userRequestsData } from "./loadData";
 
 const AdminUserRequests = () => {
@@ -40,7 +40,7 @@ const AdminUserRequests = () => {
 
   return (
     <div>
-      <Admin_Header />
+      <AdminHeader />
       <div className="admin-requests-container">
         <h2>User Queries</h2>
         {requests.length === 0 ? (

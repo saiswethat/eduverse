@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import Header from "./Admin_header";
+import Header from "./AdminHeader";
 import "./css/ManageUsers.css";
 import SearchBar from "./SearchBar";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/ManageEvents.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import EventModal from "./EventModal";
 
 const initialEvents = [
@@ -31,7 +31,7 @@ function ManageEvents() {
 
     return (
         <>
-            <Admin_Header />
+            <AdminHeader />
             <div className="manage-events">
                 <h2>Manage Events</h2>
                 <button className="create-event-button" onClick={() => setModalOpen(true)}>

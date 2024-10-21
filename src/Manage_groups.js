@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/Manage_groups.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 
 const initialGroups = [
   { id: 1, name: "AI Enthusiasts", description: "Group for AI researchers", interests: "Artificial Intelligence, Machine Learning", createdBy: "John Doe" },
@@ -27,7 +27,7 @@ function ManageGroups() {
 
   return (
     <>
-      <Admin_Header />
+      <AdminHeader />
       <div className="manage-groups">
         <h2>Manage Groups</h2>
         <table className="group-table">
