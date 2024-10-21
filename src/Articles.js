@@ -50,9 +50,11 @@ function Articles() {
       <div className="articles-articles-page">
         <h1>Articles</h1>
         <SearchBar onSearch={handleSearch} />
-        <button className="articles-create-article-button" onClick={() => setShowForm(true)}>
-          Create Article
-        </button>
+        {(sessionStorage.getItem("userRole") !== "Student") &&
+          <button className="articles-create-article-button" onClick={() => setShowForm(true)}>
+            Create Article
+          </button>
+        }
         {showForm && (
           <div className="articles-form-overlay">
             <div className="articles-form-popup">
@@ -96,9 +98,11 @@ function Articles() {
               <div className="articles-read-more">
                 <a href={article.link} target="_blank" rel="noopener noreferrer">Read More</a>
               </div>
-              <button className="articles-delete-button" onClick={() => handleDeleteArticle(article.id)}>
-                <FaTrashAlt size={20} color="red" />
-              </button>
+              {(sessionStorage.getItem("userRole") !== "Student") &&
+                <button className="articles-delete-button" onClick={() => handleDeleteArticle(article.id)}>
+                  <FaTrashAlt size={20} color="red" />
+                </button>
+              }
             </div>
           ))}
         </div>

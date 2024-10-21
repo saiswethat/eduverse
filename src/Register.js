@@ -20,7 +20,7 @@ function Register() {
       console.log("User found:", user); 
       if (user) {
         const routes = {
-          Admin: "/admin_home",
+          Admin: "/admin",
           Advisor: "/advisor",
           Mentor: "/mentor",
           Student: "/home",

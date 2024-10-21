@@ -80,7 +80,6 @@ const ViewYourMentees = () => {
             {mentees.map((mentee) => (
               <div key={mentee.id} className="mentee-card">
                 <div className="mentee-card-content">
-                  {/* Left side - Mentee Icon and Info */}
                   <div className="mentee-left">
                     <div className="mentee-icon">
                       {mentee.studentName.charAt(0).toUpperCase()}
@@ -91,7 +90,6 @@ const ViewYourMentees = () => {
                     </div>
                   </div>
 
-                  {/* Right side - Phone and Delete */}
                   <div className="mentee-right">
                     <p><strong>Phone:</strong> {mentee.phone}</p>
                     <div className="mentee-actions">
@@ -103,7 +101,6 @@ const ViewYourMentees = () => {
                   </div>
                 </div>
 
-                {/* Full-width reason section */}
                 <div className="mentee-reason">
                   <p><strong>Reason:</strong> {mentee.reason}</p>
                 </div>

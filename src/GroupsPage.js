@@ -93,7 +93,7 @@ function GroupsPage() {
       <Header />
       <div className="groups-page">
         <h1>Interest-Based Groups</h1>
-        {!selectedGroup &&
+        {!selectedGroup && (sessionStorage.getItem("userRole") !== "Student") &&
           (<button className="create-group-button" onClick={toggleModal}>
             Create Group
           </button>)

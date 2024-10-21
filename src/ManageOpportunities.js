@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Admin_header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import "./css/ManageOpportunities.css";
 
 const initialOpportunities = [
@@ -58,7 +58,7 @@ function ManageOpportunities() {
 
     return (
         <>
-            <Admin_header />
+            <AdminHeader />
             <div className="manage-opportunities">
                 <h2>Manage Opportunities</h2>
                 <button className="create-opportunity-button" onClick={() => setModalOpen(true)}>

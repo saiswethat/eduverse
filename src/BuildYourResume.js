@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './css/BuildYourResume.css';
 import Header from './Header';
-import { Document, Packer, Paragraph, TextRun } from "docx";
+import { Document, Packer, Paragraph } from "docx";
 import { saveAs } from "file-saver";
 
 const BuildYourResume = () => {
@@ -19,8 +19,8 @@ const BuildYourResume = () => {
     strengths: [],
     weaknesses: [],
     summary: '',
-    isEditing: false, 
-    editIndex: null,  
+    isEditing: false,
+    editIndex: null,
   });
   const [resumes, setResumes] = useState([]);
 
@@ -180,9 +180,9 @@ const BuildYourResume = () => {
 
   const handleCreateResume = (e) => {
     e.preventDefault();
-  
+
     const form = e.target;
-  
+
     if (!form.reportValidity()) {
       return;
     }
@@ -190,12 +190,12 @@ const BuildYourResume = () => {
       alert("Please add at least one education, experience, or certification.");
       return;
     }
-  
+
     const newResume = {
       ...formData,
       creationDate: new Date().toLocaleString()
     };
-  
+
     if (formData.isEditing) {
       setResumes((prevResumes) =>
         prevResumes.map((resume, index) => index === formData.editIndex ? newResume : resume)
@@ -203,7 +203,7 @@ const BuildYourResume = () => {
     } else {
       setResumes((prevResumes) => [newResume, ...prevResumes]);
     }
-  
+
     setShowForm(false);
     setFormData({
       name: "",
@@ -217,139 +217,139 @@ const BuildYourResume = () => {
       strengths: [],
       weaknesses: [],
       summary: "",
-      isEditing: false, 
-      editIndex: null, 
+      isEditing: false,
+      editIndex: null,
     });
   };
-  
+
 
 
   const downloadResume = (resume) => {
-  const doc = new Document({
-  creator: "Your Name", 
+    const doc = new Document({
+      creator: "Your Name",
       title: "Resume",
       description: `Resume of ${resume.name}`,
-    sections: [{
-      properties: {},
-      children: [
-        new Paragraph({
-          text: resume.name,
-          heading: "Title",
-          bold: true,
-          size: 32,
-          alignment: "center",
-        }),
-        new Paragraph({
-          text: resume.email,
-          alignment: "center",
-        }),
-        new Paragraph({
-          text: resume.phone,
-          alignment: "center",
-        }),
-        new Paragraph({
-          text: resume.summary,
-          spacing: { after: 300 },
-        }),
-
-        new Paragraph({
-          text: "Education",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        ...resume.education.map(edu => (
+      sections: [{
+        properties: {},
+        children: [
           new Paragraph({
-            text: `${edu.degree} in ${edu.major}, ${edu.university} (${edu.fromYear} - ${edu.toYear})`,
-            spacing: { after: 100 },
-          })
-        )),
-
-        new Paragraph({
-          text: "Experience",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        ...resume.experience.map(exp => (
+            text: resume.name,
+            heading: "Title",
+            bold: true,
+            size: 32,
+            alignment: "center",
+          }),
           new Paragraph({
-            text: `${exp.jobTitle} at ${exp.company} (${exp.fromYear} - ${exp.toYear}): ${exp.description}`,
-            spacing: { after: 100 },
-          })
-        )),
-
-        new Paragraph({
-          text: "Certifications",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        ...resume.certifications.map(cert => (
+            text: resume.email,
+            alignment: "center",
+          }),
           new Paragraph({
-            text: `${cert.title}, Issued by ${cert.issuer} on ${cert.date}`,
-            spacing: { after: 100 },
-          })
-        )),
+            text: resume.phone,
+            alignment: "center",
+          }),
+          new Paragraph({
+            text: resume.summary,
+            spacing: { after: 300 },
+          }),
 
-        new Paragraph({
-          text: "Skills",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        new Paragraph({
-          text: resume.skills.join(', '),
-          spacing: { after: 200 },
-        }),
+          new Paragraph({
+            text: "Education",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          ...resume.education.map(edu => (
+            new Paragraph({
+              text: `${edu.degree} in ${edu.major}, ${edu.university} (${edu.fromYear} - ${edu.toYear})`,
+              spacing: { after: 100 },
+            })
+          )),
 
-        new Paragraph({
-          text: "Interests",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        new Paragraph({
-          text: resume.interests,
-          spacing: { after: 200 },
-        }),
+          new Paragraph({
+            text: "Experience",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          ...resume.experience.map(exp => (
+            new Paragraph({
+              text: `${exp.jobTitle} at ${exp.company} (${exp.fromYear} - ${exp.toYear}): ${exp.description}`,
+              spacing: { after: 100 },
+            })
+          )),
 
-        new Paragraph({
-          text: "Strengths",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        new Paragraph({
-          text: resume.strengths.join(', '),
-          spacing: { after: 200 },
-        }),
-        new Paragraph({
-          text: "Weaknesses",
-          heading: "Heading1",
-          bold: true,
-          size: 24,
-          spacing: { after: 200 },
-        }),
-        new Paragraph({
-          text: resume.weaknesses.join(', '),
-          spacing: { after: 200 },
-        }),
-      ],
-    }],
-  });
+          new Paragraph({
+            text: "Certifications",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          ...resume.certifications.map(cert => (
+            new Paragraph({
+              text: `${cert.title}, Issued by ${cert.issuer} on ${cert.date}`,
+              spacing: { after: 100 },
+            })
+          )),
 
-  Packer.toBlob(doc).then((blob) => {
-    saveAs(blob, `${resume.name}_resume.docx`);
-  });
-};
+          new Paragraph({
+            text: "Skills",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          new Paragraph({
+            text: resume.skills.join(', '),
+            spacing: { after: 200 },
+          }),
 
-  
+          new Paragraph({
+            text: "Interests",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          new Paragraph({
+            text: resume.interests,
+            spacing: { after: 200 },
+          }),
+
+          new Paragraph({
+            text: "Strengths",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          new Paragraph({
+            text: resume.strengths.join(', '),
+            spacing: { after: 200 },
+          }),
+          new Paragraph({
+            text: "Weaknesses",
+            heading: "Heading1",
+            bold: true,
+            size: 24,
+            spacing: { after: 200 },
+          }),
+          new Paragraph({
+            text: resume.weaknesses.join(', '),
+            spacing: { after: 200 },
+          }),
+        ],
+      }],
+    });
+
+    Packer.toBlob(doc).then((blob) => {
+      saveAs(blob, `${resume.name}_resume.docx`);
+    });
+  };
+
+
 
   return (
     <>
@@ -640,30 +640,30 @@ const BuildYourResume = () => {
         )}
 
         <div className="build-resume-resumes-list">
-  <h2>Your Resumes</h2>
-  {resumes.length > 0 ? (
-    <div className="resume-cards-container">
-      {resumes.map((resume, index) => (
-        <div key={index} className="resume-card">
-          <h3>{resume.name}</h3>
-          <div className="resume-actions">
-            <button className="download-button" onClick={() => downloadResume(resume)}>Download</button>
-            <button className="edit-button" onClick={() => {
-  setFormData({ ...resume, isEditing: true, editIndex: index });
-  setCurrentStep(1);
-  setShowForm(true);
-}}>Edit</button>
-            <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
-              <i className="fas fa-trash-alt"></i>
+          <h2>Your Resumes</h2>
+          {resumes.length > 0 ? (
+            <div className="resume-cards-container">
+              {resumes.map((resume, index) => (
+                <div key={index} className="resume-card">
+                  <h3>{resume.name}</h3>
+                  <div className="resume-actions">
+                    <button className="download-button" onClick={() => downloadResume(resume)}>Download</button>
+                    <button className="edit-button" onClick={() => {
+                      setFormData({ ...resume, isEditing: true, editIndex: index });
+                      setCurrentStep(1);
+                      setShowForm(true);
+                    }}>Edit</button>
+                    <div className="delete-icon" onClick={() => handleDeleteResume(index)}>
+                      <i className="fas fa-trash-alt"></i>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <p>No resumes created yet.</p>
+          )}
         </div>
-      ))}
-    </div>
-  ) : (
-    <p>No resumes created yet.</p>
-  )}
-</div>
       </div>
     </>
   );

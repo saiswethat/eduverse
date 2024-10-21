@@ -14,7 +14,6 @@ const ForumPage = () => {
     const [newPost, setNewPost] = useState({ title: "", content: "", link: "" });
     const [newComment, setNewComment] = useState({});
 
-    /* Check for valid session */
     const userId = sessionStorage.getItem("userId");
     if (!userId) {
         alert("Please login to continue");
@@ -38,7 +37,7 @@ const ForumPage = () => {
                 comments: []
             };
             setPosts([...posts, postToAdd]);
-            setNewPost({ title: "", content: "", link: "" }); 
+            setNewPost({ title: "", content: "", link: "" });
         }
     };
 
@@ -98,13 +97,13 @@ const ForumPage = () => {
                                 </div>
                                 <button onClick={() => toggleComments(index)}>Comments ({post.comments.length})</button>
 
-                                {/* Delete Icon - Positioned in the right */}
-                                <button
-                                    className="delete-post-button"
-                                    onClick={() => handleDeletePost(post.post_id)}
-                                >
-                                    <FaTrashAlt size={15} color="red" />
-                                </button>
+                                {(sessionStorage.getItem("userId") == post.userId) &&
+                                    <button
+                                        className="delete-post-button"
+                                        onClick={() => handleDeletePost(post.post_id)}>
+                                        <FaTrashAlt size={15} color="red" />
+                                    </button>
+                                }
                             </div>
                             {openComments[index] && (
                                 <div className="comments-section">

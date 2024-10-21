@@ -4,7 +4,7 @@ import ChatWindow from './ChatWindow';
 import SearchBar from './SearchBar';
 import './css/ChatApp.css';
 import Header from './Header';
-import Admin_Header from './Admin_header';
+import Admin_Header from './AdminHeader';
 import { users } from './loadData';
 
 const ChatApp = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./css/ManageArticles.css";
-import Admin_Header from "./Admin_header";
+import AdminHeader from "./AdminHeader";
 import { articles as initialArticles } from "./loadData";
 
 function ManageArticles() {
@@ -19,7 +19,7 @@ function ManageArticles() {
 
     return (
         <>
-            <Admin_Header />
+            <AdminHeader />
             <div className="manage-articles">
                 <h2>Manage Articles</h2>
                 <table className="articles-table">
