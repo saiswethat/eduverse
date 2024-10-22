@@ -15,6 +15,7 @@ const BuildYourResume = () => {
     experience: [],
     certifications: [],
     skills: [],
+    projects: [],
     interests: '',
     strengths: [],
     weaknesses: [],
@@ -23,12 +24,6 @@ const BuildYourResume = () => {
     editIndex: null,
   });
   const [resumes, setResumes] = useState([]);
-
-  if (!sessionStorage.getItem("userId")) {
-    alert("Please login to continue");
-    window.location.href = "/login";
-    return;
-  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,6 +83,31 @@ const BuildYourResume = () => {
     }));
   };
 
+  const handleProjectChange = (index, e) => {
+    const { name, value } = e.target;
+    const newProjects = [...formData.projects];
+    newProjects[index] = { ...newProjects[index], [name]: value };
+    setFormData((prevData) => ({
+      ...prevData,
+      projects: newProjects,
+    }));
+  };
+
+  const deleteProjectField = (index) => {
+    const newProjects = formData.projects.filter((_, i) => i !== index); 
+    setFormData((prevData) => ({
+      ...prevData,
+      projects: newProjects,
+    }));
+  };
+
+  const addProjectField = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      projects: [...prevData.projects, { projectTitle: '', projectDescription: '', projectFromYear: '', projectToYear: ''}],
+    }));
+  };
+  
   const addCertificationField = () => {
     setFormData((prevData) => ({
       ...prevData,
@@ -154,7 +174,8 @@ const BuildYourResume = () => {
     return phoneRegex.test(phone);
   };
 
-  const nextStep = () => {
+  const nextStep = (e) => {
+    e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone || !formData.summary) {
       alert("Please enter all the details to move forward.");
       return;
@@ -212,6 +233,7 @@ const BuildYourResume = () => {
       education: [],
       experience: [],
       certifications: [],
+      projects: [],
       skills: [],
       interests: "",
       strengths: [],
@@ -367,6 +389,7 @@ const BuildYourResume = () => {
             education: [],
             experience: [],
             certifications: [],
+            projects: [],
             skills: [],
             interests: "",
             strengths: [],
@@ -549,6 +572,45 @@ const BuildYourResume = () => {
                       </div>
                     ))}
                     <button type="button" onClick={addExperienceField}>Add Experience</button>
+
+                    <h3>Projects</h3>
+                    {formData.projects.map((project, index) => (
+                      <div key={index} className="experience-entry">
+                        <input
+                          type="text"
+                          name="projectTitle"
+                          value={project.projectTitle}
+                          placeholder="Job Title"
+                          onChange={(e) => handleProjectChange(index, e)}
+                          required
+                        />
+                        <textarea
+                          name="projectDescription"
+                          value={project.projectDescription}
+                          placeholder="Description"
+                          onChange={(e) => handleProjectChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="projectFromYear"
+                          value={project.projectFromYear}
+                          placeholder="From Year"
+                          onChange={(e) => handleProjectChange(index, e)}
+                          required
+                        />
+                        <input
+                          type="text"
+                          name="projectToYear"
+                          value={project.projectToYear}
+                          placeholder="To Year"
+                          onChange={(e) => handleProjectChange(index, e)}
+                          required
+                        />
+                        <button type="button" onClick={() => deleteProjectField(index)}>Delete</button>
+                      </div>
+                    ))}
+                    <button type="button" onClick={addProjectField}>Add Project</button>
 
                     <h3>Certifications</h3>
                     {formData.certifications.map((cert, index) => (
