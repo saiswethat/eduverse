@@ -6,6 +6,26 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Random Tip Background: #f4f6f9 (Light Gray)
+    -- Random Tip Header Color: #ff7f50 (Coral)
+    -- Tip Card Background: #ffffff (White)
+    -- Tip Card Hover Shadow: rgba(0, 0, 0, 0.2)
+    -- Create Tip Button Background: #ff7f50 (Coral)
+    -- Create Tip Button Hover Background: #ff6347 (Red-Orange)
+    -- Submit Button Background: #4CAF50 (Green)
+    -- Submit Button Hover Background: #45a049 (Dark Green)
+    -- Cancel Button Background: #f44336 (Red)
+    -- Cancel Button Hover Background: #d32f2f (Dark Red)
+    -- View Full Content Link Color: #007BFF (Blue)
+    -- View Full Content Link Hover Color: #0056b3 (Dark Blue)
+    -- Modal Background: rgba(0, 0, 0, 0.5) (Black with Transparency)
+    -- Modal Content Background: white
+*/
+
 .tips-tips-page {
   padding: 20px;
   text-align: center;

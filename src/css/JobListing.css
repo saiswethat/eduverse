@@ -6,6 +6,22 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Job Card Background: #f0fdf4 (Light Mint Green)
+    -- Job Card Border: #000 (Black)
+    -- Interested Button Background: #007bff (Bright Blue)
+    -- Interested Button Hover Background: #4caf50 (Green)
+    -- Delete Button Color: #ff0000 (Bright Red)
+    -- Job Title Color: #000 (Black)
+    -- Company Color: #5a00e5 (Vivid Purple)
+    -- Description Color: #333 (Dark Gray)
+    -- Location Color: #000 (Black)
+    -- Box Shadow: rgba(0, 0, 0, 0.1) (Light Shadow)
+*/
+
 .jobListing-job-card {
   display: flex;
   justify-content: space-between;

@@ -6,6 +6,25 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Background Color: #fafafa;
+    Main Background Color: #f9f9f9;
+    Default Button Color: #007bff;
+    Hover Button Color: #0056b3;
+    Leave Group Button Color: red;
+    Delete Group Button Color: darkorange;
+    Main Text Color: #555555;
+    Message Background (You): #007bff;
+    Message Background (Others): #e5e5ea;
+    Post Username Color: #007bff;
+    Comment Username Color: #555555;
+    Box Shadow: rgba(0, 0, 0, 0.1);
+    Scrollbar Track Color: #f1f1f1;
+    Scrollbar Thumb Color: #888888;
+*/
+
 .group-chat {
     padding: 20px;
     background-color: #fafafa;

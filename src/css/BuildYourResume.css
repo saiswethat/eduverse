@@ -1,3 +1,24 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Button Background: #6ae485 (Soft Green)
+    -- Button Hover Background: #4AAE65 (Medium Green)
+    -- Submit Button Background: #28A745 (Green)
+    -- Delete Button Background: #FF4136 (Red)
+    -- Overlay Background: rgba(0, 0, 0, 0.7) (Semi-transparent Black)
+    -- Card Background: #f9f9f9 (Light Gray)
+*/
+
+
 .build-resume-resume-page {
   padding: 20px;
   text-align: center;

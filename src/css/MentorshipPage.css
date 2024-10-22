@@ -6,6 +6,20 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Mentorship Page Background: #f0fdf4 (Light Green)
+    -- Title Color: #3e92cc (Sky Blue)
+    -- Description Color: #4b4b4b (Gray)
+    -- Join Button Background: #76c6ff (Light Blue)
+    -- Join Button Hover Background: #5ab4f8 (Medium Light Blue)
+    -- Mentor Button Background: #00ff88 (Bright Green)
+    -- Mentor Button Hover Background: #00e67d (Green)
+    -- Or Text Color: #333 (Dark Gray)
+*/
+
 .mentor-mentorship-page {
   text-align: center;
   padding: 40px;

@@ -6,6 +6,24 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Button Background (Primary): #007bff (Bright Blue)
+    -- Button Hover Background (Primary): #0056b3 (Darker Blue)
+    -- Button Background (Success): #28a745 (Green)
+    -- Button Hover Background (Success): #218838 (Darker Green)
+    -- Background Color: #f9f9f9 (Light Gray)
+    -- Header Text: #333333 (Dark Gray)
+    -- Forum Box Background: #ffffff (White)
+    -- Border Color: #cccccc (Light Gray)
+    -- Forum Box Text Color: #666666 (Gray)
+    -- Forum Box Title Color: #2b2b2b (Dark Gray)
+    -- Delete Button Background: tomato (Red)
+    -- Delete Button Hover Background: #c82333 (Darker Red)
+*/
+
 .create-forum-btn {
   padding: 10px 20px;
   background-color: #007bff;

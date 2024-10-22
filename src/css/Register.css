@@ -6,6 +6,21 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Body Background: rgba(168, 237, 215, 0.2) (Light Teal)
+    -- Card Background: #ffffff (White)
+    -- Card Shadow: rgba(0, 0, 0, 0.1) (Light Shadow)
+    -- Heading Color: #2d3748 (Dark Gray)
+    -- Input Border: #ddd (Light Gray)
+    -- Submit Button Background: #38a169 (Green)
+    -- Submit Button Hover Background: #2f855a (Darker Green)
+    -- Text Color: #4299e1 (Blue)
+*/
+
+
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 body {

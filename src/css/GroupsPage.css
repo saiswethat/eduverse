@@ -6,6 +6,21 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Group Tile Background: #f5f5f5 (Light Gray)
+    -- Group Tile Hover Background: #e0e0e0 (Light Gray)
+    -- Button Background: #007bff (Bright Blue)
+    -- Modal Overlay Background: rgba(0, 0, 0, 0.7) (Black with 70% opacity)
+    -- Modal Content Background: white (White)
+    -- Modal Input Border: #ccc (Light Gray)
+    -- Modal Button Color: #007bff (Bright Blue)
+    -- Modal Button Hover Background: #45a049 (Green)
+    -- Text Color: #555 (Dark Gray)
+*/
+
 .groups-page {
   padding: 20px;
 }

@@ -1,3 +1,26 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
+/*
+    Font: 'Roboto', sans-serif;
+
+    Color Palette:
+    -- Button Background (Create Event): #007bff (Bright Blue)
+    -- Button Hover Color (Create Event): #1dd771 (Green)
+    -- Modal Background: #fff (White)
+    -- Modal Submit Button Background: #4CAF50 (Green)
+    -- Modal Submit Button Hover Color: #45a049 (Darker Green)
+    -- Modal Close Button Background: #f44336 (Red)
+    -- Modal Close Button Hover Color: #d32f2f (Darker Red)
+    -- Modal Overlay Background: rgba(0, 0, 0, 0.5) (Semi-transparent Black)
+    -- Input Border Color: #ccc (Light Gray)
+*/
+
 .events {
   padding: 20px;
 }

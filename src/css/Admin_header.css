@@ -6,6 +6,20 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+    
+    Color Palette:
+    -- Header Background: #eaf9f0 (Light Greenish Blue)
+    -- Link Color: black (Text color for links)
+    -- Notification Badge Background: #ff5252 (Red)
+    -- Notification Badge Text: white (Text color for the badge)
+    -- Link Hover Background: #d0f0e0 (Light Greenish Blue)
+    -- Active Link Color: #1515e7 (Blue)
+    -- Dropdown Background: #fff (White)
+    -- Dropdown Item Color: black (Text color for dropdown items)
+*/
+
 .admin_header-header {
   background-color: #eaf9f0;
   padding: 10px 20px;
@@ -97,37 +111,6 @@ Akepati, Prem Nandhan Reddy - 1002170918
 
 .admin_header-dropdown-content a:hover {
   background-color: #d0f0e0;
-}
-
-.admin_header-nested-dropdown {
-  position: relative;
-}
-
-.admin_header-nested-dropdown > a::after {
-  content: " ▶";
-  font-size: 0.8em;
-  margin-left: 5px;
-}
-
-.admin_header-nested-dropdown:hover > a::after {
-  content: " ▼";
-}
-
-.admin_header-nested-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 160px;
-  top: 0;
-  left: 100%;
-  margin-left: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  border-radius: 5px;
-}
-
-.admin_header-nested-dropdown:hover .admin_header-nested-content {
-  display: block;
 }
 
 @media (max-width: 1024px) {

@@ -1,3 +1,28 @@
+/*
+Agnihotram, Anand Manohar – 1002149690
+Ankireddy, Gurusai Ravi Raja Reddy – 1002138944
+Addepalli, Sravani – 1002148407
+Konduru Balakrishna, Hanish – 1002175225
+Akepati, Prem Nandhan Reddy - 1002170918
+*/
+
+/*
+    Font: 'Roboto', sans-serif;
+
+    Color Palette:
+    -- Event Card Background: #f0fdf4 (Light Greenish)
+    -- Event Card Border: #000 (Black)
+    -- Event Title Color: #000 (Black)
+    -- Location Color: #5a00e5 (Purple)
+    -- Time and Date Color: #555 (Gray)
+    -- Link Color: #00f (Blue)
+    -- Interested Button Background: #007bff (Bright Blue)
+    -- Delete Icon Color: red
+    -- Map Icon Color: #2980b9 (Sky Blue)
+    -- Map Icon Hover Color: #1a73e8 (Lighter Blue)
+    -- Map Container Background: #f4f6f7 (Light Gray)
+*/
+
 .event-card {
   display: grid;
   grid-template-columns: 1fr auto;

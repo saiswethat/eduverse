@@ -6,6 +6,18 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Background Color: #f9f9f9 (Light Gray)
+    -- Header Text Color: #333333 (Dark Gray)
+    -- Content Background: #ffffff (White)
+    -- Content Text Color: #666666 (Gray)
+    -- Detail Text Color: #999999 (Light Gray)
+    -- Box Shadow: rgba(0, 0, 0, 0.1) (Light Shadow)
+*/
+
 .full-tip-page {
     display: flex;
     flex-direction: column;

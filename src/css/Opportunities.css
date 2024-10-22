@@ -6,6 +6,18 @@ Konduru Balakrishna, Hanish – 1002175225
 Akepati, Prem Nandhan Reddy - 1002170918
 */
 
+/*
+    Font: 'Jua', sans-serif;
+
+    Color Palette:
+    -- Button Background: #007bff (Bright Blue)
+    -- Modal Overlay Background: rgba(0, 0, 0, 0.7) (Dark Transparent Black)
+    -- Modal Content Background: #ffffff (White)
+    -- Modal Content Input/Border Color: #ccc (Light Grey)
+    -- Confirm Button Background: #4caf50 (Green)
+    -- Confirm Button Hover Background: #45a049 (Darker Green)
+*/
+
 .opportunity-opportunities {
   padding: 20px;
 }
