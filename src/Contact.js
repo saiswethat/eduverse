@@ -4,8 +4,7 @@ import Header from "./Header";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     phone: "",
     email: "",
     message: "",
@@ -24,10 +23,9 @@ const ContactUs = () => {
 
   const validateFields = () => {
     const newErrors = {};
-    const { firstName, lastName, phone, email, message } = formData;
+    const { fullName, phone, email, message } = formData;
 
-    if (!firstName.trim()) newErrors.firstName = "First name is required";
-    if (!lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!fullName.trim()) newErrors.fullName = "Full name is required";
     if (!phone.trim()) newErrors.phone = "Phone number is required";
     else if (!/^\d{10}$/.test(phone))
       newErrors.phone = "Phone number must be 10 digits";
@@ -45,8 +43,7 @@ const ContactUs = () => {
     if (Object.keys(validationErrors).length === 0) {
       setSubmissionSuccess(true);
       setFormData({
-        firstName: "",
-        lastName: "",
+        fullName: "",
         phone: "",
         email: "",
         message: "",
@@ -70,30 +67,16 @@ const ContactUs = () => {
         ) : (
           <form onSubmit={handleSubmit}>
             <div className="input-group">
-              <label>First Name</label>
+              <label>Full Name</label>
               <input
                 type="text"
-                name="firstName"
-                value={formData.firstName}
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleInputChange}
-                placeholder="Enter your first name"
+                placeholder="Enter your full name"
               />
-              {errors.firstName && (
-                <span className="error-message">{errors.firstName}</span>
-              )}
-            </div>
-
-            <div className="input-group">
-              <label>Last Name</label>
-              <input
-                type="text"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                placeholder="Enter your last name"
-              />
-              {errors.lastName && (
-                <span className="error-message">{errors.lastName}</span>
+              {errors.fullName && (
+                <span className="error-message">{errors.fullName}</span>
               )}
             </div>
 
