@@ -45,9 +45,9 @@ h2 {
   font-weight: bold;
 }
 
+
 .input-group input,
 .input-group textarea {
-  width: 95%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -56,6 +56,7 @@ h2 {
 
 .input-group textarea {
   resize: vertical;
+  width:100%;
 }
 
 .error-message {
